@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ElasticButton">
+        <attr name="button_round" format="integer"/>
+        <attr name="button_scale" format="float"/>
+        <attr name="button_backgroundColor" format="color"/>
+        <attr name="button_duration" format="integer"/>
+
+        <attr name="button_labelText" format="string"/>
+        <attr name="button_labelColor" format="color"/>
+        <attr name="button_labelSize" format="integer"/>
+        <attr name="button_labelStyle" format="enum">
+            <enum name="normal" value="0"/>
+            <enum name="bold" value="1"/>
+            <enum name="italic" value="2"/>
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="ElasticCheckButton">
+        <attr name="checkbutton_round" format="integer"/>
+        <attr name="checkbutton_scale" format="float"/>
+        <attr name="checkbutton_backgroundColor" format="color"/>
+        <attr name="checkbutton_duration" format="integer"/>
+
+        <attr name="checkbutton_labelText" format="string"/>
+        <attr name="checkbutton_labelColor" format="color"/>
+        <attr name="checkbutton_labelSize" format="integer"/>
+        <attr name="checkbutton_labelStyle" format="enum">
+            <enum name="normal" value="0"/>
+            <enum name="bold" value="1"/>
+            <enum name="italic" value="2"/>
+        </attr>
+        <attr name="checkbutton_alpha" format="float"/>
+        <attr name="checkbutton_ischecked" format="boolean"/>
+    </declare-styleable>
+
+    <declare-styleable name="ElasticLayout">
+        <attr name="layout_round" format="integer"/>
+        <attr name="layout_scale" format="float"/>
+        <attr name="layout_backgroundColor" format="color"/>
+        <attr name="layout_duration" format="integer"/>
+    </declare-styleable>
+
+    <declare-styleable name="ElasticImageView">
+        <attr name="imageview_scale" format="float"/>
+        <attr name="imageview_duration" format="integer"/>
+    </declare-styleable>
+
+    <declare-styleable name="ElasticFloatingActionButton">
+        <attr name="fabutton_scale" format="float"/>
+        <attr name="fabutton_duration" format="integer"/>
+    </declare-styleable>
+
+</resources>

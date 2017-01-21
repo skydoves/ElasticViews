@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1d1f2f"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.2">
+
+        <TextView
+            android:id="@+id/main_tv0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="ElasticViews"
+            android:textColor="#ffffff"
+            android:textSize="25sp"
+            android:layout_gravity="center"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:id="@+id/main_tv1"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/main_tv0"
+            android:text="github@skydoves"
+            android:textColor="#3d95c9"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:layout_margin="10dp"
+            android:layout_centerHorizontal="true" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_below="@+id/main_tv1"
+            android:orientation="horizontal"
+            android:background="#2e3241"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"/>
+
+    </RelativeLayout>
+    
+    <com.skydoves.elasticviewsexample.ElasticVIews.ElasticButton
+        android:id="@+id/elasticbtn0"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_margin="20dp"
+        app:button_backgroundColor="#30354b"
+        app:button_round="20"
+        app:button_scale="0.87"
+        app:button_labelText="Example Activity0"
+        app:button_labelStyle="bold"
+        app:button_labelSize="17" />
+
+    <com.skydoves.elasticviewsexample.ElasticVIews.ElasticButton
+        android:id="@+id/elasticbtn1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        app:button_backgroundColor="#30354b"
+        app:button_round="20"
+        app:button_scale="0.87"
+        app:button_labelText="Example Activity1"
+        app:button_labelStyle="bold"
+        app:button_labelSize="17"/>
+
+    <com.skydoves.elasticviewsexample.ElasticVIews.ElasticButton
+        android:id="@+id/elasticbtn2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_margin="20dp"
+        app:button_backgroundColor="#30354b"
+        app:button_round="20"
+        app:button_scale="0.87"
+        app:button_labelText="Example Activity2"
+        app:button_labelStyle="bold"
+        app:button_labelSize="17"/>
+
+</LinearLayout>

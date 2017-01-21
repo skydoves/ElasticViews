@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#1d1f2f"
+    android:id="@+id/activity_example2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- # Main Layout # -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
+
+        <!-- Layout Content0 -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true">
+
+            <TextView
+                android:id="@+id/example0_tv01"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="23dp"
+                android:text="Day of the week"
+                android:scrollbars="vertical"
+                android:textColor="#3d95c9"
+                android:textStyle="bold"
+                android:textSize="15sp" />
+
+            <LinearLayout
+                android:layout_below="@+id/example0_tv01"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:weightSum="7">
+
+                    <com.skydoves.elasticviewsexample.ElasticVIews.ElasticCheckButton
+                        android:id="@+id/daybtn0"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="45dp"
+                        app:checkbutton_backgroundColor="#30354b"
+                        app:checkbutton_duration="400"
+                        app:checkbutton_labelColor="#ffffff"
+                        app:checkbutton_labelSize="12"
+                        app:checkbutton_labelStyle="bold"
+                        app:checkbutton_labelText="Sun"
+                        app:checkbutton_round="0"
+                        app:checkbutton_scale="0.9"/>
+
+                    <com.skydoves.elasticviewsexample.ElasticVIews.ElasticCheckButton
+                        android:id="@+id/daybtn1"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="45dp"
+                        app:checkbutton_backgroundColor="#30354b"
+                        app:checkbutton_duration="400"
+                        app:checkbutton_labelColor="#ffffff"
+                        app:checkbutton_labelSize="12"
+                        app:checkbutton_labelStyle="bold"
+                        app:checkbutton_labelText="Mon"
+                        app:checkbutton_round="0"
+                        app:checkbutton_scale="0.9"/>
+
+                    <com.skydoves.elasticviewsexample.ElasticVIews.ElasticCheckButton
+                        android:id="@+id/daybtn2"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="45dp"
+                        app:checkbutton_backgroundColor="#30354b"
+                        app:checkbutton_duration="400"
+                        app:checkbutton_labelColor="#ffffff"
+                        app:checkbutton_labelSize="12"
+                        app:checkbutton_labelStyle="bold"
+                        app:checkbutton_labelText="Tue"
+                        app:checkbutton_round="0"
+                        app:checkbutton_scale="0.9"/>
+
+                    <com.skydoves.elasticviewsexample.ElasticVIews.ElasticCheckButton
+                        android:id="@+id/daybtn3"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="45dp"
+                        app:checkbutton_backgroundColor="#30354b"
+                        app:checkbutton_duration="400"
+                        app:checkbutton_labelColor="#ffffff"
+                        app:checkbutton_labelSize="12"
+                        app:checkbutton_labelStyle="bold"
+                        app:checkbutton_labelText="Wed"
+                        app:checkbutton_round="0"
+                        app:checkbutton_scale="0.9"/>
+
+                    <com.skydoves.elasticviewsexample.ElasticVIews.ElasticCheckButton
+                        android:id="@+id/daybtn4"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="45dp"
+                        app:checkbutton_backgroundColor="#30354b"
+                        app:checkbutton_duration="400"
+                        app:checkbutton_labelColor="#ffffff"
+                        app:checkbutton_labelSize="12"
+                        app:checkbutton_labelStyle="bold"
+                        app:checkbutton_labelText="Thu"
+                        app:checkbutton_round="0"
+                        app:checkbutton_scale="0.9"/>
+
+                    <com.skydoves.elasticviewsexample.ElasticVIews.ElasticCheckButton
+                        android:id="@+id/daybtn5"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="45dp"
+                        app:checkbutton_backgroundColor="#30354b"
+                        app:checkbutton_duration="400"
+                        app:checkbutton_labelColor="#ffffff"
+                        app:checkbutton_labelSize="12"
+                        app:checkbutton_labelStyle="bold"
+                        app:checkbutton_labelText="Fri"
+                        app:checkbutton_round="0"
+                        app:checkbutton_scale="0.9"/>
+
+                    <com.skydoves.elasticviewsexample.ElasticVIews.ElasticCheckButton
+                        android:id="@+id/daybtn6"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="45dp"
+                        app:checkbutton_backgroundColor="#30354b"
+                        app:checkbutton_duration="400"
+                        app:checkbutton_labelColor="#ffffff"
+                        app:checkbutton_labelSize="12"
+                        app:checkbutton_labelStyle="bold"
+                        app:checkbutton_labelText="Sat"
+                        app:checkbutton_round="0"
+                        app:checkbutton_scale="0.9"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+
+        <!-- Layout Content1 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/example0_tv02"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="23dp"
+                    android:text="Alarm time between"
+                    android:scrollbars="vertical"
+                    android:textColor="#3d95c9"
+                    android:textStyle="bold"
+                    android:textSize="15sp" />
+
+                <com.skydoves.elasticviewsexample.ElasticVIews.ElasticImageView
+                    android:id="@+id/example0_ibtn_q_timeset01"
+                    android:layout_width="23dp"
+                    android:layout_height="23dp"
+                    android:scaleType="fitXY"
+                    android:layout_alignParentEnd="true"
+                    android:src="@drawable/ic_question"
+                    android:tint="#3d95c9"
+                    app:imageview_scale="0.7"/>
+
+            </RelativeLayout>
+
+            <com.skydoves.elasticviewsexample.ElasticVIews.ElasticLayout
+                android:id="@+id/layout_starttime"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@+id/example0_tv02"
+                android:layout_marginTop="15dp"
+                app:layout_round="20"
+                app:layout_scale="0.9"
+                app:layout_backgroundColor="#30354b">
+
+                <TextView
+                    android:id="@+id/example0_content1_tv0"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Start time"
+                    android:textColor="#ffffff"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:textStyle="bold"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/example0_content1_tv_starttime"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="8:00 AM"
+                    android:textColor="#ffffff"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginRight="20dp"
+                    android:textSize="15sp" />
+
+            </com.skydoves.elasticviewsexample.ElasticVIews.ElasticLayout>
+
+            <com.skydoves.elasticviewsexample.ElasticVIews.ElasticLayout
+                android:id="@+id/layout_endtime"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@+id/makealram_tv02"
+                android:layout_marginTop="15dp"
+                app:layout_round="20"
+                app:layout_scale="0.9"
+                app:layout_backgroundColor="#30354b">
+
+                <TextView
+                    android:id="@+id/makealram_content1_tv1"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="End time"
+                    android:textColor="#ffffff"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:textStyle="bold"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/makealram_content1_tv_endtime"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="9:00 PM"
+                    android:textColor="#ffffff"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginRight="20dp"
+                    android:textSize="15sp" />
+
+            </com.skydoves.elasticviewsexample.ElasticVIews.ElasticLayout>
+
+        </LinearLayout>
+
+
+        <!-- Layout Content2 -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.5"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/example0_tv03"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="23dp"
+                android:text="Alarm time interval"
+                android:scrollbars="vertical"
+                android:textColor="#3d95c9"
+                android:textStyle="bold"
+                android:textSize="15sp" />
+
+            <com.skydoves.elasticviewsexample.ElasticVIews.ElasticImageView
+                android:id="@+id/example0_ibtn_q_timeset02"
+                android:layout_width="23dp"
+                android:layout_height="23dp"
+                android:scaleType="fitXY"
+                android:layout_alignParentEnd="true"
+                android:src="@drawable/ic_question"
+                android:tint="#3d95c9"
+                app:imageview_scale="0.7"/>
+
+            <com.skydoves.elasticviewsexample.ElasticVIews.ElasticLayout
+                android:id="@+id/layout_timeinterval"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@+id/example0_ibtn_q_timeset02"
+                android:layout_marginTop="15dp"
+                app:layout_round="20"
+                app:layout_scale="0.9"
+                app:layout_backgroundColor="#30354b">
+
+            <TextView
+                android:id="@+id/example0_content2_tv0"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Time interval"
+                android:textColor="#ffffff"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:textStyle="bold"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/example0_content2_tv_timeinterval"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2 hours"
+                android:textColor="#ffffff"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="20dp"
+                android:textSize="15sp" />
+
+            </com.skydoves.elasticviewsexample.ElasticVIews.ElasticLayout>
+
+        </RelativeLayout>
+
+
+        <!-- Layout Content3 -->
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginBottom="30dp">
+
+            <com.skydoves.elasticviewsexample.ElasticVIews.ElasticButton
+                android:id="@+id/elasticbtn_addalarm"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="64dp"
+                android:layout_marginRight="64dp"
+                app:button_backgroundColor="#3d95c9"
+                app:button_round="0"
+                app:button_labelText="Add new alarm"
+                app:button_labelSize="15"
+                app:button_labelStyle="bold"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_example1"
+    android:background="#1d1f2f"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ListView
+        android:id="@+id/example1_listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="#2e3241"
+        android:dividerHeight="1dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp" >
+    </ListView>
+
+    <com.skydoves.elasticviewsexample.ElasticVIews.ElasticFloatingActionButton
+        android:id="@+id/example1_fab"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:src="@drawable/ic_add"
+        android:tint="#ffffff"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="16dp"
+        app:fabSize="normal"
+        app:fabutton_duration="400"
+        app:fabutton_scale="0.85"/>
+
+</RelativeLayout>
