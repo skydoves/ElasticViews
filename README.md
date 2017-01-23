@@ -2,7 +2,8 @@
 Android views with touch Animation.
 
 ![gif0](https://cloud.githubusercontent.com/assets/24237865/22188970/cc138f6a-e15c-11e6-8a17-a8bccb3e6dcd.gif)
-![gif1](https://cloud.githubusercontent.com/assets/24237865/22189006/0f10f7da-e15d-11e6-98f0-a92f0aeb189e.gif)
+![gif1](https://cloud.githubusercontent.com/assets/24237865/22190352/148831ac-e166-11e6-8b4a-9617f18242da.gif)
+
  
 ##Including in your project
 ####build.gradle
