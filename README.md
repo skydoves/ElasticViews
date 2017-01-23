@@ -1,11 +1,21 @@
 # ElasticViews
 Android views with touch Animation.
 
+![gif0](https://cloud.githubusercontent.com/assets/24237865/22188970/cc138f6a-e15c-11e6-8a17-a8bccb3e6dcd.gif)
+![gif1](https://cloud.githubusercontent.com/assets/24237865/22189006/0f10f7da-e15d-11e6-98f0-a92f0aeb189e.gif)
  
 ##Including in your project
 ####build.gradle
-    compile 'com.github.skydoves:elasticviews:1.0.5'
-    
+```java
+repositories {
+  mavenCentral() // or jcenter() works as well
+}
+
+dependencies {
+  compile 'com.github.skydoves:elasticviews:1.0.5'
+}
+```
+
 ####or Maven
 ```xml
 <dependency>
@@ -63,7 +73,7 @@ or use butterknife
 
 ###ElasticButton use like TextView
 If _button_backgroundColor_ attribute set as _@android:color/transparent_ <br>
-you can use ElasticButton like TextView.
+you can use ElasticButton looks like TextView.
 ```xml
 app:button_backgroundColor="@android:color/transparent"
 ```
@@ -190,6 +200,10 @@ private class ListViewItemClickListener implements AdapterView.OnItemClickListen
         }
     };
 ```
+
+####ElasticAction Preview
+![gif2](https://cloud.githubusercontent.com/assets/24237865/22189011/14bc94aa-e15d-11e6-9078-2dfc9d97ef87.gif)
+
 
 #License
 ```xml
