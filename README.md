@@ -27,7 +27,7 @@ dependencies {
 ```
     
 ##Usage
-You can use like using normal views and you can give touch effect all of GroupViews very simply.
+You can use like using normal views and you can give all of Views or GroupViews touch effect very simply.
 
 ####Add XML Namespace
 First add below XML Namespace inside your XML layout file.
@@ -122,8 +122,8 @@ app:button_backgroundColor="@android:color/transparent"
 ```
 
 ###ElasticLayout
-ElasticLayout don't animation for child views. 
-If you want animation all of GroupViews, then use ElasticAction.
+ElasticLayout don't animation for child views.<br>
+If you want give ViewGroup animation, then use ElasticAction.
 ```xml
 <com.github.skydoves.ElasticLayout
         android:id="@+id/elasticlayout"
@@ -155,14 +155,14 @@ If you want animation all of GroupViews, then use ElasticAction.
 ```
 
 ###ElasticAction
-you can give touch effect all of Views or ViewGroups very simply.<br>
+you can give all of Views or GroupViews touch effect very simply.<br>
 ```java
 // argument : View or ViewGroup, Animation duration, scaleX, scaleY
 ElasticAction.doAction(anyViews, duration, 0.9f, 0.9f);
 ```
 
 ####Example : Normal Button
-you can give touch effect all of Views.
+you can give all of Views touch effect.
 ```java
 @OnClick(R.id.button)
     public void addNewAlarm(View v){
@@ -180,7 +180,7 @@ you can give touch effect all of Views.
 ```
 
 ####Example : ListView Item
-you can give touch effect all of ViewGroups.
+you can give all of ViewGroups touch effect.
 ```java
 private class ListViewItemClickListener implements AdapterView.OnItemClickListener{
         @Override
