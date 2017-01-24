@@ -13,7 +13,7 @@ repositories {
 }
 
 dependencies {
-  compile 'com.github.skydoves:elasticviews:1.0.5'
+  compile 'com.github.skydoves:elasticviews:1.0.6'
 }
 ```
 
@@ -22,7 +22,7 @@ dependencies {
 <dependency>
   <groupId>com.github.skydoves</groupId>
   <artifactId>elasticviews</artifactId>
-  <version>1.0.5</version>
+  <version>1.0.6</version>
 </dependency>
 ```
     
@@ -155,18 +155,19 @@ If you want animation all of GroupViews, then use ElasticAction.
 ```
 
 ###ElasticAction
-you can give touch effect all of GroupViews very simply.<br>
+you can give touch effect all of Views or ViewGroups very simply.<br>
 ```java
-// argument : ViewGroup, Animation duration, scaleX, scaleY
-ElasticAction.doAction((ViewGroup)anyViews, duration, 0.9f, 0.9f);
+// argument : View or ViewGroup, Animation duration, scaleX, scaleY
+ElasticAction.doAction(anyViews, duration, 0.9f, 0.9f);
 ```
 
 ####Example : Normal Button
+you can give touch effect all of Views.
 ```java
 @OnClick(R.id.button)
     public void addNewAlarm(View v){
         // ElasticAction : doAction
-        ElasticAction.doAction((ViewGroup)v, 400, 0.85f, 0.85f); // argument : ViewGroup, duration, scaleX, scaleY
+        ElasticAction.doAction(v, 400, 0.85f, 0.85f); // argument : View or ViewGroup, duration, scaleX, scaleY
 
         // PostDelayed : delay duration time
         new Handler().postDelayed(new Runnable() {
@@ -179,6 +180,7 @@ ElasticAction.doAction((ViewGroup)anyViews, duration, 0.9f, 0.9f);
 ```
 
 ####Example : ListView Item
+you can give touch effect all of ViewGroups.
 ```java
 private class ListViewItemClickListener implements AdapterView.OnItemClickListener{
         @Override
@@ -188,7 +190,7 @@ private class ListViewItemClickListener implements AdapterView.OnItemClickListen
             int duration = 400;
 
             // ElasticAction : doAction
-            ElasticAction.doAction((ViewGroup)clickedView, duration, 0.9f, 0.9f); // argument : ViewGroup, duration, scaleX, scaleY
+            ElasticAction.doAction(clickedView, duration, 0.9f, 0.9f); // argument : View or ViewGroup, duration, scaleX, scaleY
 
             // PostDelayed : delay duration time
             new Handler().postDelayed(new Runnable() {
