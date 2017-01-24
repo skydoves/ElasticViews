@@ -1,4 +1,3 @@
-package com.skydoves.elasticviewsexample.ElasticVIews;
 
 /*
  * Copyright (C) 2017 skydoves
@@ -16,6 +15,8 @@ package com.skydoves.elasticviewsexample.ElasticVIews;
  * limitations under the License.
  */
 
+package com.skydoves.elasticviewsexample.ElasticVIews;
+
 import android.support.v4.view.ViewCompat;
 import android.support.v4.view.ViewPropertyAnimatorListener;
 import android.util.Log;
@@ -26,6 +27,31 @@ import android.view.animation.CycleInterpolator;
 public class ElasticAction {
 
     private final static String TAG = "ElasticAction";
+
+    public static void doAction(View view, int duration, float scaleX, float scaleY){
+        try {
+            if(view.getScaleX() == 1) {
+                ViewCompat.animate(view).setDuration(duration).scaleX(scaleX).scaleY(scaleY).setInterpolator(new CycleInterpolator(0.5f))
+                        .setListener(new ViewPropertyAnimatorListener() {
+
+                            @Override
+                            public void onAnimationStart(final View view) {
+                            }
+
+                            @Override
+                            public void onAnimationEnd(final View v) {
+                            }
+
+                            @Override
+                            public void onAnimationCancel(final View view) {
+                            }
+                        }).withLayer().start();
+            }
+        }
+        catch (Exception e){
+            Log.e(TAG, "only ViewGroups : likes RelativeLayout, LinearLayout, etc could doAction");
+        }
+    }
 
     public static void doAction(ViewGroup view, int duration, float scaleX, float scaleY){
         try {

@@ -23,14 +23,14 @@ public class ExampleActivity2 extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.example2_view0, R.id.example2_view1, R.id.example2_view2, R.id.example2_view3, R.id.example2_imv, R.id.example2_fab})
+    @OnClick({R.id.example2_view0, R.id.example2_view1, R.id.example2_view2, R.id.example2_view3, R.id.example2_imv, R.id.example2_textView0, R.id.example2_fab})
     public void Views(View v){
         if(v.getId() == R.id.example2_view3){
             // set your duration time
             int duration = 500;
 
             // ElasticAction : doAction
-            ElasticAction.doAction((ViewGroup)v, duration, 0.85f, 0.85f); // argument : ViewGroup, duration, scaleX, scaleY
+            ElasticAction.doAction(v, duration, 0.85f, 0.85f); // argument : ViewGroup, duration, scaleX, scaleY
 
             // PostDelayed : delay duration time
             new Handler().postDelayed(new Runnable() {
@@ -42,6 +42,8 @@ public class ExampleActivity2 extends AppCompatActivity {
         }
         else if(v.getId() == R.id.example2_imv)
             Snackbar.make(v, "This is ElasticImageView", Snackbar.LENGTH_LONG).setActionTextColor(Color.WHITE).show();
+        else if(v.getId() == R.id.example2_textView0)
+            ElasticAction.doAction(v, 500, 0.75f, 0.75f);
         else if(v.getId() == R.id.example2_fab)
             Snackbar.make(v, "This is ElasticFloatActionButton", Snackbar.LENGTH_LONG).setActionTextColor(Color.WHITE).show();
     }

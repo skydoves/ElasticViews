@@ -143,6 +143,16 @@
             android:tint="#3d95c9"
             app:imageview_scale="0.7"/>
 
+        <TextView
+            android:id="@+id/example2_textView0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="TextView"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:textSize="25dp"/>
+
         <com.skydoves.elasticviewsexample.ElasticVIews.ElasticFloatingActionButton
             android:id="@+id/example2_fab"
             android:layout_width="64dp"
