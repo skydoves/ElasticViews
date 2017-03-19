@@ -5,8 +5,8 @@ Android views with touch Animation.
 ![gif1](https://cloud.githubusercontent.com/assets/24237865/22190352/148831ac-e166-11e6-8b4a-9617f18242da.gif)
 
  
-##Including in your project
-####build.gradle
+## Including in your project
+#### build.gradle
 ```java
 repositories {
   mavenCentral() // or jcenter() works as well
@@ -17,7 +17,7 @@ dependencies {
 }
 ```
 
-####or Maven
+#### or Maven
 ```xml
 <dependency>
   <groupId>com.github.skydoves</groupId>
@@ -26,17 +26,17 @@ dependencies {
 </dependency>
 ```
     
-##Usage
+## Usage
 You can use like using normal views and you can give all of Views or GroupViews touch effect very simply.
 
-####Add XML Namespace
+#### Add XML Namespace
 First add below XML Namespace inside your XML layout file.
 
 ```xml
 xmlns:app="http://schemas.android.com/apk/res-auto"
 ```
 
-####OnClick Method
+#### OnClick Method
 All of ElasticViews need setOnClickListener - OnClick Method. If not, no Animation. 
 ```java
 ElasticButton elasticButton = (ElasticButton)findViewById(R.id.elasticbutton);
@@ -56,7 +56,7 @@ or use butterknife
     }
 ```
 
-###ElasticButton
+### ElasticButton
 ```xml
 <com.github.skydoves.ElasticButton
         android:id="@+id/elasticbutton"
@@ -72,14 +72,14 @@ or use butterknife
         app:button_labelStyle="bold"/>
 ```
 
-###ElasticButton use like TextView
+### ElasticButton use like TextView
 If _button_backgroundColor_ attribute set as _@android:color/transparent_ <br>
 you can use ElasticButton looks like TextView.
 ```xml
 app:button_backgroundColor="@android:color/transparent"
 ```
 
-###ElasticCheckButton
+### ElasticCheckButton
 ```xml
 <com.github.skydoves.ElasticCheckButton
         android:id="@+id/elasticcheckbutton"
@@ -97,7 +97,7 @@ app:button_backgroundColor="@android:color/transparent"
         app:checkbutton_ischecked="false"/>
 ```
 
-###ElasticImageView
+### ElasticImageView
 ```xml
 <com.github.skydoves.ElasticImageView
             android:id="@+id/elasticimageview"
@@ -109,7 +109,7 @@ app:button_backgroundColor="@android:color/transparent"
             app:imageview_scale="0.7"/>
 ```
 
-###ElasticFloatingButton
+### ElasticFloatingButton
 ```xml
 <com.github.skydoves.ElasticFloatingActionButton
             android:id="@+id/elasticfab"
@@ -121,7 +121,7 @@ app:button_backgroundColor="@android:color/transparent"
             app:fabutton_scale="0.85"/>
 ```
 
-###ElasticLayout
+### ElasticLayout
 ElasticLayout don't animation for child views.<br>
 If you want give ViewGroup animation, then use ElasticAction.
 ```xml
@@ -154,14 +154,14 @@ If you want give ViewGroup animation, then use ElasticAction.
     </com.github.skydoves.ElasticLayout>
 ```
 
-###ElasticAction
+### ElasticAction
 you can give all of Views or GroupViews touch effect very simply.<br>
 ```java
 // argument : View or ViewGroup, Animation duration, scaleX, scaleY
 ElasticAction.doAction(anyViews, duration, 0.9f, 0.9f);
 ```
 
-####Example : Normal Button
+#### Example : Normal Button
 you can give all of Views touch effect.
 ```java
 @OnClick(R.id.button)
@@ -179,7 +179,7 @@ you can give all of Views touch effect.
     }
 ```
 
-####Example : ListView Item
+#### Example : ListView Item
 you can give all of ViewGroups touch effect.
 ```java
 private class ListViewItemClickListener implements AdapterView.OnItemClickListener{
@@ -204,11 +204,11 @@ private class ListViewItemClickListener implements AdapterView.OnItemClickListen
     };
 ```
 
-####ElasticAction Preview
+#### ElasticAction Preview
 ![gif2](https://cloud.githubusercontent.com/assets/24237865/22189011/14bc94aa-e15d-11e6-9078-2dfc9d97ef87.gif)
 
 
-#License
+# License
 ```xml
 Copyright 2017 skydoves
 
