@@ -14,6 +14,7 @@ repositories {
 
 dependencies {
   compile 'com.github.skydoves:elasticviews:1.0.6'
+  compile 'com.android.support:design:24.2.*' // maybe you need
 }
 ```
 
