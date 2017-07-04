@@ -13,7 +13,7 @@ repositories {
 }
 
 dependencies {
-  compile 'com.github.skydoves:elasticviews:1.0.6'
+  compile 'com.github.skydoves:elasticviews:1.0.7'
   compile 'com.android.support:design:25.2.+' // maybe you need
 }
 ```
@@ -23,7 +23,7 @@ dependencies {
 <dependency>
   <groupId>com.github.skydoves</groupId>
   <artifactId>elasticviews</artifactId>
-  <version>1.0.6</version>
+  <version>1.0.7</version>
 </dependency>
 ```
     
