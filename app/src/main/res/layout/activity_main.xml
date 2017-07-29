@@ -48,19 +48,20 @@
             android:layout_marginTop="10dp"/>
 
     </RelativeLayout>
-    
+
     <com.skydoves.elasticviewsexample.ElasticVIews.ElasticButton
         android:id="@+id/elasticbtn0"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
         android:layout_margin="20dp"
+        android:layout_weight="1"
         app:button_backgroundColor="#30354b"
-        app:button_round="20"
-        app:button_scale="0.87"
-        app:button_labelText="Example Activity0"
+        app:button_duration="250"
+        app:button_labelSize="17"
         app:button_labelStyle="bold"
-        app:button_labelSize="17" />
+        app:button_labelText="Example Activity0"
+        app:button_round="20"
+        app:button_scale="0.87" />
 
     <com.skydoves.elasticviewsexample.ElasticVIews.ElasticButton
         android:id="@+id/elasticbtn1"
@@ -70,11 +71,12 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         app:button_backgroundColor="#30354b"
+        app:button_duration="250"
         app:button_round="20"
         app:button_scale="0.87"
         app:button_labelText="Example Activity1"
         app:button_labelStyle="bold"
-        app:button_labelSize="17"/>
+        app:button_labelSize="17" />
 
     <com.skydoves.elasticviewsexample.ElasticVIews.ElasticButton
         android:id="@+id/elasticbtn2"
@@ -83,6 +85,7 @@
         android:layout_weight="1"
         android:layout_margin="20dp"
         app:button_backgroundColor="#30354b"
+        app:button_duration="250"
         app:button_round="20"
         app:button_scale="0.87"
         app:button_labelText="Example Activity2"

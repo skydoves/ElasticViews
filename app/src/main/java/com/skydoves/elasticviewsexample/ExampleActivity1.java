@@ -1,38 +1,38 @@
 package com.skydoves.elasticviewsexample;
 
 import android.content.Context;
-import android.content.DialogInterface;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
-import android.os.Handler;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.os.Handler;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
-import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.skydoves.elasticviewsexample.ElasticVIews.ElasticAction;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 
+import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+/**
+ * Developed by skydoves on 2017-01-21.
+ * Copyright (c) 2017 skydoves rights reserved.
+ */
+
 public class ExampleActivity1 extends AppCompatActivity {
 
-    ArrayList<Listviewitem> data;
-    ListviewAdapter adapter;
+    private ArrayList<Listviewitem> data;
+    private ListviewAdapter adapter;
+
+    @Bind(R.id.example1_listview)
+    ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +42,6 @@ public class ExampleActivity1 extends AppCompatActivity {
 
         data=new ArrayList();
         adapter=new ListviewAdapter(this, R.layout.item, data);
-        ListView listView=(ListView)findViewById(R.id.example1_listview);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new ListViewItemClickListener());
     }
@@ -52,13 +51,13 @@ public class ExampleActivity1 extends AppCompatActivity {
         Listviewitem listviewitem = new Listviewitem(data.size()+"");
         data.add(listviewitem);
         adapter.notifyDataSetChanged();
+        listView.setSelection(data.size()-1);
     }
 
     // ListView Item Touch Event
     private class ListViewItemClickListener implements AdapterView.OnItemClickListener{
         @Override
-        public void onItemClick(AdapterView<?> adapterView, View clickedView, final int pos, long id)
-        {
+        public void onItemClick(AdapterView<?> adapterView, View clickedView, final int pos, long id) {
             // set your duration time
             int duration = 400;
 
@@ -121,5 +120,4 @@ public class ExampleActivity1 extends AppCompatActivity {
             return convertView;
         }
     }
-
 }

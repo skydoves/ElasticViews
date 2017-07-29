@@ -1,18 +1,21 @@
 package com.skydoves.elasticviewsexample;
 
 import android.graphics.Color;
+import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.skydoves.elasticviewsexample.ElasticVIews.ElasticAction;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+
+/**
+ * Developed by skydoves on 2017-01-21.
+ * Copyright (c) 2017 skydoves rights reserved.
+ */
 
 public class ExampleActivity2 extends AppCompatActivity {
 

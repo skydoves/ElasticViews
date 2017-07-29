@@ -21,6 +21,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.support.v4.view.ViewCompat;
 import android.support.v4.view.ViewPropertyAnimatorListener;
+import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
@@ -29,7 +30,7 @@ import android.widget.ImageView;
 
 import com.skydoves.elasticviewsexample.R;
 
-public class ElasticImageView extends ImageView {
+public class ElasticImageView extends AppCompatImageView {
 
     private ImageView view;
     private OnClickListener listener;

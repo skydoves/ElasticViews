@@ -24,6 +24,7 @@ import android.graphics.Typeface;
 import android.graphics.drawable.GradientDrawable;
 import android.support.v4.view.ViewCompat;
 import android.support.v4.view.ViewPropertyAnimatorListener;
+import android.support.v7.widget.AppCompatButton;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
@@ -32,7 +33,7 @@ import android.widget.Button;
 
 import com.skydoves.elasticviewsexample.R;
 
-public class ElasticCheckButton extends Button {
+public class ElasticCheckButton extends AppCompatButton {
 
     private Button view;
     private OnClickListener listener;
