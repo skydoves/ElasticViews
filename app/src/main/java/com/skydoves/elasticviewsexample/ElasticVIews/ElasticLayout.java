@@ -97,6 +97,27 @@ public class ElasticLayout extends RelativeLayout {
         if(event.getAction() == MotionEvent.ACTION_UP) {
             if(listener != null) {
                 if(view.getScaleX() == 1) {
+                    for(int i=0; i<this.getChildCount(); i++) {
+                        ViewCompat.animate(this.getChildAt(i)).setDuration(duration).scaleX(scale).scaleY(scale).setInterpolator(new CycleInterpolator(0.5f))
+                                .setListener(new ViewPropertyAnimatorListener() {
+
+                                    @Override
+                                    public void onAnimationStart(final View view) {
+                                    }
+
+                                    @Override
+                                    public void onAnimationEnd(final View v) {
+                                        onClick();
+                                    }
+
+                                    @Override
+                                    public void onAnimationCancel(final View view) {
+                                    }
+                                })
+                                .withLayer()
+                                .start();
+                    }
+
                     ViewCompat.animate(view).setDuration(duration).scaleX(scale).scaleY(scale).setInterpolator(new CycleInterpolator(0.5f))
                             .setListener(new ViewPropertyAnimatorListener() {
 
