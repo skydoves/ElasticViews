@@ -1,4 +1,4 @@
-package com.skydoves.elasticviewsexample;
+package com.skydoves.elasticviewsdemo;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -13,7 +13,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.skydoves.elasticviewsexample.ElasticVIews.ElasticAction;
+import com.skydoves.elasticviews.ElasticAction;
 
 import java.util.ArrayList;
 

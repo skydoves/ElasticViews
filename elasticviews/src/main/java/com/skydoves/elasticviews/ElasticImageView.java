@@ -15,40 +15,39 @@
  * limitations under the License.
  */
 
-package com.skydoves.elasticviewsexample.ElasticVIews;
+package com.skydoves.elasticviews;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v4.view.ViewCompat;
 import android.support.v4.view.ViewPropertyAnimatorListener;
+import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.CycleInterpolator;
+import android.widget.ImageView;
 
-import com.skydoves.elasticviewsexample.R;
+public class ElasticImageView extends AppCompatImageView {
 
-public class ElasticFloatingActionButton extends FloatingActionButton {
-
-    private FloatingActionButton view;
+    private ImageView view;
     private View.OnClickListener listener;
 
     private float scale = 0.9f;
     private int duration = 500;
 
-    public ElasticFloatingActionButton(Context context){
+    public ElasticImageView(Context context){
         super(context);
         onCreate();
     }
 
-    public ElasticFloatingActionButton(Context context, AttributeSet attributeSet){
+    public ElasticImageView(Context context, AttributeSet attributeSet){
         super(context, attributeSet);
         onCreate();
         getAttrs(attributeSet);
     }
 
-    public ElasticFloatingActionButton(Context context, AttributeSet attributeSet, int defStyle){
+    public ElasticImageView(Context context, AttributeSet attributeSet, int defStyle){
         super(context, attributeSet, defStyle);
         onCreate();
         getAttrs(attributeSet, defStyle);
@@ -61,19 +60,19 @@ public class ElasticFloatingActionButton extends FloatingActionButton {
 
     private void getAttrs(AttributeSet attrs)
     {
-        TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.ElasticFloatingActionButton);
+        TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.ElasticImageView);
         setTypeArray(typedArray);
     }
 
     private void getAttrs(AttributeSet attrs, int defStyle)
     {
-        TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.ElasticFloatingActionButton, defStyle, 0);
+        TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.ElasticImageView, defStyle, 0);
         setTypeArray(typedArray);
     }
 
     private void setTypeArray(TypedArray typedArray){
-        scale = typedArray.getFloat(R.styleable.ElasticFloatingActionButton_fabutton_scale, scale);
-        duration = typedArray.getInt(R.styleable.ElasticFloatingActionButton_fabutton_duration, duration);
+        scale = typedArray.getFloat(R.styleable.ElasticImageView_imageview_scale, scale);
+        duration = typedArray.getInt(R.styleable.ElasticImageView_imageview_duration, duration);
     }
 
     @Override

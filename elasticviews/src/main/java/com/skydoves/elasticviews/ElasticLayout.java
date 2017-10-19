@@ -15,11 +15,12 @@
  * limitations under the License.
  */
 
-package com.skydoves.elasticviewsexample.ElasticVIews;
+package com.skydoves.elasticviews;
 
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.drawable.GradientDrawable;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewCompat;
 import android.support.v4.view.ViewPropertyAnimatorListener;
 import android.util.AttributeSet;
@@ -28,8 +29,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.CycleInterpolator;
 import android.widget.RelativeLayout;
-
-import com.skydoves.elasticviewsexample.R;
 
 public class ElasticLayout extends RelativeLayout {
 
@@ -85,7 +84,7 @@ public class ElasticLayout extends RelativeLayout {
         bgShape.setCornerRadius(round);
 
         color = typedArray.getInt(R.styleable.ElasticLayout_layout_backgroundColor, color);
-        bgShape.setColor(color);
+        bgShape.setColor(ContextCompat.getColor(getContext(), color));
 
         scale = typedArray.getFloat(R.styleable.ElasticLayout_layout_scale, scale);
 
@@ -107,7 +106,7 @@ public class ElasticLayout extends RelativeLayout {
 
                                     @Override
                                     public void onAnimationEnd(final View v) {
-                                        onClick();
+
                                     }
 
                                     @Override

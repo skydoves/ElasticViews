@@ -15,51 +15,38 @@
  * limitations under the License.
  */
 
-package com.skydoves.elasticviewsexample.ElasticVIews;
+package com.skydoves.elasticviews;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.graphics.Color;
-import android.graphics.Typeface;
-import android.graphics.drawable.GradientDrawable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.view.ViewCompat;
 import android.support.v4.view.ViewPropertyAnimatorListener;
-import android.support.v7.widget.AppCompatButton;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.CycleInterpolator;
-import android.widget.Button;
 
-import com.skydoves.elasticviewsexample.R;
+public class ElasticFloatingActionButton extends FloatingActionButton {
 
-public class ElasticButton extends AppCompatButton {
+    private FloatingActionButton view;
+    private View.OnClickListener listener;
 
-    private Button view;
-    private OnClickListener listener;
-
-    private int round = 20;
     private float scale = 0.9f;
-    private int color = R.color.colorPrimary;
     private int duration = 500;
 
-    private String labelText = "";
-    private int labelColor = Color.WHITE;
-    private int labelSize = 10;
-    private int labelStyle = 0;
-
-    public ElasticButton(Context context){
+    public ElasticFloatingActionButton(Context context){
         super(context);
         onCreate();
     }
 
-    public ElasticButton(Context context, AttributeSet attributeSet){
+    public ElasticFloatingActionButton(Context context, AttributeSet attributeSet){
         super(context, attributeSet);
         onCreate();
         getAttrs(attributeSet);
     }
 
-    public ElasticButton(Context context, AttributeSet attributeSet, int defStyle){
+    public ElasticFloatingActionButton(Context context, AttributeSet attributeSet, int defStyle){
         super(context, attributeSet, defStyle);
         onCreate();
         getAttrs(attributeSet, defStyle);
@@ -67,52 +54,24 @@ public class ElasticButton extends AppCompatButton {
 
     private void onCreate(){
         view = this;
-        view.setAllCaps(false);
-        view.setBackgroundResource(R.drawable.rectangle_button);
+        view.setClickable(true);
     }
 
     private void getAttrs(AttributeSet attrs)
     {
-        TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.ElasticButton);
+        TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.ElasticFloatingActionButton);
         setTypeArray(typedArray);
     }
 
     private void getAttrs(AttributeSet attrs, int defStyle)
     {
-        TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.ElasticButton, defStyle, 0);
+        TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.ElasticFloatingActionButton, defStyle, 0);
         setTypeArray(typedArray);
     }
 
     private void setTypeArray(TypedArray typedArray){
-        GradientDrawable bgShape = (GradientDrawable)view.getBackground();
-
-        round = typedArray.getInt(R.styleable.ElasticButton_button_round, round);
-        bgShape.setCornerRadius(round);
-
-        color = typedArray.getInt(R.styleable.ElasticButton_button_backgroundColor, color);
-        bgShape.setColor(color);
-
-        scale = typedArray.getFloat(R.styleable.ElasticButton_button_scale, scale);
-
-        duration = typedArray.getInt(R.styleable.ElasticButton_button_duration, duration);
-
-        labelText = typedArray.getString(R.styleable.ElasticButton_button_labelText);
-        view.setText(labelText);
-
-        labelColor = typedArray.getInt(R.styleable.ElasticButton_button_labelColor, labelColor);
-        view.setTextColor(labelColor);
-
-        labelSize = typedArray.getInt(R.styleable.ElasticButton_button_labelSize, labelSize);
-        view.setTextSize(labelSize);
-
-        labelStyle = typedArray.getInt(R.styleable.ElasticButton_button_labelStyle, labelStyle);
-
-        if(labelStyle == 0)
-            view.setTypeface(null, Typeface.NORMAL);
-        else if(labelStyle == 1)
-            view.setTypeface(null, Typeface.BOLD);
-        else if(labelStyle == 2)
-            view.setTypeface(null, Typeface.ITALIC);
+        scale = typedArray.getFloat(R.styleable.ElasticFloatingActionButton_fabutton_scale, scale);
+        duration = typedArray.getInt(R.styleable.ElasticFloatingActionButton_fabutton_duration, duration);
     }
 
     @Override
@@ -144,7 +103,7 @@ public class ElasticButton extends AppCompatButton {
         return super.dispatchTouchEvent(event);
     }
 
-    public void setOnClickListener(OnClickListener listener) {
+    public void setOnClickListener(View.OnClickListener listener) {
         this.listener = listener;
     }
 
@@ -152,8 +111,4 @@ public class ElasticButton extends AppCompatButton {
         listener.onClick(this);
     }
 
-    @Override
-    protected void onFinishInflate() {
-        super.onFinishInflate();
-    }
 }

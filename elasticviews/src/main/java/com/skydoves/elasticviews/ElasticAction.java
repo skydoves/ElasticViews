@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package com.skydoves.elasticviewsexample.ElasticVIews;
+package com.skydoves.elasticviews;
 
 import android.support.v4.view.ViewCompat;
 import android.support.v4.view.ViewPropertyAnimatorListener;

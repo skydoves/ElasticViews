@@ -1,4 +1,4 @@
-package com.skydoves.elasticviewsexample;
+package com.skydoves.elasticviewsdemo;
 
 import android.content.Intent;
 import android.os.Bundle;

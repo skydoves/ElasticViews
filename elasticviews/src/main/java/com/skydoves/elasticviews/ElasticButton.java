@@ -15,13 +15,14 @@
  * limitations under the License.
  */
 
-package com.skydoves.elasticviewsexample.ElasticVIews;
+package com.skydoves.elasticviews;
 
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.GradientDrawable;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewCompat;
 import android.support.v4.view.ViewPropertyAnimatorListener;
 import android.support.v7.widget.AppCompatButton;
@@ -31,38 +32,33 @@ import android.view.View;
 import android.view.animation.CycleInterpolator;
 import android.widget.Button;
 
-import com.skydoves.elasticviewsexample.R;
-
-public class ElasticCheckButton extends AppCompatButton {
+public class ElasticButton extends AppCompatButton {
 
     private Button view;
-    private OnClickListener listener;
+    private View.OnClickListener listener;
 
     private int round = 20;
     private float scale = 0.9f;
     private int color = R.color.colorPrimary;
     private int duration = 500;
-    private float alpha = 0.7f;
 
     private String labelText = "";
     private int labelColor = Color.WHITE;
     private int labelSize = 10;
     private int labelStyle = 0;
 
-    private boolean checked = false;
-
-    public ElasticCheckButton(Context context){
+    public ElasticButton(Context context){
         super(context);
         onCreate();
     }
 
-    public ElasticCheckButton(Context context, AttributeSet attributeSet){
+    public ElasticButton(Context context, AttributeSet attributeSet){
         super(context, attributeSet);
         onCreate();
         getAttrs(attributeSet);
     }
 
-    public ElasticCheckButton(Context context, AttributeSet attributeSet, int defStyle){
+    public ElasticButton(Context context, AttributeSet attributeSet, int defStyle){
         super(context, attributeSet, defStyle);
         onCreate();
         getAttrs(attributeSet, defStyle);
@@ -71,44 +67,44 @@ public class ElasticCheckButton extends AppCompatButton {
     private void onCreate(){
         view = this;
         view.setAllCaps(false);
-        view.setBackgroundResource(R.drawable.rectangle_checkbutton);
+        view.setBackgroundResource(R.drawable.rectangle_button);
     }
 
     private void getAttrs(AttributeSet attrs)
     {
-        TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.ElasticCheckButton);
+        TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.ElasticButton);
         setTypeArray(typedArray);
     }
 
     private void getAttrs(AttributeSet attrs, int defStyle)
     {
-        TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.ElasticCheckButton, defStyle, 0);
+        TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.ElasticButton, defStyle, 0);
         setTypeArray(typedArray);
     }
 
     private void setTypeArray(TypedArray typedArray){
         GradientDrawable bgShape = (GradientDrawable)view.getBackground();
 
-        round = typedArray.getInt(R.styleable.ElasticCheckButton_checkbutton_round, round);
+        round = typedArray.getInt(R.styleable.ElasticButton_button_round, round);
         bgShape.setCornerRadius(round);
 
-        color = typedArray.getInt(R.styleable.ElasticCheckButton_checkbutton_backgroundColor, color);
-        bgShape.setColor(color);
+        color = typedArray.getInt(R.styleable.ElasticButton_button_backgroundColor, color);
+        bgShape.setColor(ContextCompat.getColor(getContext(), color));
 
-        scale = typedArray.getFloat(R.styleable.ElasticCheckButton_checkbutton_scale, scale);
+        scale = typedArray.getFloat(R.styleable.ElasticButton_button_scale, scale);
 
-        duration = typedArray.getInt(R.styleable.ElasticCheckButton_checkbutton_duration, duration);
+        duration = typedArray.getInt(R.styleable.ElasticButton_button_duration, duration);
 
-        labelText = typedArray.getString(R.styleable.ElasticCheckButton_checkbutton_labelText);
+        labelText = typedArray.getString(R.styleable.ElasticButton_button_labelText);
         view.setText(labelText);
 
-        labelColor = typedArray.getInt(R.styleable.ElasticCheckButton_checkbutton_labelColor, labelColor);
+        labelColor = typedArray.getInt(R.styleable.ElasticButton_button_labelColor, labelColor);
         view.setTextColor(labelColor);
 
-        labelSize = typedArray.getInt(R.styleable.ElasticCheckButton_checkbutton_labelSize, labelSize);
+        labelSize = typedArray.getInt(R.styleable.ElasticButton_button_labelSize, labelSize);
         view.setTextSize(labelSize);
 
-        labelStyle = typedArray.getInt(R.styleable.ElasticCheckButton_checkbutton_labelStyle, labelStyle);
+        labelStyle = typedArray.getInt(R.styleable.ElasticButton_button_labelStyle, labelStyle);
 
         if(labelStyle == 0)
             view.setTypeface(null, Typeface.NORMAL);
@@ -116,11 +112,6 @@ public class ElasticCheckButton extends AppCompatButton {
             view.setTypeface(null, Typeface.BOLD);
         else if(labelStyle == 2)
             view.setTypeface(null, Typeface.ITALIC);
-
-        alpha = typedArray.getFloat(R.styleable.ElasticCheckButton_checkbutton_alpha, alpha);
-
-        checked = typedArray.getBoolean(R.styleable.ElasticCheckButton_checkbutton_ischecked, checked);
-        if(checked) view.setAlpha(alpha);
     }
 
     @Override
@@ -137,7 +128,6 @@ public class ElasticCheckButton extends AppCompatButton {
 
                                 @Override
                                 public void onAnimationEnd(final View v) {
-                                    checked = !checked;
                                     onClick();
                                 }
 
@@ -153,22 +143,16 @@ public class ElasticCheckButton extends AppCompatButton {
         return super.dispatchTouchEvent(event);
     }
 
-    public void setOnClickListener(OnClickListener listener) {
+    public void setOnClickListener(View.OnClickListener listener) {
         this.listener = listener;
     }
 
     private  void onClick(){
-        if(checked) view.setAlpha(alpha);
-        else view.setAlpha(1.0f);
         listener.onClick(this);
     }
 
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
-    }
-
-    public boolean isChecked(){
-        return checked;
     }
 }

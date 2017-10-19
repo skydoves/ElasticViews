@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.skydoves.elasticviewsexample">
+    package="com.skydoves.elasticviewsdemo">
 
     <application
         android:allowBackup="true"
@@ -17,7 +17,7 @@
         </activity>
         <activity android:name=".ExampleActivity0" />
         <activity android:name=".ExampleActivity1" />
-        <activity android:name=".ExampleActivity2"></activity>
+        <activity android:name=".ExampleActivity2"/>
     </application>
 
 </manifest>

@@ -34,7 +34,7 @@
 
     </RelativeLayout>
     
-    <com.skydoves.elasticviewsexample.ElasticVIews.ElasticButton
+    <com.skydoves.elasticviews.ElasticButton
         android:id="@+id/example2_view0"
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -45,7 +45,7 @@
         app:button_labelStyle="bold"
         app:button_scale="0.7"/>
 
-    <com.skydoves.elasticviewsexample.ElasticVIews.ElasticCheckButton
+    <com.skydoves.elasticviews.ElasticCheckButton
         android:id="@+id/example2_view1"
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -60,7 +60,7 @@
         app:checkbutton_alpha="0.5"
         app:checkbutton_scale="0.9" />
 
-    <com.skydoves.elasticviewsexample.ElasticVIews.ElasticLayout
+    <com.skydoves.elasticviews.ElasticLayout
         android:id="@+id/example2_view2"
         android:layout_width="match_parent"
         android:layout_height="80dp"
@@ -93,7 +93,7 @@
             android:layout_marginRight="15dp"
             android:layout_alignParentBottom="true"/>
 
-    </com.skydoves.elasticviewsexample.ElasticVIews.ElasticLayout>
+    </com.skydoves.elasticviews.ElasticLayout>
 
     <RelativeLayout
         android:id="@+id/example2_view3"
@@ -132,7 +132,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp">
 
-        <com.skydoves.elasticviewsexample.ElasticVIews.ElasticImageView
+        <com.skydoves.elasticviews.ElasticImageView
             android:id="@+id/example2_imv"
             android:layout_width="64dp"
             android:layout_height="64dp"
@@ -152,7 +152,7 @@
             android:textStyle="bold"
             android:textSize="25dp"/>
 
-        <com.skydoves.elasticviewsexample.ElasticVIews.ElasticFloatingActionButton
+        <com.skydoves.elasticviews.ElasticFloatingActionButton
             android:id="@+id/example2_fab"
             android:layout_width="64dp"
             android:layout_height="64dp"

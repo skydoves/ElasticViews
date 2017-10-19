@@ -49,7 +49,7 @@
 
     </RelativeLayout>
 
-    <com.skydoves.elasticviewsexample.ElasticVIews.ElasticButton
+    <com.skydoves.elasticviews.ElasticButton
         android:id="@+id/elasticbtn0"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -63,7 +63,7 @@
         app:button_round="20"
         app:button_scale="0.87" />
 
-    <com.skydoves.elasticviewsexample.ElasticVIews.ElasticButton
+    <com.skydoves.elasticviews.ElasticButton
         android:id="@+id/elasticbtn1"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -78,7 +78,7 @@
         app:button_labelStyle="bold"
         app:button_labelSize="17" />
 
-    <com.skydoves.elasticviewsexample.ElasticVIews.ElasticButton
+    <com.skydoves.elasticviews.ElasticButton
         android:id="@+id/elasticbtn2"
         android:layout_width="match_parent"
         android:layout_height="0dp"

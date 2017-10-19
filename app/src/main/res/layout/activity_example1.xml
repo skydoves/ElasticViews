@@ -16,7 +16,7 @@
         android:layout_marginRight="20dp" >
     </ListView>
 
-    <com.skydoves.elasticviewsexample.ElasticVIews.ElasticFloatingActionButton
+    <com.skydoves.elasticviews.ElasticFloatingActionButton
         android:id="@+id/example1_fab"
         android:layout_width="64dp"
         android:layout_height="64dp"

@@ -1,4 +1,4 @@
-package com.skydoves.elasticviewsexample;
+package com.skydoves.elasticviewsdemo;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -7,7 +7,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import com.skydoves.elasticviewsexample.ElasticVIews.ElasticAction;
+import com.skydoves.elasticviews.ElasticAction;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
