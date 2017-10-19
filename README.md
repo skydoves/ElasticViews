@@ -58,7 +58,7 @@ or use butterknife
 
 ### ElasticButton
 ```xml
-<com.github.skydoves.ElasticButton
+<com.skydoves.elasticviews.ElasticButton
         android:id="@+id/elasticbutton"
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -81,7 +81,7 @@ app:button_backgroundColor="@android:color/transparent"
 
 ### ElasticCheckButton
 ```xml
-<com.github.skydoves.ElasticCheckButton
+<com.skydoves.elasticviews.ElasticCheckButton
         android:id="@+id/elasticcheckbutton"
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -99,7 +99,7 @@ app:button_backgroundColor="@android:color/transparent"
 
 ### ElasticImageView
 ```xml
-<com.github.skydoves.ElasticImageView
+<com.skydoves.elasticviews.ElasticImageView
             android:id="@+id/elasticimageview"
             android:layout_width="64dp"
             android:layout_height="64dp"
@@ -111,7 +111,7 @@ app:button_backgroundColor="@android:color/transparent"
 
 ### ElasticFloatingButton
 ```xml
-<com.github.skydoves.ElasticFloatingActionButton
+<com.skydoves.elasticviews.ElasticFloatingActionButton
             android:id="@+id/elasticfab"
             android:layout_width="64dp"
             android:layout_height="64dp"
@@ -125,7 +125,7 @@ app:button_backgroundColor="@android:color/transparent"
 ElasticLayout don't animation for child views.<br>
 If you want give ViewGroup animation, then use ElasticAction.
 ```xml
-<com.github.skydoves.ElasticLayout
+<com.skydoves.elasticviews.ElasticLayout
         android:id="@+id/elasticlayout"
         android:layout_width="match_parent"
         android:layout_height="80dp"
@@ -151,7 +151,7 @@ If you want give ViewGroup animation, then use ElasticAction.
             android:textSize="18sp"
             android:gravity="end" />
 
-    </com.github.skydoves.ElasticLayout>
+    </com.skydoves.elasticviews.ElasticLayout>
 ```
 
 ### ElasticAction
