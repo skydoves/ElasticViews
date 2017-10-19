@@ -39,7 +39,7 @@ public class ElasticButton extends AppCompatButton {
 
     private int round = 20;
     private float scale = 0.9f;
-    private int color = R.color.colorPrimary;
+    private int color = ContextCompat.getColor(getContext(), R.color.colorPrimary);
     private int duration = 500;
 
     private String labelText = "";
@@ -89,7 +89,7 @@ public class ElasticButton extends AppCompatButton {
         bgShape.setCornerRadius(round);
 
         color = typedArray.getInt(R.styleable.ElasticButton_button_backgroundColor, color);
-        bgShape.setColor(ContextCompat.getColor(getContext(), color));
+        bgShape.setColor(color);
 
         scale = typedArray.getFloat(R.styleable.ElasticButton_button_scale, scale);
 

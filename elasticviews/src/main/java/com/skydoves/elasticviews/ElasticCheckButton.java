@@ -39,7 +39,7 @@ public class ElasticCheckButton extends AppCompatButton {
 
     private int round = 20;
     private float scale = 0.9f;
-    private int color = R.color.colorPrimary;
+    private int color = ContextCompat.getColor(getContext(), R.color.colorPrimary);
     private int duration = 500;
     private float alpha = 0.7f;
 
@@ -92,7 +92,7 @@ public class ElasticCheckButton extends AppCompatButton {
         bgShape.setCornerRadius(round);
 
         color = typedArray.getInt(R.styleable.ElasticCheckButton_checkbutton_backgroundColor, color);
-        bgShape.setColor(ContextCompat.getColor(getContext(), color));
+        bgShape.setColor(color);
 
         scale = typedArray.getFloat(R.styleable.ElasticCheckButton_checkbutton_scale, scale);
 

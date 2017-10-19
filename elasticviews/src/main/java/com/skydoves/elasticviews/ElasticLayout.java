@@ -37,7 +37,7 @@ public class ElasticLayout extends RelativeLayout {
 
     private int round = 3;
     private float scale = 0.9f;
-    private int color = R.color.colorPrimary;
+    private int color = ContextCompat.getColor(getContext(), R.color.colorPrimary);
     private int duration = 500;
 
     public ElasticLayout(Context context){
@@ -84,7 +84,7 @@ public class ElasticLayout extends RelativeLayout {
         bgShape.setCornerRadius(round);
 
         color = typedArray.getInt(R.styleable.ElasticLayout_layout_backgroundColor, color);
-        bgShape.setColor(ContextCompat.getColor(getContext(), color));
+        bgShape.setColor(color);
 
         scale = typedArray.getFloat(R.styleable.ElasticLayout_layout_scale, scale);
 
