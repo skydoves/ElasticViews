@@ -1,4 +1,5 @@
 # ElasticViews 
+![travis](https://travis-ci.org/skydoves/ElasticViews.svg?branch=master)
 ![license](https://img.shields.io/github/license/mashape/apistatus.svg) <br>
 Android views with touch Animation.
 
