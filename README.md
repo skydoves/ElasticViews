@@ -1,6 +1,6 @@
 # ElasticViews 
 ![travis](https://travis-ci.org/skydoves/ElasticViews.svg?branch=master)
-![license](https://img.shields.io/github/license/mashape/apistatus.svg) <br>
+![license](https://img.shields.io/badge/license-MIT%20License-blue.svg) <br>
 Android views with touch Animation.
 
 ![gif0](https://cloud.githubusercontent.com/assets/24237865/22188970/cc138f6a-e15c-11e6-8a17-a8bccb3e6dcd.gif)
