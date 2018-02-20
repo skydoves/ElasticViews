@@ -1,12 +1,11 @@
 # ElasticViews 
 ![license](https://img.shields.io/badge/license-MIT%20License-blue.svg)
 [![Build Status](https://travis-ci.org/skydoves/ElasticViews.svg?branch=master)](https://travis-ci.org/skydoves/ElasticViews)<br>
-Android views with touch Animation.
+Android views with dynamic touch Animation.
 
 ![gif0](https://cloud.githubusercontent.com/assets/24237865/22188970/cc138f6a-e15c-11e6-8a17-a8bccb3e6dcd.gif)
 ![gif1](https://cloud.githubusercontent.com/assets/24237865/22190352/148831ac-e166-11e6-8b4a-9617f18242da.gif)
 
- 
 ## Including in your project
 #### build.gradle
 ```java
@@ -15,21 +14,12 @@ repositories {
 }
 
 dependencies {
-  compile 'com.github.skydoves:elasticviews:1.1.1'
+  compile 'com.github.skydoves:elasticviews:1.1.2'
 }
 ```
 
-#### or Maven
-```xml
-<dependency>
-  <groupId>com.github.skydoves</groupId>
-  <artifactId>elasticviews</artifactId>
-  <version>1.1.1</version>
-</dependency>
-```
-    
 ## Usage
-You can use like using normal views and you can give all of Views or GroupViews touch effect very simply.
+ElasticViews let we use like using normal views and give all of the Views or GroupViews touch effect very simply.
 
 #### Add XML Namespace
 First add below XML Namespace inside your XML layout file.
@@ -39,7 +29,7 @@ xmlns:app="http://schemas.android.com/apk/res-auto"
 ```
 
 #### OnClick Method
-All of ElasticViews need setOnClickListener - OnClick Method. If not, no Animation. 
+All of ElasticViews should be set OnClickListener or OnClick Method, etc. If not, nothing happens.
 ```java
 ElasticButton elasticButton = (ElasticButton)findViewById(R.id.elasticbutton);
         elasticButton.setOnClickListener(new View.OnClickListener() {
@@ -156,52 +146,43 @@ If you want give ViewGroup animation, then use ElasticAction.
     </com.skydoves.elasticviews.ElasticLayout>
 ```
 
-### ElasticAction
-you can give all of Views or GroupViews touch effect very simply.<br>
+### ElasticAnmimation
+ElasticAnimation lets we can implement elastic animation on all of the views.<br>
 ```java
-// argument : View or ViewGroup, Animation duration, scaleX, scaleY
-ElasticAction.doAction(anyViews, duration, 0.9f, 0.9f);
+new ElasticAnimation.Builder().setView(view).setScaleX(0.75f).setScaleY(0.75f).setDuration(500).doAction();
 ```
 
 #### Example : Normal Button
-you can give all of Views touch effect.
+we can implement animation on all of the views like below.
 ```java
 @OnClick(R.id.button)
     public void addNewAlarm(View v){
-        // ElasticAction : doAction
-        ElasticAction.doAction(v, 400, 0.85f, 0.85f); // argument : View or ViewGroup, duration, scaleX, scaleY
-
-        // PostDelayed : delay duration time
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                //Do something after duration time
-            }
-        }, 400);
+        // implements animation uising ElasticAnimation
+        new ElasticAnimation.Builder().setView(v).setScaleX(0.85f).setScaleY(0.85f).setDuration(500)
+        .setOnFinishListener(new ElasticFinishListener() {
+                @Override
+                public void onFinished() {
+                    // Do something after duration time
+                }
+            }).doAction();
+        }
     }
 ```
 
 #### Example : ListView Item
-you can give all of ViewGroups touch effect.
+So also we can implment animation on listView's items like below.
 ```java
 private class ListViewItemClickListener implements AdapterView.OnItemClickListener{
         @Override
-        public void onItemClick(AdapterView<?> adapterView, View clickedView, final int pos, long id)
-        {
-            // set your duration time
-            int duration = 400;
-
-            // ElasticAction : doAction
-            ElasticAction.doAction(clickedView, duration, 0.9f, 0.9f); // argument : View or ViewGroup, duration, scaleX, scaleY
-
-            // PostDelayed : delay duration time
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    //Do something after duration time
-                    Toast.makeText(getBaseContext(), "ListViewItem" + pos, Toast.LENGTH_SHORT).show();
-                }
-            }, duration);
+        public void onItemClick(AdapterView<?> adapterView, View clickedView, final int pos, long id) {
+            new ElasticAnimation.Builder().setView(clickedView).setScaleX(0.9f).setScaleY(0.9f).setDuration(400)
+                    .setOnFinishListener(new ElasticFinishListener() {
+                        @Override
+                        public void onFinished() {
+                            //Do something after duration time
+                            Toast.makeText(getBaseContext(), "ListViewItem" + pos, Toast.LENGTH_SHORT).show();
+                        }
+                    }).doAction();
         }
     };
 ```
