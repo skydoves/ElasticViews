@@ -149,7 +149,25 @@ If you want give ViewGroup animation, then use ElasticAction.
 ### ElasticAnmimation
 ElasticAnimation lets we can implement elastic animation on all of the views.<br>
 ```java
-new ElasticAnimation.Builder().setView(view).setScaleX(0.75f).setScaleY(0.75f).setDuration(500).doAction();
+new ElasticAnimation.Builder().setView(view).setScaleX(0.75f).setScaleY(0.75f).setDuration(500)
+.setOnFinishListener(onFinishListener).doAction();
+```
+or we can set ViewPropertyAnimatorListener using setListener method and detect animation start and end.
+```java
+.setListener(new ViewPropertyAnimatorListener() {
+                @Override
+                public void onAnimationStart(View view) {
+                }
+
+                @Override
+                public void onAnimationEnd(View view) {
+                    finishListener.onFinished();
+                }
+
+                @Override
+                public void onAnimationCancel(View view) {
+                }
+            });
 ```
 
 #### Example : Normal Button
