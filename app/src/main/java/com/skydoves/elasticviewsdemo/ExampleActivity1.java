@@ -2,7 +2,6 @@ package com.skydoves.elasticviewsdemo;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,7 +12,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.skydoves.elasticviews.ElasticAction;
+import com.skydoves.elasticviews.ElasticAnimation;
+import com.skydoves.elasticviews.ElasticFinishListener;
 
 import java.util.ArrayList;
 
@@ -58,22 +58,16 @@ public class ExampleActivity1 extends AppCompatActivity {
     private class ListViewItemClickListener implements AdapterView.OnItemClickListener{
         @Override
         public void onItemClick(AdapterView<?> adapterView, View clickedView, final int pos, long id) {
-            // set your duration time
-            int duration = 400;
-
-            // ElasticAction : doAction
-            ElasticAction.doAction((ViewGroup)clickedView, duration, 0.9f, 0.9f); // argument : ViewGroup, duration, scaleX, scaleY
-
-            // PostDelayed : delay duration time
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    //Do something after duration time
-                    Toast.makeText(getBaseContext(), "ListViewItem" + pos, Toast.LENGTH_SHORT).show();
-                }
-            }, duration);
+            new ElasticAnimation.Builder().setView(clickedView).setScaleX(0.9f).setScaleY(0.9f).setDuration(400)
+                    .setOnFinishListener(new ElasticFinishListener() {
+                        @Override
+                        public void onFinished() {
+                            //Do something after duration time
+                            Toast.makeText(getBaseContext(), "ListViewItem" + pos, Toast.LENGTH_SHORT).show();
+                        }
+                    }).doAction();
         }
-    };
+    }
 
     private class Listviewitem {
         private String content;
@@ -111,10 +105,10 @@ public class ExampleActivity1 extends AppCompatActivity {
                 convertView=inflater.inflate(layout,parent,false);
             Listviewitem listviewitem =data.get(position);
 
-            TextView tv_title = (TextView)convertView.findViewById(R.id.item_tv_title);
+            TextView tv_title = convertView.findViewById(R.id.item_tv_title);
             tv_title.setText("ListViewItem" + listviewitem.getContent());
 
-            TextView tv_content = (TextView)convertView.findViewById(R.id.item_tv_content);
+            TextView tv_content = convertView.findViewById(R.id.item_tv_content);
             tv_content.setText("This is ListViewItem" +listviewitem.getContent()+ "'s content");
 
             return convertView;

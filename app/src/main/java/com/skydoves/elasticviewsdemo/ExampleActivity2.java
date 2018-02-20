@@ -2,12 +2,12 @@ package com.skydoves.elasticviewsdemo;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import com.skydoves.elasticviews.ElasticAction;
+import com.skydoves.elasticviews.ElasticAnimation;
+import com.skydoves.elasticviews.ElasticFinishListener;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -27,26 +27,19 @@ public class ExampleActivity2 extends AppCompatActivity {
     }
 
     @OnClick({R.id.example2_view0, R.id.example2_view1, R.id.example2_view2, R.id.example2_view3, R.id.example2_imv, R.id.example2_textView0, R.id.example2_fab})
-    public void Views(View v){
-        if(v.getId() == R.id.example2_view3){
-            // set your duration time
-            int duration = 500;
-
-            // ElasticAction : doAction
-            ElasticAction.doAction(v, duration, 0.85f, 0.85f); // argument : ViewGroup, duration, scaleX, scaleY
-
-            // PostDelayed : delay duration time
-            new Handler().postDelayed(new Runnable() {
+    public void Views(View v) {
+        if(v.getId() == R.id.example2_view3) {
+            new ElasticAnimation.Builder().setView(v).setScaleX(0.85f).setScaleY(0.85f).setDuration(500).setOnFinishListener(new ElasticFinishListener() {
                 @Override
-                public void run() {
-                    //Do something after duration time
+                public void onFinished() {
+                    // Do something after duration time
                 }
-            }, duration);
+            }).doAction();
         }
         else if(v.getId() == R.id.example2_imv)
             Snackbar.make(v, "This is ElasticImageView", Snackbar.LENGTH_LONG).setActionTextColor(Color.WHITE).show();
         else if(v.getId() == R.id.example2_textView0)
-            ElasticAction.doAction(v, 500, 0.75f, 0.75f);
+            new ElasticAnimation.Builder().setView(v).setScaleX(0.75f).setScaleY(0.75f).setDuration(500).doAction();
         else if(v.getId() == R.id.example2_fab)
             Snackbar.make(v, "This is ElasticFloatActionButton", Snackbar.LENGTH_LONG).setActionTextColor(Color.WHITE).show();
     }

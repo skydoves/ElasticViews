@@ -5,7 +5,7 @@ publish {
     userOrg = 'devmagician'
     groupId = 'com.github.skydoves'
     artifactId = 'elasticviews'
-    publishVersion = '1.1.1'
+    publishVersion = '1.1.2'
     desc = 'This is ElasticViews by skydoves'
     website = 'https://github.com/skydoves/ElasticViews'
     issueTracker = "${website}/issues"
@@ -24,6 +24,6 @@ android {
     }
 }
 dependencies {
-    compile 'com.android.support:appcompat-v7:26.+'
-    compile 'com.android.support:design:26.+'
+    compile 'com.android.support:appcompat-v7:26.1.0'
+    compile 'com.android.support:design:26.1.0'
 }
