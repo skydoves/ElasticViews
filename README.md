@@ -188,7 +188,7 @@ we can implement animation on all of the views like below.
 ```
 
 #### Example : ListView Item
-So also we can implment animation on listView's items like below.
+So also we can implement animation on listView's items like below.
 ```java
 private class ListViewItemClickListener implements AdapterView.OnItemClickListener{
         @Override
