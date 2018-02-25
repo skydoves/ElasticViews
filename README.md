@@ -14,7 +14,7 @@ repositories {
 }
 
 dependencies {
-  compile 'com.github.skydoves:elasticviews:1.1.2'
+  compile 'com.github.skydoves:elasticviews:1.1.3'
 }
 ```
 
@@ -149,7 +149,7 @@ If you want give ViewGroup animation, then use ElasticAction.
 ### ElasticAnmimation
 ElasticAnimation lets we can implement elastic animation on all of the views.<br>
 ```java
-new ElasticAnimation.Builder().setView(view).setScaleX(0.75f).setScaleY(0.75f).setDuration(500)
+new ElasticAnimation(clickedView).setScaleX(0.9f).setScaleY(0.9f).setDuration(400)
 .setOnFinishListener(onFinishListener).doAction();
 ```
 or we can set ViewPropertyAnimatorListener using setListener method and detect animation start and end.
@@ -176,7 +176,7 @@ we can implement animation on all of the views like below.
 @OnClick(R.id.button)
     public void addNewAlarm(View v){
         // implements animation uising ElasticAnimation
-        new ElasticAnimation.Builder().setView(v).setScaleX(0.85f).setScaleY(0.85f).setDuration(500)
+        new ElasticAnimation(v).setScaleX(0.85f).setScaleY(0.85f).setDuration(500)
         .setOnFinishListener(new ElasticFinishListener() {
                 @Override
                 public void onFinished() {
@@ -193,7 +193,7 @@ So also we can implement animation on listView's items like below.
 private class ListViewItemClickListener implements AdapterView.OnItemClickListener{
         @Override
         public void onItemClick(AdapterView<?> adapterView, View clickedView, final int pos, long id) {
-            new ElasticAnimation.Builder().setView(clickedView).setScaleX(0.9f).setScaleY(0.9f).setDuration(400)
+            new ElasticAnimation(clickedView).setScaleX(0.9f).setScaleY(0.9f).setDuration(400)
                     .setOnFinishListener(new ElasticFinishListener() {
                         @Override
                         public void onFinished() {
