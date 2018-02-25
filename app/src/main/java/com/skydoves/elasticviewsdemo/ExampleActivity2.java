@@ -29,7 +29,7 @@ public class ExampleActivity2 extends AppCompatActivity {
     @OnClick({R.id.example2_view0, R.id.example2_view1, R.id.example2_view2, R.id.example2_view3, R.id.example2_imv, R.id.example2_textView0, R.id.example2_fab})
     public void Views(View v) {
         if(v.getId() == R.id.example2_view3) {
-            new ElasticAnimation.Builder().setView(v).setScaleX(0.85f).setScaleY(0.85f).setDuration(500).setOnFinishListener(new ElasticFinishListener() {
+            new ElasticAnimation(v).setScaleX(0.85f).setScaleY(0.85f).setDuration(500).setOnFinishListener(new ElasticFinishListener() {
                 @Override
                 public void onFinished() {
                     // Do something after duration time
@@ -39,7 +39,7 @@ public class ExampleActivity2 extends AppCompatActivity {
         else if(v.getId() == R.id.example2_imv)
             Snackbar.make(v, "This is ElasticImageView", Snackbar.LENGTH_LONG).setActionTextColor(Color.WHITE).show();
         else if(v.getId() == R.id.example2_textView0)
-            new ElasticAnimation.Builder().setView(v).setScaleX(0.75f).setScaleY(0.75f).setDuration(500).doAction();
+            new ElasticAnimation(v).setScaleX(0.75f).setScaleY(0.75f).setDuration(500).doAction();
         else if(v.getId() == R.id.example2_fab)
             Snackbar.make(v, "This is ElasticFloatActionButton", Snackbar.LENGTH_LONG).setActionTextColor(Color.WHITE).show();
     }

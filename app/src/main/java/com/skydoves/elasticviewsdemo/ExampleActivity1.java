@@ -17,7 +17,7 @@ import com.skydoves.elasticviews.ElasticFinishListener;
 
 import java.util.ArrayList;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -31,7 +31,7 @@ public class ExampleActivity1 extends AppCompatActivity {
     private ArrayList<Listviewitem> data;
     private ListviewAdapter adapter;
 
-    @Bind(R.id.example1_listview)
+    @BindView(R.id.example1_listview)
     ListView listView;
 
     @Override
@@ -58,7 +58,7 @@ public class ExampleActivity1 extends AppCompatActivity {
     private class ListViewItemClickListener implements AdapterView.OnItemClickListener{
         @Override
         public void onItemClick(AdapterView<?> adapterView, View clickedView, final int pos, long id) {
-            new ElasticAnimation.Builder().setView(clickedView).setScaleX(0.9f).setScaleY(0.9f).setDuration(400)
+            new ElasticAnimation(clickedView).setScaleX(0.9f).setScaleY(0.9f).setDuration(400)
                     .setOnFinishListener(new ElasticFinishListener() {
                         @Override
                         public void onFinished() {
