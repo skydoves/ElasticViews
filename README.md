@@ -1,7 +1,7 @@
 # ElasticViews 
 ![license](https://img.shields.io/badge/license-MIT%20License-blue.svg)
 [![Build Status](https://travis-ci.org/skydoves/ElasticViews.svg?branch=master)](https://travis-ci.org/skydoves/ElasticViews)<br>
-Android views with dynamic touch Animation.
+A library that let you implement elastic touch animation.
 
 ![gif0](https://cloud.githubusercontent.com/assets/24237865/22188970/cc138f6a-e15c-11e6-8a17-a8bccb3e6dcd.gif)
 ![gif1](https://cloud.githubusercontent.com/assets/24237865/22190352/148831ac-e166-11e6-8b4a-9617f18242da.gif)
@@ -14,7 +14,7 @@ repositories {
 }
 
 dependencies {
-  compile 'com.github.skydoves:elasticviews:1.1.3'
+  implementation 'com.github.skydoves:elasticviews:2.0.0'
 }
 ```
 
