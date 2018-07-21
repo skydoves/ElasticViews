@@ -14,7 +14,7 @@ repositories {
 }
 
 dependencies {
-  implementation 'com.github.skydoves:elasticviews:2.0.0'
+  implementation 'com.github.skydoves:elasticviews:2.0.1'
 }
 ```
 
@@ -115,7 +115,7 @@ app:button_backgroundColor="@android:color/transparent"
 
 ### ElasticLayout
 ElasticLayout don't animation for child views.<br>
-If you want give ViewGroup animation, then use ElasticAction.
+If you want give ViewGroup animation, then use ElasticAnimation.
 ```xml
 <com.skydoves.elasticviews.ElasticLayout
         android:id="@+id/elasticlayout"
@@ -170,6 +170,17 @@ or we can set ViewPropertyAnimatorListener using setListener method and detect a
             });
 ```
 
+#### Kotlin Extension
+ElasticAnimation supports kotlin extension __elasticAnimation__.
+```kotlin
+val anim = textView.elasticAnimation(0.8f, 0.8f, 400, object: ElasticFinishListener {
+            override fun onFinished() {
+                // do anything
+            }
+        })
+anim.doAction()
+```
+
 #### Example : Normal Button
 we can implement animation on all of the views like below.
 ```java
@@ -205,9 +216,8 @@ private class ListViewItemClickListener implements AdapterView.OnItemClickListen
     };
 ```
 
-#### ElasticAction Preview
+#### ElasticAnimation Preview
 ![gif2](https://cloud.githubusercontent.com/assets/24237865/22189011/14bc94aa-e15d-11e6-9078-2dfc9d97ef87.gif)
-
 
 # License
 ```xml
