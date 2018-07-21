@@ -6,7 +6,7 @@ publish {
     userOrg = 'devmagician'
     groupId = 'com.github.skydoves'
     artifactId = 'elasticviews'
-    publishVersion = '2.0.0'
+    publishVersion = '2.0.1'
     desc = 'This is ElasticViews by skydoves'
     website = 'https://github.com/skydoves/ElasticViews'
     issueTracker = "${website}/issues"
@@ -25,9 +25,9 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:support-compat:27.1.0'
-    compile 'com.android.support:design:27.1.0'
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    implementation "com.android.support:support-compat:27.1.1"
+    implementation "com.android.support:design:27.1.1"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
 
 tasks.withType(Javadoc) {

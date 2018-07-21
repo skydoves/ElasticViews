@@ -31,6 +31,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.CycleInterpolator
 
+fun View.elasticAnimation(scaleX: Float, scaleY: Float, duration: Int, listener: ElasticFinishListener): ElasticAnimation {
+    return ElasticAnimation(this).setScaleX(scaleX).setScaleY(scaleY).setDuration(duration).setOnFinishListener(listener)
+}
+
 class ElasticAnimation(private val view: View) {
 
     private var scaleX = 0.7f
