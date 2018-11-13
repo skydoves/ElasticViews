@@ -70,29 +70,33 @@
         app:layout_duration="500"
         app:layout_scale="0.85">
 
-        <TextView
-            android:id="@+id/example2_tv1"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="This is"
-            android:textColor="#ffffff"
-            android:textStyle="bold"
-            android:textSize="18sp"
-            android:layout_marginTop="15dp"
-            android:layout_marginLeft="15dp"/>
+            android:layout_height="match_parent">
 
-        <TextView
-            android:layout_below="@+id/example2_tv1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="ElasticLayout"
-            android:textColor="#ffffff"
-            android:textStyle="bold"
-            android:textSize="18sp"
-            android:gravity="end"
-            android:layout_marginRight="15dp"
-            android:layout_alignParentBottom="true"/>
+            <TextView
+                android:id="@+id/example2_tv1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="This is"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="15dp"/>
 
+            <TextView
+                android:layout_below="@+id/example2_tv1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ElasticLayout"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:gravity="end"
+                android:layout_marginRight="15dp"
+                android:layout_alignParentBottom="true"/>
+        </RelativeLayout>
     </com.skydoves.elasticviews.ElasticLayout>
 
     <RelativeLayout

@@ -14,19 +14,19 @@ publish {
 }
 
 android {
-    compileSdkVersion 27
+    compileSdkVersion 28
 
     defaultConfig {
         minSdkVersion 15
-        targetSdkVersion 27
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
     }
 }
 
 dependencies {
-    implementation "com.android.support:support-compat:27.1.1"
-    implementation "com.android.support:design:27.1.1"
+    implementation "com.android.support:support-compat:$support_version"
+    implementation "com.android.support:design:$support_version"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
 
