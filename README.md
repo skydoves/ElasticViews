@@ -1,5 +1,6 @@
 # ElasticViews 
 ![license](https://img.shields.io/badge/license-MIT%20License-blue.svg)
+[![API](https://img.shields.io/badge/API-15%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=15)
 [![Build Status](https://travis-ci.org/skydoves/ElasticViews.svg?branch=master)](https://travis-ci.org/skydoves/ElasticViews)<br>
 A library that let you implement elastic touch animation.
 
@@ -8,23 +9,24 @@ A library that let you implement elastic touch animation.
 
 ## Including in your project
 #### build.gradle
-```java
+Add below codes to your root `build.gradle` file (not your module build.gradle file).
+```gradle
 repositories {
-  mavenCentral() // or jcenter() works as well
+    jcenter()
 }
 
 dependencies {
-  implementation 'com.github.skydoves:elasticviews:2.0.1'
+    implementation "com.github.skydoves:elasticviews:2.0.1"
 }
 ```
 
 ## Usage
-ElasticViews let we use like using normal views and give all of the Views or GroupViews touch effect very simply.
+ElasticViews let we use like using normal views and gives all of the Views or GroupViews touch effect very simply.
 
 #### Add XML Namespace
 First add below XML Namespace inside your XML layout file.
 
-```xml
+```gradle
 xmlns:app="http://schemas.android.com/apk/res-auto"
 ```
 
@@ -32,24 +34,24 @@ xmlns:app="http://schemas.android.com/apk/res-auto"
 All of ElasticViews should be set OnClickListener or OnClick Method, etc. If not, nothing happens.
 ```java
 ElasticButton elasticButton = (ElasticButton)findViewById(R.id.elasticbutton);
-        elasticButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // do something
-            }
-        });
+elasticButton.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        // do something
+    }
+});
 ```
 
 or use butterknife
 ```java
 @OnClick(R.id.elasticbutton)
-    public void onClick(View v){
-        // do something
-    }
+public void onClick(View v) {
+    // do something
+} 
 ```
 
 ### ElasticButton
-```xml
+```gradle
 <com.skydoves.elasticviews.ElasticButton
         android:id="@+id/elasticbutton"
         android:layout_width="match_parent"
@@ -67,12 +69,12 @@ or use butterknife
 ### ElasticButton use like TextView
 If _button_backgroundColor_ attribute set as _@android:color/transparent_ <br>
 you can use ElasticButton looks like TextView.
-```xml
+```gradle
 app:button_backgroundColor="@android:color/transparent"
 ```
 
 ### ElasticCheckButton
-```xml
+```gradle
 <com.skydoves.elasticviews.ElasticCheckButton
         android:id="@+id/elasticcheckbutton"
         android:layout_width="match_parent"
@@ -90,7 +92,7 @@ app:button_backgroundColor="@android:color/transparent"
 ```
 
 ### ElasticImageView
-```xml
+```gradle
 <com.skydoves.elasticviews.ElasticImageView
             android:id="@+id/elasticimageview"
             android:layout_width="64dp"
@@ -102,7 +104,7 @@ app:button_backgroundColor="@android:color/transparent"
 ```
 
 ### ElasticFloatingButton
-```xml
+```gradle
 <com.skydoves.elasticviews.ElasticFloatingActionButton
             android:id="@+id/elasticfab"
             android:layout_width="64dp"
@@ -116,7 +118,7 @@ app:button_backgroundColor="@android:color/transparent"
 ### ElasticLayout
 ElasticLayout don't animation for child views.<br>
 If you want give ViewGroup animation, then use ElasticAnimation.
-```xml
+```gradle
 <com.skydoves.elasticviews.ElasticLayout
         android:id="@+id/elasticlayout"
         android:layout_width="match_parent"
