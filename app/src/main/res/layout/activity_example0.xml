@@ -204,30 +204,34 @@
                 app:layout_scale="0.9"
                 app:layout_backgroundColor="#30354b">
 
-                <TextView
-                    android:id="@+id/example0_content1_tv0"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Start time"
-                    android:textColor="#ffffff"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="15dp"
-                    android:textStyle="bold"
-                    android:textSize="15sp" />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-                <TextView
-                    android:id="@+id/example0_content1_tv_starttime"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="8:00 AM"
-                    android:textColor="#ffffff"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginRight="20dp"
-                    android:textSize="15sp" />
+                    <TextView
+                        android:id="@+id/example0_content1_tv0"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Start time"
+                        android:textColor="#ffffff"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="15dp"
+                        android:textStyle="bold"
+                        android:textSize="15sp" />
 
+                    <TextView
+                        android:id="@+id/example0_content1_tv_starttime"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="8:00 AM"
+                        android:textColor="#ffffff"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginRight="20dp"
+                        android:textSize="15sp" />
+                </RelativeLayout>
             </com.skydoves.elasticviews.ElasticLayout>
 
             <com.skydoves.elasticviews.ElasticLayout
@@ -240,30 +244,34 @@
                 app:layout_scale="0.9"
                 app:layout_backgroundColor="#30354b">
 
-                <TextView
-                    android:id="@+id/makealram_content1_tv1"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="End time"
-                    android:textColor="#ffffff"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="15dp"
-                    android:textStyle="bold"
-                    android:textSize="15sp" />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-                <TextView
-                    android:id="@+id/makealram_content1_tv_endtime"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="9:00 PM"
-                    android:textColor="#ffffff"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginRight="20dp"
-                    android:textSize="15sp" />
+                    <TextView
+                        android:id="@+id/makealram_content1_tv1"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="End time"
+                        android:textColor="#ffffff"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="15dp"
+                        android:textStyle="bold"
+                        android:textSize="15sp" />
 
+                    <TextView
+                        android:id="@+id/makealram_content1_tv_endtime"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="9:00 PM"
+                        android:textColor="#ffffff"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginRight="20dp"
+                        android:textSize="15sp" />
+                </RelativeLayout>
             </com.skydoves.elasticviews.ElasticLayout>
 
         </LinearLayout>
@@ -311,34 +319,36 @@
                 app:layout_scale="0.9"
                 app:layout_backgroundColor="#30354b">
 
-            <TextView
-                android:id="@+id/example0_content2_tv0"
-                android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Time interval"
-                android:textColor="#ffffff"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="15dp"
-                android:textStyle="bold"
-                android:textSize="15sp" />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/example0_content2_tv_timeinterval"
-                android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="2 hours"
-                android:textColor="#ffffff"
-                android:layout_centerVertical="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginRight="20dp"
-                android:textSize="15sp" />
+                    <TextView
+                        android:id="@+id/example0_content2_tv0"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Time interval"
+                        android:textColor="#ffffff"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="15dp"
+                        android:textStyle="bold"
+                        android:textSize="15sp" />
 
+                    <TextView
+                        android:id="@+id/example0_content2_tv_timeinterval"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2 hours"
+                        android:textColor="#ffffff"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginRight="20dp"
+                        android:textSize="15sp" />
+                </RelativeLayout>
             </com.skydoves.elasticviews.ElasticLayout>
-
         </RelativeLayout>
-
 
         <!-- Layout Content3 -->
         <RelativeLayout
@@ -360,9 +370,6 @@
                 app:button_labelText="Add new alarm"
                 app:button_labelSize="15"
                 app:button_labelStyle="bold"/>
-
         </RelativeLayout>
-
     </LinearLayout>
-
 </RelativeLayout>
