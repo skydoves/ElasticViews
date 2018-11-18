@@ -1,11 +1,13 @@
 # ElasticViews 
 ![license](https://img.shields.io/badge/license-MIT%20License-blue.svg)
 [![API](https://img.shields.io/badge/API-15%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=15)
-[![Build Status](https://travis-ci.org/skydoves/ElasticViews.svg?branch=master)](https://travis-ci.org/skydoves/ElasticViews)<br>
-A library that let you implement elastic touch animation.
+[![Build Status](https://travis-ci.org/skydoves/ElasticViews.svg?branch=master)](https://travis-ci.org/skydoves/ElasticViews)
+[![Android Weekly](https://img.shields.io/badge/Android%20Weekly-%23336-orange.svg)](https://androidweekly.net/issues/issue-336) <br>
 
-![gif0](https://cloud.githubusercontent.com/assets/24237865/22188970/cc138f6a-e15c-11e6-8a17-a8bccb3e6dcd.gif)
-![gif1](https://cloud.githubusercontent.com/assets/24237865/22190352/148831ac-e166-11e6-8b4a-9617f18242da.gif)
+A library that lets you implement elastic touch animation easily.
+
+![gif0](https://user-images.githubusercontent.com/24237865/48674497-53e2f180-eb90-11e8-86fb-476f841b3e32.gif)
+![gif1](https://user-images.githubusercontent.com/24237865/48674498-53e2f180-eb90-11e8-8313-aa94b34a40d2.gif)
 
 ## Including in your project
 #### build.gradle
@@ -21,7 +23,7 @@ dependencies {
 ```
 
 ## Usage
-ElasticViews let we use like using normal views and gives all of the Views or GroupViews touch effect very simply.
+`ElasticViews` lets we use like using normal views and gives all of the Views or GroupViews touch effect very simply.
 
 #### Add XML Namespace
 First add below XML Namespace inside your XML layout file.
@@ -67,8 +69,7 @@ public void onClick(View v) {
 ```
 
 ### ElasticButton use like TextView
-If _button_backgroundColor_ attribute set as _@android:color/transparent_ <br>
-you can use ElasticButton looks like TextView.
+If `button_backgroundColor` attribute be set as `@android:color/transparent`, it will looks like a TextView. <br>
 ```gradle
 app:button_backgroundColor="@android:color/transparent"
 ```
@@ -144,12 +145,11 @@ If you want give ViewGroup animation, then use ElasticAnimation.
             android:textColor="#ffffff"
             android:textSize="18sp"
             android:gravity="end" />
-
-    </com.skydoves.elasticviews.ElasticLayout>
+</com.skydoves.elasticviews.ElasticLayout>
 ```
 
 ### ElasticAnmimation
-ElasticAnimation lets we can implement elastic animation on all of the views.<br>
+ElasticAnimation lets we can implement elastic animation on all of the views. <br>
 ```java
 new ElasticAnimation(clickedView).setScaleX(0.9f).setScaleY(0.9f).setDuration(400)
 .setOnFinishListener(onFinishListener).doAction();
@@ -157,23 +157,23 @@ new ElasticAnimation(clickedView).setScaleX(0.9f).setScaleY(0.9f).setDuration(40
 or we can set ViewPropertyAnimatorListener using setListener method and detect animation start and end.
 ```java
 .setListener(new ViewPropertyAnimatorListener() {
-                @Override
-                public void onAnimationStart(View view) {
-                }
+          @Override
+          public void onAnimationStart(View view) {
+          }
 
-                @Override
-                public void onAnimationEnd(View view) {
-                    finishListener.onFinished();
-                }
+          @Override
+          public void onAnimationEnd(View view) {
+              finishListener.onFinished();
+          }
 
-                @Override
-                public void onAnimationCancel(View view) {
-                }
-            });
+          @Override
+          public void onAnimationCancel(View view) {
+          }
+      });
 ```
 
 #### Kotlin Extension
-ElasticAnimation supports kotlin extension __elasticAnimation__.
+ElasticAnimation supports kotlin extension `elasticAnimation`.
 ```kotlin
 val anim = textView.elasticAnimation(0.8f, 0.8f, 400, object: ElasticFinishListener {
             override fun onFinished() {
