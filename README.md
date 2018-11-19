@@ -117,8 +117,8 @@ app:button_backgroundColor="@android:color/transparent"
 ```
 
 ### ElasticLayout
-ElasticLayout don't animation for child views.<br>
-If you want give ViewGroup animation, then use ElasticAnimation.
+ElasticLayout gives elastic animation to all child views.
+
 ```gradle
 <com.skydoves.elasticviews.ElasticLayout
         android:id="@+id/elasticlayout"
@@ -187,23 +187,23 @@ anim.doAction()
 we can implement animation on all of the views like below.
 ```java
 @OnClick(R.id.button)
-    public void addNewAlarm(View v){
-        // implements animation uising ElasticAnimation
-        new ElasticAnimation(v).setScaleX(0.85f).setScaleY(0.85f).setDuration(500)
-        .setOnFinishListener(new ElasticFinishListener() {
-                @Override
-                public void onFinished() {
-                    // Do something after duration time
-                }
-            }).doAction();
-        }
+public void addNewAlarm(View v){
+    // implements animation uising ElasticAnimation
+    new ElasticAnimation(v).setScaleX(0.85f).setScaleY(0.85f).setDuration(500)
+    .setOnFinishListener(new ElasticFinishListener() {
+            @Override
+            public void onFinished() {
+                // Do something after duration time
+            }
+        }).doAction();
     }
+}
 ```
 
 #### Example : ListView Item
 So also we can implement animation on listView's items like below.
 ```java
-private class ListViewItemClickListener implements AdapterView.OnItemClickListener{
+private class ListViewItemClickListener implements AdapterView.OnItemClickListener {
         @Override
         public void onItemClick(AdapterView<?> adapterView, View clickedView, final int pos, long id) {
             new ElasticAnimation(clickedView).setScaleX(0.9f).setScaleY(0.9f).setDuration(400)
