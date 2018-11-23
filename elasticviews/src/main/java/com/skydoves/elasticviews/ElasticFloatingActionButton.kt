@@ -27,14 +27,14 @@ package com.skydoves.elasticviews
 
 import android.content.Context
 import android.content.res.TypedArray
-import android.support.design.widget.FloatingActionButton
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
 
-class ElasticFloatingActionButton : FloatingActionButton {
+class ElasticFloatingActionButton : com.google.android.material.floatingactionbutton.FloatingActionButton {
 
-    private lateinit var view: FloatingActionButton
+    private lateinit var view: com.google.android.material.floatingactionbutton.FloatingActionButton
     private var listener: View.OnClickListener? = null
     private var onFinishListener: ElasticFinishListener? = null
 
