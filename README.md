@@ -18,7 +18,7 @@ repositories {
 }
 
 dependencies {
-    implementation "com.github.skydoves:elasticviews:2.0.1"
+    implementation "com.github.skydoves:elasticviews:2.0.2"
 }
 ```
 
