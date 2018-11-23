@@ -2,7 +2,6 @@ package com.skydoves.elasticviewsdemo;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,9 +16,7 @@ import com.skydoves.elasticviews.ElasticFinishListener;
 
 import java.util.ArrayList;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
+import androidx.appcompat.app.AppCompatActivity;
 
 /**
  * Developed by skydoves on 2017-01-21.
@@ -28,25 +25,21 @@ import butterknife.OnClick;
 
 public class ExampleActivity1 extends AppCompatActivity {
 
-    private ArrayList<Listviewitem> data;
+    private ArrayList<Listviewitem> data = new ArrayList<>();
     private ListviewAdapter adapter;
-
-    @BindView(R.id.example1_listview)
-    ListView listView;
+    private ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_example1);
-        ButterKnife.bind(this);
 
-        data=new ArrayList();
-        adapter=new ListviewAdapter(this, R.layout.item, data);
+        adapter = new ListviewAdapter(this, R.layout.item, data);
+        listView = findViewById(R.id.example1_listview);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new ListViewItemClickListener());
     }
 
-    @OnClick(R.id.example1_fab)
     public void ElasticFloatingButtons(View v){
         Listviewitem listviewitem = new Listviewitem(data.size()+"");
         data.add(listviewitem);

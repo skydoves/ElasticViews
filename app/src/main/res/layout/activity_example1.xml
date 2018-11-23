@@ -25,6 +25,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_margin="16dp"
+        android:onClick="ElasticFloatingButtons"
         app:fabSize="normal"
         app:fabutton_duration="250"
         app:fabutton_scale="0.85"/>

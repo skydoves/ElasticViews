@@ -56,6 +56,7 @@
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="45dp"
+                        android:onClick="ElasticCheckButtons"
                         app:checkbutton_backgroundColor="#30354b"
                         app:checkbutton_duration="400"
                         app:checkbutton_labelColor="#ffffff"
@@ -70,6 +71,7 @@
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="45dp"
+                        android:onClick="ElasticCheckButtons"
                         app:checkbutton_backgroundColor="#30354b"
                         app:checkbutton_duration="400"
                         app:checkbutton_labelColor="#ffffff"
@@ -84,6 +86,7 @@
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="45dp"
+                        android:onClick="ElasticCheckButtons"
                         app:checkbutton_backgroundColor="#30354b"
                         app:checkbutton_duration="400"
                         app:checkbutton_labelColor="#ffffff"
@@ -98,6 +101,7 @@
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="45dp"
+                        android:onClick="ElasticCheckButtons"
                         app:checkbutton_backgroundColor="#30354b"
                         app:checkbutton_duration="400"
                         app:checkbutton_labelColor="#ffffff"
@@ -112,6 +116,7 @@
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="45dp"
+                        android:onClick="ElasticCheckButtons"
                         app:checkbutton_backgroundColor="#30354b"
                         app:checkbutton_duration="400"
                         app:checkbutton_labelColor="#ffffff"
@@ -126,6 +131,7 @@
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="45dp"
+                        android:onClick="ElasticCheckButtons"
                         app:checkbutton_backgroundColor="#30354b"
                         app:checkbutton_duration="400"
                         app:checkbutton_labelColor="#ffffff"
@@ -140,6 +146,7 @@
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="45dp"
+                        android:onClick="ElasticCheckButtons"
                         app:checkbutton_backgroundColor="#30354b"
                         app:checkbutton_duration="400"
                         app:checkbutton_labelColor="#ffffff"
@@ -190,6 +197,7 @@
                     android:layout_alignParentEnd="true"
                     android:src="@drawable/ic_question"
                     android:tint="#3d95c9"
+                    android:onClick="ElasticImageViews"
                     app:imageview_scale="0.7"/>
 
             </RelativeLayout>
@@ -200,6 +208,7 @@
                 android:layout_height="50dp"
                 android:layout_below="@+id/example0_tv02"
                 android:layout_marginTop="15dp"
+                android:onClick="ElasticLayout"
                 app:layout_round="20"
                 app:layout_scale="0.9"
                 app:layout_backgroundColor="#30354b">
@@ -240,6 +249,7 @@
                 android:layout_height="50dp"
                 android:layout_below="@+id/makealram_tv02"
                 android:layout_marginTop="15dp"
+                android:onClick="ElasticLayout"
                 app:layout_round="20"
                 app:layout_scale="0.9"
                 app:layout_backgroundColor="#30354b">
@@ -307,6 +317,7 @@
                 android:layout_alignParentEnd="true"
                 android:src="@drawable/ic_question"
                 android:tint="#3d95c9"
+                android:onClick="ElasticImageViews"
                 app:imageview_scale="0.7"/>
 
             <com.skydoves.elasticviews.ElasticLayout
@@ -315,6 +326,7 @@
                 android:layout_height="50dp"
                 android:layout_below="@+id/example0_ibtn_q_timeset02"
                 android:layout_marginTop="15dp"
+                android:onClick="ElasticLayout"
                 app:layout_round="20"
                 app:layout_scale="0.9"
                 app:layout_backgroundColor="#30354b">
@@ -365,6 +377,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginLeft="64dp"
                 android:layout_marginRight="64dp"
+                android:onClick="addNewAlarm"
                 app:button_backgroundColor="#3d95c9"
                 app:button_round="0"
                 app:button_labelText="Add new alarm"

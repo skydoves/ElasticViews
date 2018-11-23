@@ -39,6 +39,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_margin="10dp"
+        android:onClick="Views"
         app:button_backgroundColor="#30354b"
         app:button_labelText="Elastic Button"
         app:button_labelSize="16"
@@ -50,6 +51,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_margin="10dp"
+        android:onClick="Views"
         app:checkbutton_backgroundColor="#30354b"
         app:checkbutton_duration="400"
         app:checkbutton_labelColor="#ffffff"
@@ -65,6 +67,7 @@
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:layout_margin="10dp"
+        android:onClick="Views"
         app:layout_backgroundColor="#30354b"
         app:layout_round="30"
         app:layout_duration="500"
@@ -104,7 +107,8 @@
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:layout_margin="10dp"
-        android:background="#30354b">
+        android:background="#30354b"
+        android:onClick="Views">
 
         <TextView
             android:id="@+id/example2_tv2"
@@ -144,6 +148,7 @@
             android:layout_alignParentStart="true"
             android:src="@drawable/ic_question"
             android:tint="#3d95c9"
+            android:onClick="Views"
             app:imageview_scale="0.7"/>
 
         <TextView
@@ -154,7 +159,8 @@
             android:text="TextView"
             android:textColor="#ffffff"
             android:textStyle="bold"
-            android:textSize="25dp"/>
+            android:textSize="25dp"
+            android:onClick="Views"/>
 
         <com.skydoves.elasticviews.ElasticFloatingActionButton
             android:id="@+id/example2_fab"
@@ -165,6 +171,7 @@
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:layout_marginLeft="16dp"
+            android:onClick="Views"
             app:fabSize="normal"
             app:fabutton_duration="400"
             app:fabutton_scale="0.85"/>
