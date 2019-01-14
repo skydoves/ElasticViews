@@ -1,4 +1,3 @@
-
 /*
  * The MIT License (MIT)
  *
@@ -22,7 +21,6 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-
 package com.skydoves.elasticviews
 
 import android.content.Context
@@ -37,6 +35,7 @@ import android.view.MotionEvent
 import android.view.View
 import android.widget.Button
 
+@Suppress("unused")
 class ElasticButton : AppCompatButton {
 
     private lateinit var view: Button
@@ -107,7 +106,7 @@ class ElasticButton : AppCompatButton {
 
         labelStyle = typedArray.getInt(R.styleable.ElasticButton_button_labelStyle, labelStyle)
 
-        when(labelStyle) {
+        when (labelStyle) {
             0 -> view.setTypeface(null, Typeface.NORMAL)
             1 -> view.setTypeface(null, Typeface.BOLD)
             2 -> view.setTypeface(null, Typeface.ITALIC)
@@ -116,7 +115,7 @@ class ElasticButton : AppCompatButton {
 
     override fun dispatchTouchEvent(event: MotionEvent): Boolean {
         if (event.action == MotionEvent.ACTION_UP) {
-            if(listener != null || onFinishListener != null) {
+            if (listener != null || onFinishListener != null) {
                 if (view.scaleX == 1f) {
                     ElasticAnimation(this).setDuration(duration).setScaleX(scale).setScaleY(scale).setOnFinishListener(object : ElasticFinishListener {
                         override fun onFinished() {

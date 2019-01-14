@@ -1,4 +1,3 @@
-
 /*
  * The MIT License (MIT)
  *
@@ -22,7 +21,6 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-
 package com.skydoves.elasticviews
 
 import android.content.Context
@@ -32,6 +30,7 @@ import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
 
+@Suppress("unused")
 class ElasticFloatingActionButton : com.google.android.material.floatingactionbutton.FloatingActionButton {
 
     private lateinit var view: com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -77,7 +76,7 @@ class ElasticFloatingActionButton : com.google.android.material.floatingactionbu
 
     override fun dispatchTouchEvent(event: MotionEvent): Boolean {
         if (event.action == MotionEvent.ACTION_UP) {
-            if(listener != null || onFinishListener != null) {
+            if (listener != null || onFinishListener != null) {
                 if (view.scaleX == 1f) {
                     ElasticAnimation(this).setDuration(duration).setScaleX(scale).setScaleY(scale).setOnFinishListener(object : ElasticFinishListener {
                         override fun onFinished() {

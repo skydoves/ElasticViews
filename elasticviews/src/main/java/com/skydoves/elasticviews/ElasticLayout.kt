@@ -1,4 +1,3 @@
-
 /*
  * The MIT License (MIT)
  *
@@ -22,7 +21,6 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-
 package com.skydoves.elasticviews
 
 import android.content.Context
@@ -34,8 +32,8 @@ import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
 import android.widget.FrameLayout
-import android.widget.RelativeLayout
 
+@Suppress("unused")
 class ElasticLayout : FrameLayout {
 
     private lateinit var view: View
@@ -95,7 +93,7 @@ class ElasticLayout : FrameLayout {
 
     override fun dispatchTouchEvent(event: MotionEvent): Boolean {
         if (event.action == MotionEvent.ACTION_UP) {
-            if(listener != null || onFinishListener != null) {
+            if (listener != null || onFinishListener != null) {
                 if (view.scaleX == 1f) {
                     ElasticAnimation(this).setDuration(duration).setScaleX(scale).setScaleY(scale).setOnFinishListener(object : ElasticFinishListener {
                         override fun onFinished() {

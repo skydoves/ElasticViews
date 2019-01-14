@@ -1,4 +1,3 @@
-
 /*
  * The MIT License (MIT)
  *
@@ -22,7 +21,6 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-
 package com.skydoves.elasticviews
 
 import androidx.core.view.ViewCompat
@@ -31,10 +29,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.CycleInterpolator
 
+@Suppress("unused")
 fun View.elasticAnimation(scaleX: Float, scaleY: Float, duration: Int, listener: ElasticFinishListener): ElasticAnimation {
     return ElasticAnimation(this).setScaleX(scaleX).setScaleY(scaleY).setDuration(duration).setOnFinishListener(listener)
 }
 
+@Suppress("unused")
 class ElasticAnimation(private val view: View) {
 
     private var scaleX = 0.7f
@@ -57,16 +57,12 @@ class ElasticAnimation(private val view: View) {
                 override fun onAnimationEnd(view: View?) {
                     it.onFinished()
                 }
-
-                override fun onAnimationCancel(view: View?) {
-                }
-
-                override fun onAnimationStart(view: View?) {
-                }
+                override fun onAnimationCancel(view: View?) = Unit
+                override fun onAnimationStart(view: View?) = Unit
             })
         }
 
-        if(view is ViewGroup) {
+        if (view is ViewGroup) {
             for (index in 0 until view.childCount) {
                 val nextChild = view.getChildAt(index)
                 ViewCompat.animate(nextChild).setDuration(duration.toLong()).scaleX(scaleX).scaleY(scaleY).setInterpolator(CycleInterpolator(0.5f)).withLayer().start()

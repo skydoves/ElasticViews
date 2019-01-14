@@ -1,4 +1,3 @@
-
 /*
  * The MIT License (MIT)
  *
@@ -22,7 +21,6 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-
 package com.skydoves.elasticviews
 
 import android.content.Context
@@ -37,6 +35,7 @@ import android.view.MotionEvent
 import android.view.View
 import android.widget.Button
 
+@Suppress("unused")
 class ElasticCheckButton : AppCompatButton {
 
     private lateinit var view: Button
@@ -73,7 +72,7 @@ class ElasticCheckButton : AppCompatButton {
 
     private fun onCreate() {
         view = this
-        view.setAllCaps(false)
+        view.isAllCaps = false
         view.setBackgroundResource(R.drawable.rectangle_checkbutton)
     }
 
@@ -111,7 +110,7 @@ class ElasticCheckButton : AppCompatButton {
 
         labelStyle = typedArray.getInt(R.styleable.ElasticCheckButton_checkbutton_labelStyle, labelStyle)
 
-        when(labelStyle) {
+        when (labelStyle) {
             0 -> view.setTypeface(null, Typeface.NORMAL)
             1 -> view.setTypeface(null, Typeface.BOLD)
             2 -> view.setTypeface(null, Typeface.ITALIC)
@@ -125,7 +124,7 @@ class ElasticCheckButton : AppCompatButton {
 
     override fun dispatchTouchEvent(event: MotionEvent): Boolean {
         if (event.action == MotionEvent.ACTION_UP) {
-            if(listener != null || onFinishListener != null) {
+            if (listener != null || onFinishListener != null) {
                 if (view.scaleX == 1f) {
                     ElasticAnimation(this).setDuration(duration).setScaleX(scale).setScaleY(scale).setOnFinishListener(object : ElasticFinishListener {
                         override fun onFinished() {
@@ -148,7 +147,7 @@ class ElasticCheckButton : AppCompatButton {
     }
 
     private fun onClick() {
-        when(isChecked) {
+        when (isChecked) {
             true -> view.alpha = checkedAlpha
             false -> view.alpha = 1.0f
         }
