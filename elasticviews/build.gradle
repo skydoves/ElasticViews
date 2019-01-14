@@ -1,17 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-apply plugin: 'com.novoda.bintray-release'
-
-publish {
-    userOrg = 'devmagician'
-    groupId = 'com.github.skydoves'
-    artifactId = 'elasticviews'
-    publishVersion = '2.0.2'
-    desc = 'This is ElasticViews by skydoves'
-    website = 'https://github.com/skydoves/ElasticViews'
-    issueTracker = "${website}/issues"
-    repository = "${website}.git"
-}
+apply from: '../publish.gradle'
 
 android {
     compileSdkVersion 28
@@ -25,8 +14,8 @@ android {
 }
 
 dependencies {
-    implementation 'androidx.core:core:1.0.1'
-    implementation 'com.google.android.material:material:1.1.0-alpha01'
+    implementation "androidx.core:core:1.0.1"
+    implementation "com.google.android.material:material:1.1.0-alpha02"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
 
@@ -34,3 +23,5 @@ tasks.withType(Javadoc) {
     excludes = ['**/*.kt']
     options.addBooleanOption('Xdoclint:none', true)
 }
+
+apply from: '../spotless.gradle'
