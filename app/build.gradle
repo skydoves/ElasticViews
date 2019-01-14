@@ -21,7 +21,8 @@ android {
 
 dependencies {
     implementation "androidx.appcompat:appcompat:1.0.2"
-    implementation 'com.google.android.material:material:1.1.0-alpha01'
-
+    implementation "com.google.android.material:material:1.1.0-alpha02"
     implementation project(":elasticviews")
 }
+
+apply from: '../spotless.gradle'
