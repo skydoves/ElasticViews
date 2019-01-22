@@ -37,7 +37,7 @@ fun View.elasticAnimation(scaleX: Float, scaleY: Float, duration: Int, listener:
 
 /** for create ElasticAnimation by kotlin dsl. */
 @Suppress("unused")
-fun elasticAnimation(view: View, block: ElasticAnimation.() -> Unit):ElasticAnimation =
+fun elasticAnimation(view: View, block: ElasticAnimation.() -> Unit): ElasticAnimation =
         ElasticAnimation(view).apply(block)
 
 /** ElasticAnimation implements elastic animations for android views or view groups. */

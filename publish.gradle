@@ -3,7 +3,7 @@ publish {
     userOrg = 'devmagician'
     groupId = 'com.github.skydoves'
     artifactId = 'elasticviews'
-    publishVersion = '2.0.2'
+    publishVersion = '2.0.3'
     desc = 'This is ElasticViews by skydoves'
     website = 'https://github.com/skydoves/ElasticViews'
     issueTracker = "${website}/issues"
