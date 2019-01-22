@@ -26,12 +26,12 @@ package com.skydoves.elasticviews
 import android.content.Context
 import android.content.res.TypedArray
 import android.graphics.drawable.GradientDrawable
-import androidx.core.content.ContextCompat
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
 import android.widget.FrameLayout
+import androidx.core.content.ContextCompat
 
 @Suppress("unused")
 class ElasticLayout : FrameLayout {
@@ -95,11 +95,16 @@ class ElasticLayout : FrameLayout {
         if (event.action == MotionEvent.ACTION_UP) {
             if (listener != null || onFinishListener != null) {
                 if (view.scaleX == 1f) {
-                    ElasticAnimation(this).setDuration(duration).setScaleX(scale).setScaleY(scale).setOnFinishListener(object : ElasticFinishListener {
-                        override fun onFinished() {
-                            onClick()
-                        }
-                    }).doAction()
+                    elasticAnimation(this) {
+                        setDuration(duration)
+                        setScaleX(scale)
+                        setScaleY(scale)
+                        setOnFinishListener(object : ElasticFinishListener {
+                            override fun onFinished() {
+                                onClick()
+                            }
+                        })
+                    }.doAction()
                 }
             }
         }

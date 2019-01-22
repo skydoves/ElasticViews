@@ -28,12 +28,12 @@ import android.content.res.TypedArray
 import android.graphics.Color
 import android.graphics.Typeface
 import android.graphics.drawable.GradientDrawable
-import androidx.core.content.ContextCompat
-import androidx.appcompat.widget.AppCompatButton
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
 import android.widget.Button
+import androidx.appcompat.widget.AppCompatButton
+import androidx.core.content.ContextCompat
 
 @Suppress("unused")
 class ElasticCheckButton : AppCompatButton {
@@ -126,12 +126,17 @@ class ElasticCheckButton : AppCompatButton {
         if (event.action == MotionEvent.ACTION_UP) {
             if (listener != null || onFinishListener != null) {
                 if (view.scaleX == 1f) {
-                    ElasticAnimation(this).setDuration(duration).setScaleX(scale).setScaleY(scale).setOnFinishListener(object : ElasticFinishListener {
-                        override fun onFinished() {
-                            isChecked = !isChecked
-                            onClick()
-                        }
-                    }).doAction()
+                    elasticAnimation(this) {
+                        setDuration(duration)
+                        setScaleX(scale)
+                        setScaleY(scale)
+                        setOnFinishListener(object : ElasticFinishListener {
+                            override fun onFinished() {
+                                isChecked = !isChecked
+                                onClick()
+                            }
+                        })
+                    }.doAction()
                 }
             }
         }

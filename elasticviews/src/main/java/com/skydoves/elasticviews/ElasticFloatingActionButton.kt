@@ -78,11 +78,16 @@ class ElasticFloatingActionButton : com.google.android.material.floatingactionbu
         if (event.action == MotionEvent.ACTION_UP) {
             if (listener != null || onFinishListener != null) {
                 if (view.scaleX == 1f) {
-                    ElasticAnimation(this).setDuration(duration).setScaleX(scale).setScaleY(scale).setOnFinishListener(object : ElasticFinishListener {
-                        override fun onFinished() {
-                            onClick()
-                        }
-                    }).doAction()
+                    elasticAnimation(this) {
+                        setDuration(duration)
+                        setScaleX(scale)
+                        setScaleY(scale)
+                        setOnFinishListener(object : ElasticFinishListener {
+                            override fun onFinished() {
+                                onClick()
+                            }
+                        })
+                    }.doAction()
                 }
             }
         }
