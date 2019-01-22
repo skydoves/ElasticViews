@@ -23,25 +23,32 @@
  */
 package com.skydoves.elasticviews
 
-import androidx.core.view.ViewCompat
-import androidx.core.view.ViewPropertyAnimatorListener
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.CycleInterpolator
+import androidx.core.view.ViewCompat
+import androidx.core.view.ViewPropertyAnimatorListener
 
+/** ElasticAnimation extension for views. */
 @Suppress("unused")
 fun View.elasticAnimation(scaleX: Float, scaleY: Float, duration: Int, listener: ElasticFinishListener): ElasticAnimation {
     return ElasticAnimation(this).setScaleX(scaleX).setScaleY(scaleY).setDuration(duration).setOnFinishListener(listener)
 }
 
+/** for create ElasticAnimation by kotlin dsl. */
+@Suppress("unused")
+fun elasticAnimation(view: View, block: ElasticAnimation.() -> Unit):ElasticAnimation =
+        ElasticAnimation(view).apply(block)
+
+/** ElasticAnimation implements elastic animations for android views or view groups. */
 @Suppress("unused")
 class ElasticAnimation(private val view: View) {
 
-    private var scaleX = 0.7f
-    private var scaleY = 0.7f
-    private var duration = 400
-    private var listener: ViewPropertyAnimatorListener? = null
-    private var finishListener: ElasticFinishListener? = null
+    @JvmField var scaleX = 0.7f
+    @JvmField var scaleY = 0.7f
+    @JvmField var duration = 400
+    @JvmField var listener: ViewPropertyAnimatorListener? = null
+    @JvmField var finishListener: ElasticFinishListener? = null
 
     fun setScaleX(scaleX: Float): ElasticAnimation = apply { this.scaleX = scaleX }
     fun setScaleY(scaleY: Float): ElasticAnimation = apply { this.scaleY = scaleY }
@@ -49,8 +56,13 @@ class ElasticAnimation(private val view: View) {
     fun setListener(listener: ViewPropertyAnimatorListener): ElasticAnimation = apply { this.listener = listener }
     fun setOnFinishListener(finishListener: ElasticFinishListener): ElasticAnimation = apply { this.finishListener = finishListener }
 
+    /** starts elastic animation. */
     fun doAction() {
-        val animatorCompat = ViewCompat.animate(view).setDuration(duration.toLong()).scaleX(scaleX).scaleY(scaleY).setInterpolator(CycleInterpolator(0.5f))
+        val animatorCompat = ViewCompat.animate(view)
+                .setDuration(duration.toLong())
+                .scaleX(scaleX)
+                .scaleY(scaleY)
+                .setInterpolator(CycleInterpolator(0.5f))
         listener?.let { animatorCompat.setListener(it) }
         finishListener?.let {
             animatorCompat.setListener(object : ViewPropertyAnimatorListener {
