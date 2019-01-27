@@ -10,6 +10,8 @@ An easy way to implement elastic touch effect for Android.
 ![gif1](https://user-images.githubusercontent.com/24237865/48674498-53e2f180-eb90-11e8-8313-aa94b34a40d2.gif)
 
 ## Including in your project
+[![Download](https://api.bintray.com/packages/devmagician/maven/elasticviews/images/download.svg)](https://bintray.com/devmagician/maven/elasticviews/_latestVersion)
+[![](https://jitpack.io/v/skydoves/ElasticViews.svg)](https://jitpack.io/#skydoves/ElasticViews)
 #### build.gradle
 Add below codes to your root `build.gradle` file (not your module build.gradle file).
 ```gradle
