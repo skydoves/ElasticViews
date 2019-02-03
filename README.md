@@ -241,6 +241,10 @@ private class ListViewItemClickListener implements AdapterView.OnItemClickListen
 #### ElasticAnimation Preview
 ![gif2](https://cloud.githubusercontent.com/assets/24237865/22189011/14bc94aa-e15d-11e6-9078-2dfc9d97ef87.gif)
 
+## Supports
+If you feel like support me a coffee for my efforts, I would greatly appreciate it. <br><br>
+<a href="https://www.buymeacoffee.com/skydoves" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/purple_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
+
 # License
 ```xml
 The MIT License (MIT)
