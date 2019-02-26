@@ -25,7 +25,6 @@ package com.skydoves.elasticviews
 
 import android.content.Context
 import android.content.res.TypedArray
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
@@ -33,77 +32,77 @@ import android.view.View
 @Suppress("unused")
 class ElasticFloatingActionButton : com.google.android.material.floatingactionbutton.FloatingActionButton {
 
-    private lateinit var view: com.google.android.material.floatingactionbutton.FloatingActionButton
-    private var listener: View.OnClickListener? = null
-    private var onFinishListener: ElasticFinishListener? = null
+  private lateinit var view: com.google.android.material.floatingactionbutton.FloatingActionButton
+  private var listener: View.OnClickListener? = null
+  private var onFinishListener: ElasticFinishListener? = null
 
-    private var scale = 0.9f
-    private var duration = 500
+  private var scale = 0.9f
+  private var duration = 500
 
-    constructor(context: Context) : super(context) {
-        onCreate()
-    }
+  constructor(context: Context) : super(context) {
+    onCreate()
+  }
 
-    constructor(context: Context, attributeSet: AttributeSet) : super(context, attributeSet) {
-        onCreate()
-        getAttrs(attributeSet)
-    }
+  constructor(context: Context, attributeSet: AttributeSet) : super(context, attributeSet) {
+    onCreate()
+    getAttrs(attributeSet)
+  }
 
-    constructor(context: Context, attributeSet: AttributeSet, defStyle: Int) : super(context, attributeSet, defStyle) {
-        onCreate()
-        getAttrs(attributeSet, defStyle)
-    }
+  constructor(context: Context, attributeSet: AttributeSet, defStyle: Int) : super(context, attributeSet, defStyle) {
+    onCreate()
+    getAttrs(attributeSet, defStyle)
+  }
 
-    private fun onCreate() {
-        view = this
-        view.isClickable = true
-    }
+  private fun onCreate() {
+    view = this
+    view.isClickable = true
+  }
 
-    private fun getAttrs(attrs: AttributeSet) {
-        val typedArray = context.obtainStyledAttributes(attrs, R.styleable.ElasticFloatingActionButton)
-        setTypeArray(typedArray)
-    }
+  private fun getAttrs(attrs: AttributeSet) {
+    val typedArray = context.obtainStyledAttributes(attrs, R.styleable.ElasticFloatingActionButton)
+    setTypeArray(typedArray)
+  }
 
-    private fun getAttrs(attrs: AttributeSet, defStyle: Int) {
-        val typedArray = context.obtainStyledAttributes(attrs, R.styleable.ElasticFloatingActionButton, defStyle, 0)
-        setTypeArray(typedArray)
-    }
+  private fun getAttrs(attrs: AttributeSet, defStyle: Int) {
+    val typedArray = context.obtainStyledAttributes(attrs, R.styleable.ElasticFloatingActionButton, defStyle, 0)
+    setTypeArray(typedArray)
+  }
 
-    private fun setTypeArray(typedArray: TypedArray) {
-        scale = typedArray.getFloat(R.styleable.ElasticFloatingActionButton_fabutton_scale, scale)
-        duration = typedArray.getInt(R.styleable.ElasticFloatingActionButton_fabutton_duration, duration)
-    }
+  private fun setTypeArray(typedArray: TypedArray) {
+    scale = typedArray.getFloat(R.styleable.ElasticFloatingActionButton_fabutton_scale, scale)
+    duration = typedArray.getInt(R.styleable.ElasticFloatingActionButton_fabutton_duration, duration)
+  }
 
-    override fun dispatchTouchEvent(event: MotionEvent): Boolean {
-        if (event.action == MotionEvent.ACTION_UP) {
-            if (listener != null || onFinishListener != null) {
-                if (view.scaleX == 1f) {
-                    elasticAnimation(this) {
-                        setDuration(duration)
-                        setScaleX(scale)
-                        setScaleY(scale)
-                        setOnFinishListener(object : ElasticFinishListener {
-                            override fun onFinished() {
-                                onClick()
-                            }
-                        })
-                    }.doAction()
-                }
-            }
+  override fun dispatchTouchEvent(event: MotionEvent): Boolean {
+    if (event.action == MotionEvent.ACTION_UP) {
+      if (listener != null || onFinishListener != null) {
+        if (view.scaleX == 1f) {
+          elasticAnimation(this) {
+            setDuration(duration)
+            setScaleX(scale)
+            setScaleY(scale)
+            setOnFinishListener(object : ElasticFinishListener {
+              override fun onFinished() {
+                onClick()
+              }
+            })
+          }.doAction()
         }
-        return super.dispatchTouchEvent(event)
+      }
     }
+    return super.dispatchTouchEvent(event)
+  }
 
-    override fun setOnClickListener(listener: View.OnClickListener?) {
-        this.listener = listener
-    }
+  override fun setOnClickListener(listener: View.OnClickListener?) {
+    this.listener = listener
+  }
 
-    fun setOnFinishListener(listener: ElasticFinishListener) {
-        this.onFinishListener = listener
-    }
+  fun setOnFinishListener(listener: ElasticFinishListener) {
+    this.onFinishListener = listener
+  }
 
-    private fun onClick() {
-        listener?.let { it.onClick(this) }
-        onFinishListener?.let { it.onFinished() }
-    }
+  private fun onClick() {
+    listener?.let { it.onClick(this) }
+    onFinishListener?.let { it.onFinished() }
+  }
 }

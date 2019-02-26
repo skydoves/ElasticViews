@@ -36,91 +36,91 @@ import androidx.core.content.ContextCompat
 @Suppress("unused")
 class ElasticLayout : FrameLayout {
 
-    private lateinit var view: View
-    private var listener: View.OnClickListener? = null
-    private var onFinishListener: ElasticFinishListener? = null
+  private lateinit var view: View
+  private var listener: View.OnClickListener? = null
+  private var onFinishListener: ElasticFinishListener? = null
 
-    private var round = 3
-    private var scale = 0.9f
-    private var color = ContextCompat.getColor(context, R.color.colorPrimary)
-    private var duration = 500
+  private var round = 3
+  private var scale = 0.9f
+  private var color = ContextCompat.getColor(context, R.color.colorPrimary)
+  private var duration = 500
 
-    constructor(context: Context) : super(context) {
-        onCreate()
-    }
+  constructor(context: Context) : super(context) {
+    onCreate()
+  }
 
-    constructor(context: Context, attributeSet: AttributeSet) : super(context, attributeSet) {
-        onCreate()
-        getAttrs(attributeSet)
-    }
+  constructor(context: Context, attributeSet: AttributeSet) : super(context, attributeSet) {
+    onCreate()
+    getAttrs(attributeSet)
+  }
 
-    constructor(context: Context, attributeSet: AttributeSet, defStyle: Int) : super(context, attributeSet, defStyle) {
-        onCreate()
-        getAttrs(attributeSet, defStyle)
-    }
+  constructor(context: Context, attributeSet: AttributeSet, defStyle: Int) : super(context, attributeSet, defStyle) {
+    onCreate()
+    getAttrs(attributeSet, defStyle)
+  }
 
-    private fun onCreate() {
-        val inflaterService = Context.LAYOUT_INFLATER_SERVICE
-        val layoutInflater = context.getSystemService(inflaterService) as LayoutInflater
-        view = layoutInflater.inflate(R.layout.elasticlayout, this, false)
-        addView(view)
-        view.isClickable = true
-    }
+  private fun onCreate() {
+    val inflaterService = Context.LAYOUT_INFLATER_SERVICE
+    val layoutInflater = context.getSystemService(inflaterService) as LayoutInflater
+    view = layoutInflater.inflate(R.layout.elasticlayout, this, false)
+    addView(view)
+    view.isClickable = true
+  }
 
-    private fun getAttrs(attrs: AttributeSet) {
-        val typedArray = context.obtainStyledAttributes(attrs, R.styleable.ElasticLayout)
-        setTypeArray(typedArray)
-    }
+  private fun getAttrs(attrs: AttributeSet) {
+    val typedArray = context.obtainStyledAttributes(attrs, R.styleable.ElasticLayout)
+    setTypeArray(typedArray)
+  }
 
-    private fun getAttrs(attrs: AttributeSet, defStyle: Int) {
-        val typedArray = context.obtainStyledAttributes(attrs, R.styleable.ElasticLayout, defStyle, 0)
-        setTypeArray(typedArray)
-    }
+  private fun getAttrs(attrs: AttributeSet, defStyle: Int) {
+    val typedArray = context.obtainStyledAttributes(attrs, R.styleable.ElasticLayout, defStyle, 0)
+    setTypeArray(typedArray)
+  }
 
-    private fun setTypeArray(typedArray: TypedArray) {
-        val bgShape = view.background as GradientDrawable
+  private fun setTypeArray(typedArray: TypedArray) {
+    val bgShape = view.background as GradientDrawable
 
-        round = typedArray.getInt(R.styleable.ElasticLayout_layout_round, round)
-        bgShape.cornerRadius = round.toFloat()
+    round = typedArray.getInt(R.styleable.ElasticLayout_layout_round, round)
+    bgShape.cornerRadius = round.toFloat()
 
-        color = typedArray.getInt(R.styleable.ElasticLayout_layout_backgroundColor, color)
-        bgShape.setColor(color)
+    color = typedArray.getInt(R.styleable.ElasticLayout_layout_backgroundColor, color)
+    bgShape.setColor(color)
 
-        scale = typedArray.getFloat(R.styleable.ElasticLayout_layout_scale, scale)
+    scale = typedArray.getFloat(R.styleable.ElasticLayout_layout_scale, scale)
 
-        duration = typedArray.getInt(R.styleable.ElasticLayout_layout_duration, duration)
-    }
+    duration = typedArray.getInt(R.styleable.ElasticLayout_layout_duration, duration)
+  }
 
-    override fun dispatchTouchEvent(event: MotionEvent): Boolean {
-        if (event.action == MotionEvent.ACTION_UP) {
-            if (listener != null || onFinishListener != null) {
-                if (view.scaleX == 1f) {
-                    elasticAnimation(this) {
-                        setDuration(duration)
-                        setScaleX(scale)
-                        setScaleY(scale)
-                        setOnFinishListener(object : ElasticFinishListener {
-                            override fun onFinished() {
-                                onClick()
-                            }
-                        })
-                    }.doAction()
-                }
-            }
+  override fun dispatchTouchEvent(event: MotionEvent): Boolean {
+    if (event.action == MotionEvent.ACTION_UP) {
+      if (listener != null || onFinishListener != null) {
+        if (view.scaleX == 1f) {
+          elasticAnimation(this) {
+            setDuration(duration)
+            setScaleX(scale)
+            setScaleY(scale)
+            setOnFinishListener(object : ElasticFinishListener {
+              override fun onFinished() {
+                onClick()
+              }
+            })
+          }.doAction()
         }
-        return super.dispatchTouchEvent(event)
+      }
     }
+    return super.dispatchTouchEvent(event)
+  }
 
-    override fun setOnClickListener(listener: View.OnClickListener?) {
-        this.listener = listener
-    }
+  override fun setOnClickListener(listener: View.OnClickListener?) {
+    this.listener = listener
+  }
 
-    fun setOnFinishListener(listener: ElasticFinishListener) {
-        this.onFinishListener = listener
-    }
+  fun setOnFinishListener(listener: ElasticFinishListener) {
+    this.onFinishListener = listener
+  }
 
-    private fun onClick() {
-        listener?.let { it.onClick(this) }
-        onFinishListener?.let { it.onFinished() }
-    }
+  private fun onClick() {
+    listener?.let { it.onClick(this) }
+    onFinishListener?.let { it.onFinished() }
+  }
 }

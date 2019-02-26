@@ -25,6 +25,6 @@ package com.skydoves.elasticviews
 
 /** ElasticFinishListener is for listening elastic animation terminated status. */
 interface ElasticFinishListener {
-    /** invoked when the elastic animation is terminated. */
-    fun onFinished()
+  /** invoked when the elastic animation is terminated. */
+  fun onFinished()
 }
