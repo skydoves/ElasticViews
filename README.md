@@ -12,6 +12,7 @@ An easy way to implement elastic touch effect for Android.
 ## Including in your project
 [![Download](https://api.bintray.com/packages/devmagician/maven/elasticviews/images/download.svg)](https://bintray.com/devmagician/maven/elasticviews/_latestVersion)
 [![](https://jitpack.io/v/skydoves/ElasticViews.svg)](https://jitpack.io/#skydoves/ElasticViews)
+
 #### build.gradle
 Add below codes to your root `build.gradle` file (not your module build.gradle file).
 ```gradle
@@ -241,7 +242,10 @@ private class ListViewItemClickListener implements AdapterView.OnItemClickListen
 #### ElasticAnimation Preview
 ![gif2](https://cloud.githubusercontent.com/assets/24237865/22189011/14bc94aa-e15d-11e6-9078-2dfc9d97ef87.gif)
 
-## Supports
+## Find this library useful? :heart:
+Support it by joining __[stargazers](https://github.com/skydoves/ElasticViews/stargazers)__ for this repository. :star:
+
+## Supports :coffee:
 If you feel like support me a coffee for my efforts, I would greatly appreciate it. <br><br>
 <a href="https://www.buymeacoffee.com/skydoves" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/purple_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
 
