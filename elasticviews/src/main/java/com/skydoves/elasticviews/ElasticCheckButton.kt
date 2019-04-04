@@ -156,7 +156,7 @@ class ElasticCheckButton : AppCompatButton {
       true -> view.alpha = checkedAlpha
       false -> view.alpha = 1.0f
     }
-    listener?.let { it.onClick(this) }
-    onFinishListener?.let { it.onFinished() }
+    listener?.onClick(this)
+    onFinishListener?.onFinished()
   }
 }

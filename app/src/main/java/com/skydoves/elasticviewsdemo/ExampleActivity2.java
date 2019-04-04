@@ -26,12 +26,10 @@ package com.skydoves.elasticviewsdemo;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
-
+import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.snackbar.Snackbar;
 import com.skydoves.elasticviews.ElasticAnimation;
 import com.skydoves.elasticviews.ElasticFinishListener;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 public class ExampleActivity2 extends AppCompatActivity {
 

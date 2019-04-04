@@ -104,7 +104,7 @@ class ElasticImageView : AppCompatImageView {
   }
 
   private fun onClick() {
-    listener?.let { it.onClick(this) }
-    onFinishListener?.let { it.onFinished() }
+    listener?.onClick(this)
+    onFinishListener?.onFinished()
   }
 }

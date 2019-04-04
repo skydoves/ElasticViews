@@ -23,6 +23,7 @@
  */
 package com.skydoves.elasticviewsdemo;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -33,15 +34,18 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-import androidx.appcompat.app.AppCompatActivity;
+
 import com.skydoves.elasticviews.ElasticAnimation;
 import com.skydoves.elasticviews.ElasticFinishListener;
+
 import java.util.ArrayList;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class ExampleActivity1 extends AppCompatActivity {
 
-  private ArrayList<Listviewitem> data = new ArrayList<>();
-  private ListviewAdapter adapter;
+  private ArrayList<ListViewItem> data = new ArrayList<>();
+  private ListViewAdapter adapter;
   private ListView listView;
 
   @Override
@@ -49,14 +53,14 @@ public class ExampleActivity1 extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_example1);
 
-    adapter = new ListviewAdapter(this, R.layout.item, data);
+    adapter = new ListViewAdapter(this, R.layout.item, data);
     listView = findViewById(R.id.example1_listview);
     listView.setAdapter(adapter);
     listView.setOnItemClickListener(new ListViewItemClickListener());
   }
 
   public void ElasticFloatingButtons(View v) {
-    Listviewitem listviewitem = new Listviewitem(data.size() + "");
+    ListViewItem listviewitem = new ListViewItem(data.size() + "");
     data.add(listviewitem);
     adapter.notifyDataSetChanged();
     listView.setSelection(data.size() - 1);
@@ -82,10 +86,10 @@ public class ExampleActivity1 extends AppCompatActivity {
     }
   }
 
-  private class Listviewitem {
+  private class ListViewItem {
     private String content;
 
-    public Listviewitem(String content) {
+    public ListViewItem(String content) {
       this.content = content;
     }
 
@@ -94,12 +98,12 @@ public class ExampleActivity1 extends AppCompatActivity {
     }
   }
 
-  private class ListviewAdapter extends BaseAdapter {
+  private class ListViewAdapter extends BaseAdapter {
     private LayoutInflater inflater;
-    private ArrayList<Listviewitem> data;
+    private ArrayList<ListViewItem> data;
     private int layout;
 
-    public ListviewAdapter(Context context, int layout, ArrayList<Listviewitem> data) {
+    public ListViewAdapter(Context context, int layout, ArrayList<ListViewItem> data) {
       this.inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
       this.data = data;
       this.layout = layout;
@@ -120,11 +124,12 @@ public class ExampleActivity1 extends AppCompatActivity {
       return position;
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
 
       if (convertView == null) convertView = inflater.inflate(layout, parent, false);
-      Listviewitem listviewitem = data.get(position);
+      ListViewItem listviewitem = data.get(position);
 
       TextView tv_title = convertView.findViewById(R.id.item_tv_title);
       tv_title.setText("ListViewItem" + listviewitem.getContent());

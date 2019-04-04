@@ -28,9 +28,10 @@ import android.content.res.TypedArray
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 @Suppress("unused")
-class ElasticFloatingActionButton : com.google.android.material.floatingactionbutton.FloatingActionButton {
+class ElasticFloatingActionButton : FloatingActionButton {
 
   private lateinit var view: com.google.android.material.floatingactionbutton.FloatingActionButton
   private var listener: View.OnClickListener? = null
@@ -102,7 +103,7 @@ class ElasticFloatingActionButton : com.google.android.material.floatingactionbu
   }
 
   private fun onClick() {
-    listener?.let { it.onClick(this) }
-    onFinishListener?.let { it.onFinished() }
+    listener?.onClick(this)
+    onFinishListener?.onFinished()
   }
 }
