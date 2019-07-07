@@ -61,7 +61,6 @@
     android:textColor="@android:color/white"
     android:textSize="17sp"
     app:button_duration="250"
-    app:button_round="20"
     app:button_scale="0.87" />
 
   <com.skydoves.elasticviews.ElasticButton
@@ -78,7 +77,6 @@
     android:textColor="@android:color/white"
     android:textSize="17sp"
     app:button_duration="250"
-    app:button_round="20"
     app:button_scale="0.87" />
 
   <com.skydoves.elasticviews.ElasticButton
@@ -93,6 +91,5 @@
     android:textColor="@android:color/white"
     android:textSize="17sp"
     app:button_duration="250"
-    app:button_round="20"
     app:button_scale="0.87" />
 </LinearLayout>

@@ -371,7 +371,6 @@
         android:text="Add a new alarm"
         android:textColor="@android:color/white"
         app:button_duration="250"
-        app:button_round="20"
         app:button_scale="0.87" />
     </RelativeLayout>
   </LinearLayout>

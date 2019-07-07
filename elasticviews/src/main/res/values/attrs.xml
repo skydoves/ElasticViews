@@ -1,31 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <declare-styleable name="ElasticButton">
-    <attr name="button_round" format="integer" />
     <attr name="button_scale" format="float" />
     <attr name="button_duration" format="integer" />
   </declare-styleable>
-
   <declare-styleable name="ElasticCheckButton">
     <attr name="checkButton_scale" format="float" />
     <attr name="checkButton_duration" format="integer" />
     <attr name="checkButton_alpha" format="float" />
     <attr name="checkButton_isChecked" format="boolean" />
   </declare-styleable>
-
   <declare-styleable name="ElasticLayout">
     <attr name="layout_scale" format="float" />
     <attr name="layout_duration" format="integer" />
   </declare-styleable>
-
   <declare-styleable name="ElasticImageView">
     <attr name="imageView_scale" format="float" />
     <attr name="imageView_duration" format="integer" />
   </declare-styleable>
-
   <declare-styleable name="ElasticFloatingActionButton">
     <attr name="fabutton_scale" format="float" />
     <attr name="fabutton_duration" format="integer" />
   </declare-styleable>
-
 </resources>
