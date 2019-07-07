@@ -1,23 +1,33 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'org.jetbrains.dokka-android'
 apply from: '../publish.gradle'
+apply from: '../dependencies.gradle'
 
 android {
-    compileSdkVersion 28
-
+    compileSdkVersion versions.compileSdk
     defaultConfig {
-        minSdkVersion 15
-        targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion versions.minSdk
+        targetSdkVersion versions.compileSdk
+        versionCode versions.versionCode
+        versionName versions.versionName
     }
 }
 
 dependencies {
-    implementation "androidx.core:core:$androidxCore_version"
-    implementation "com.google.android.material:material:$material_version"
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "androidx.core:core:$versions.androidxCore"
+    implementation "com.google.android.material:material:$versions.googleMaterial"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin"
 }
+
+dokka {
+    moduleName = 'needs'
+    outputFormat = 'html'
+    //noinspection GroovyAccessibility
+    outputDirectory = "$buildDir/javadoc"
+}
+
 
 tasks.withType(Javadoc) {
     excludes = ['**/*.kt']

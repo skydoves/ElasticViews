@@ -1,9 +1,11 @@
 apply plugin: 'com.novoda.bintray-release'
+apply from: '../dependencies.gradle'
+
 publish {
     userOrg = 'devmagician'
     groupId = 'com.github.skydoves'
     artifactId = 'elasticviews'
-    publishVersion = '2.0.3'
+    publishVersion = versions.versionName
     desc = 'This is ElasticViews by skydoves'
     website = 'https://github.com/skydoves/ElasticViews'
     issueTracker = "${website}/issues"
