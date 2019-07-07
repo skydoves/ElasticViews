@@ -39,38 +39,35 @@
     android:layout_width="match_parent"
     android:layout_height="50dp"
     android:layout_margin="10dp"
+    android:background="@drawable/rectangle_layout"
     android:onClick="Views"
-    app:button_backgroundColor="#30354b"
-    app:button_labelSize="16"
-    app:button_labelStyle="bold"
-    app:button_labelText="Elastic Button"
-    app:button_scale="0.7" />
+    android:text="Elastic Button"
+    android:textColor="@android:color/white"
+    app:button_duration="250"
+    app:button_round="20"
+    app:button_scale="0.87" />
 
   <com.skydoves.elasticviews.ElasticCheckButton
     android:id="@+id/example2_view1"
     android:layout_width="match_parent"
     android:layout_height="50dp"
     android:layout_margin="10dp"
+    android:background="#30354b"
     android:onClick="Views"
-    app:checkbutton_alpha="0.5"
-    app:checkbutton_backgroundColor="#30354b"
-    app:checkbutton_duration="400"
-    app:checkbutton_labelColor="#ffffff"
-    app:checkbutton_labelSize="16"
-    app:checkbutton_labelStyle="bold"
-    app:checkbutton_labelText="Elastic CheckButton"
-    app:checkbutton_round="30"
-    app:checkbutton_scale="0.9" />
+    android:text="Elastic CheckButton"
+    android:textColor="@android:color/white"
+    android:textStyle="bold"
+    app:checkButton_duration="400"
+    app:checkButton_scale="0.9" />
 
   <com.skydoves.elasticviews.ElasticLayout
     android:id="@+id/example2_view2"
     android:layout_width="match_parent"
     android:layout_height="80dp"
     android:layout_margin="10dp"
+    android:background="@drawable/rectangle_layout"
     android:onClick="Views"
-    app:layout_backgroundColor="#30354b"
     app:layout_duration="500"
-    app:layout_round="30"
     app:layout_scale="0.85">
 
     <RelativeLayout
@@ -150,7 +147,7 @@
       android:scaleType="fitXY"
       android:src="@drawable/ic_question"
       android:tint="#3d95c9"
-      app:imageview_scale="0.7" />
+      app:imageView_scale="0.7" />
 
     <TextView
       android:id="@+id/example2_textView0"

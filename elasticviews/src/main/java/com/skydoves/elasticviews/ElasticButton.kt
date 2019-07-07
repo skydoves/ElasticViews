@@ -25,31 +25,17 @@ package com.skydoves.elasticviews
 
 import android.content.Context
 import android.content.res.TypedArray
-import android.graphics.Color
-import android.graphics.Typeface
-import android.graphics.drawable.GradientDrawable
 import android.util.AttributeSet
-import android.view.MotionEvent
-import android.widget.Button
 import androidx.appcompat.widget.AppCompatButton
-import androidx.core.content.ContextCompat
 
 @Suppress("unused")
 class ElasticButton : AppCompatButton {
 
-  private lateinit var view: Button
-  private var listener: OnClickListener? = null
+  var scale = 0.9f
+  var duration = 500
+
+  private var onClickListener: OnClickListener? = null
   private var onFinishListener: ElasticFinishListener? = null
-
-  private var round = 20
-  private var scale = 0.9f
-  private var color = ContextCompat.getColor(context, R.color.colorPrimary)
-  private var duration = 500
-
-  private var labelText: String? = ""
-  private var labelColor = Color.WHITE
-  private var labelSize = 10
-  private var labelStyle = 0
 
   constructor(context: Context) : super(context) {
     onCreate()
@@ -66,82 +52,56 @@ class ElasticButton : AppCompatButton {
   }
 
   private fun onCreate() {
-    view = this
-    view.isAllCaps = false
-    view.setBackgroundResource(R.drawable.rectangle_button)
+    this.isAllCaps = false
+    super.setOnClickListener {
+      if (scaleX == 1f) {
+        elasticAnimation(this) {
+          setDuration(duration)
+          setScaleX(scale)
+          setScaleY(scale)
+          setOnFinishListener(object : ElasticFinishListener {
+            override fun onFinished() {
+              invokeListeners()
+            }
+          })
+        }.doAction()
+      }
+    }
   }
 
   private fun getAttrs(attrs: AttributeSet) {
     val typedArray = context.obtainStyledAttributes(attrs, R.styleable.ElasticButton)
-    setTypeArray(typedArray)
+    try {
+      setTypeArray(typedArray)
+    } finally {
+      typedArray.recycle()
+    }
   }
 
   private fun getAttrs(attrs: AttributeSet, defStyle: Int) {
     val typedArray = context.obtainStyledAttributes(attrs, R.styleable.ElasticButton, defStyle, 0)
-    setTypeArray(typedArray)
+    try {
+      setTypeArray(typedArray)
+    } finally {
+      typedArray.recycle()
+    }
   }
 
   private fun setTypeArray(typedArray: TypedArray) {
-    val bgShape = view.background as GradientDrawable
-
-    round = typedArray.getInt(R.styleable.ElasticButton_button_round, round)
-    bgShape.cornerRadius = round.toFloat()
-
-    color = typedArray.getInt(R.styleable.ElasticButton_button_backgroundColor, color)
-    bgShape.setColor(color)
-
-    scale = typedArray.getFloat(R.styleable.ElasticButton_button_scale, scale)
-
-    duration = typedArray.getInt(R.styleable.ElasticButton_button_duration, duration)
-
-    labelText = typedArray.getString(R.styleable.ElasticButton_button_labelText)
-    view.text = labelText
-
-    labelColor = typedArray.getInt(R.styleable.ElasticButton_button_labelColor, labelColor)
-    view.setTextColor(labelColor)
-
-    labelSize = typedArray.getInt(R.styleable.ElasticButton_button_labelSize, labelSize)
-    view.textSize = labelSize.toFloat()
-
-    labelStyle = typedArray.getInt(R.styleable.ElasticButton_button_labelStyle, labelStyle)
-
-    when (labelStyle) {
-      0 -> view.setTypeface(null, Typeface.NORMAL)
-      1 -> view.setTypeface(null, Typeface.BOLD)
-      2 -> view.setTypeface(null, Typeface.ITALIC)
-    }
-  }
-
-  override fun dispatchTouchEvent(event: MotionEvent): Boolean {
-    if (event.action == MotionEvent.ACTION_UP) {
-      if (listener != null || onFinishListener != null) {
-        if (view.scaleX == 1f) {
-          elasticAnimation(this) {
-            setDuration(duration)
-            setScaleX(scale)
-            setScaleY(scale)
-            setOnFinishListener(object : ElasticFinishListener {
-              override fun onFinished() {
-                onClick()
-              }
-            })
-          }.doAction()
-        }
-      }
-    }
-    return super.dispatchTouchEvent(event)
+    this.scale = typedArray.getFloat(R.styleable.ElasticButton_button_scale, scale)
+    this.duration = typedArray.getInt(R.styleable.ElasticButton_button_duration, duration)
   }
 
   override fun setOnClickListener(listener: OnClickListener?) {
-    this.listener = listener
+    this.onClickListener = listener
   }
 
   fun setOnFinishListener(listener: ElasticFinishListener) {
     this.onFinishListener = listener
   }
 
-  private fun onClick() {
-    listener?.onClick(this)
+  private fun invokeListeners() {
+    onClickListener?.onClick(this)
     onFinishListener?.onFinished()
   }
 }

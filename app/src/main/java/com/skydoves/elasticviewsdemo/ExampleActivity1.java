@@ -36,7 +36,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.skydoves.elasticviews.ElasticAnimation;
-import com.skydoves.elasticviews.ElasticFinishListener;
 import java.util.ArrayList;
 
 public class ExampleActivity1 extends AppCompatActivity {
@@ -72,12 +71,9 @@ public class ExampleActivity1 extends AppCompatActivity {
           .setScaleY(0.9f)
           .setDuration(400)
           .setOnFinishListener(
-              new ElasticFinishListener() {
-                @Override
-                public void onFinished() {
-                  // Do something after duration time
-                  Toast.makeText(getBaseContext(), "ListViewItem" + pos, Toast.LENGTH_SHORT).show();
-                }
+              () -> {
+                // Do something after duration time
+                Toast.makeText(getBaseContext(), "ListViewItem" + pos, Toast.LENGTH_SHORT).show();
               })
           .doAction();
     }

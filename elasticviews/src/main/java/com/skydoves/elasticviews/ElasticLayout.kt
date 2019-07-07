@@ -25,25 +25,17 @@ package com.skydoves.elasticviews
 
 import android.content.Context
 import android.content.res.TypedArray
-import android.graphics.drawable.GradientDrawable
 import android.util.AttributeSet
-import android.view.LayoutInflater
-import android.view.MotionEvent
-import android.view.View
 import android.widget.FrameLayout
-import androidx.core.content.ContextCompat
 
 @Suppress("unused")
 class ElasticLayout : FrameLayout {
 
-  private lateinit var view: View
-  private var listener: OnClickListener? = null
-  private var onFinishListener: ElasticFinishListener? = null
+  var scale = 0.9f
+  var duration = 500
 
-  private var round = 3
-  private var scale = 0.9f
-  private var color = ContextCompat.getColor(context, R.color.colorPrimary)
-  private var duration = 500
+  private var onClickListener: OnClickListener? = null
+  private var onFinishListener: ElasticFinishListener? = null
 
   constructor(context: Context) : super(context) {
     onCreate()
@@ -60,67 +52,57 @@ class ElasticLayout : FrameLayout {
   }
 
   private fun onCreate() {
-    val inflaterService = Context.LAYOUT_INFLATER_SERVICE
-    val layoutInflater = context.getSystemService(inflaterService) as LayoutInflater
-    view = layoutInflater.inflate(R.layout.elasticlayout, this, false)
-    addView(view)
-    view.isClickable = true
+    this.isClickable = true
+    this.isFocusable = true
+    super.setOnClickListener {
+      if (scaleX == 1f) {
+        elasticAnimation(this) {
+          setDuration(duration)
+          setScaleX(scale)
+          setScaleY(scale)
+          setOnFinishListener(object : ElasticFinishListener {
+            override fun onFinished() {
+              invokeListeners()
+            }
+          })
+        }.doAction()
+      }
+    }
   }
 
   private fun getAttrs(attrs: AttributeSet) {
     val typedArray = context.obtainStyledAttributes(attrs, R.styleable.ElasticLayout)
-    setTypeArray(typedArray)
+    try {
+      setTypeArray(typedArray)
+    } finally {
+      typedArray.recycle()
+    }
   }
 
   private fun getAttrs(attrs: AttributeSet, defStyle: Int) {
     val typedArray = context.obtainStyledAttributes(attrs, R.styleable.ElasticLayout, defStyle, 0)
-    setTypeArray(typedArray)
+    try {
+      setTypeArray(typedArray)
+    } finally {
+      typedArray.recycle()
+    }
   }
 
   private fun setTypeArray(typedArray: TypedArray) {
-    val bgShape = view.background as GradientDrawable
-
-    round = typedArray.getInt(R.styleable.ElasticLayout_layout_round, round)
-    bgShape.cornerRadius = round.toFloat()
-
-    color = typedArray.getInt(R.styleable.ElasticLayout_layout_backgroundColor, color)
-    bgShape.setColor(color)
-
-    scale = typedArray.getFloat(R.styleable.ElasticLayout_layout_scale, scale)
-
-    duration = typedArray.getInt(R.styleable.ElasticLayout_layout_duration, duration)
-  }
-
-  override fun dispatchTouchEvent(event: MotionEvent): Boolean {
-    if (event.action == MotionEvent.ACTION_UP) {
-      if (listener != null || onFinishListener != null) {
-        if (view.scaleX == 1f) {
-          elasticAnimation(this) {
-            setDuration(duration)
-            setScaleX(scale)
-            setScaleY(scale)
-            setOnFinishListener(object : ElasticFinishListener {
-              override fun onFinished() {
-                onClick()
-              }
-            })
-          }.doAction()
-        }
-      }
-    }
-    return super.dispatchTouchEvent(event)
+    this.scale = typedArray.getFloat(R.styleable.ElasticLayout_layout_scale, scale)
+    this.duration = typedArray.getInt(R.styleable.ElasticLayout_layout_duration, duration)
   }
 
   override fun setOnClickListener(listener: OnClickListener?) {
-    this.listener = listener
+    this.onClickListener = listener
   }
 
   fun setOnFinishListener(listener: ElasticFinishListener) {
     this.onFinishListener = listener
   }
 
-  private fun onClick() {
-    listener?.onClick(this)
+  private fun invokeListeners() {
+    onClickListener?.onClick(this)
     onFinishListener?.onFinished()
   }
 }

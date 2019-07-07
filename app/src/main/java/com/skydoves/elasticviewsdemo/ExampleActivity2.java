@@ -29,7 +29,6 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.snackbar.Snackbar;
 import com.skydoves.elasticviews.ElasticAnimation;
-import com.skydoves.elasticviews.ElasticFinishListener;
 
 public class ExampleActivity2 extends AppCompatActivity {
 
@@ -46,11 +45,8 @@ public class ExampleActivity2 extends AppCompatActivity {
           .setScaleY(0.85f)
           .setDuration(500)
           .setOnFinishListener(
-              new ElasticFinishListener() {
-                @Override
-                public void onFinished() {
-                  // Do something after duration time
-                }
+              () -> {
+                // Do something after duration time
               })
           .doAction();
     } else if (v.getId() == R.id.example2_imv)

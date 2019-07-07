@@ -26,19 +26,16 @@ package com.skydoves.elasticviews
 import android.content.Context
 import android.content.res.TypedArray
 import android.util.AttributeSet
-import android.view.MotionEvent
-import android.widget.ImageView
 import androidx.appcompat.widget.AppCompatImageView
 
 @Suppress("unused")
 class ElasticImageView : AppCompatImageView {
 
-  private lateinit var view: ImageView
-  private var listener: OnClickListener? = null
-  private var onFinishListener: ElasticFinishListener? = null
+  var scale = 0.9f
+  var duration = 500
 
-  private var scale = 0.9f
-  private var duration = 500
+  private var onClickListener: OnClickListener? = null
+  private var onFinishListener: ElasticFinishListener? = null
 
   constructor(context: Context) : super(context) {
     onCreate()
@@ -55,55 +52,56 @@ class ElasticImageView : AppCompatImageView {
   }
 
   private fun onCreate() {
-    view = this
-    view.isClickable = true
+    this.isClickable = true
+    super.setOnClickListener {
+      if (scaleX == 1f) {
+        elasticAnimation(this) {
+          setDuration(duration)
+          setScaleX(scale)
+          setScaleY(scale)
+          setOnFinishListener(object : ElasticFinishListener {
+            override fun onFinished() {
+              invokeListeners()
+            }
+          })
+        }.doAction()
+      }
+    }
   }
 
   private fun getAttrs(attrs: AttributeSet) {
     val typedArray = context.obtainStyledAttributes(attrs, R.styleable.ElasticImageView)
-    setTypeArray(typedArray)
+    try {
+      setTypeArray(typedArray)
+    } finally {
+      typedArray.recycle()
+    }
   }
 
   private fun getAttrs(attrs: AttributeSet, defStyle: Int) {
     val typedArray = context.obtainStyledAttributes(attrs, R.styleable.ElasticImageView, defStyle, 0)
-    setTypeArray(typedArray)
+    try {
+      setTypeArray(typedArray)
+    } finally {
+      typedArray.recycle()
+    }
   }
 
   private fun setTypeArray(typedArray: TypedArray) {
-    scale = typedArray.getFloat(R.styleable.ElasticImageView_imageview_scale, scale)
-    duration = typedArray.getInt(R.styleable.ElasticImageView_imageview_duration, duration)
-  }
-
-  override fun dispatchTouchEvent(event: MotionEvent): Boolean {
-    if (event.action == MotionEvent.ACTION_UP) {
-      if (listener != null || onFinishListener != null) {
-        if (view.scaleX == 1f) {
-          elasticAnimation(this) {
-            setDuration(duration)
-            setScaleX(scale)
-            setScaleY(scale)
-            setOnFinishListener(object : ElasticFinishListener {
-              override fun onFinished() {
-                onClick()
-              }
-            })
-          }.doAction()
-        }
-      }
-    }
-    return super.dispatchTouchEvent(event)
+    this.scale = typedArray.getFloat(R.styleable.ElasticImageView_imageView_scale, scale)
+    this.duration = typedArray.getInt(R.styleable.ElasticImageView_imageView_duration, duration)
   }
 
   override fun setOnClickListener(listener: OnClickListener?) {
-    this.listener = listener
+    this.onClickListener = listener
   }
 
   fun setOnFinishListener(listener: ElasticFinishListener) {
     this.onFinishListener = listener
   }
 
-  private fun onClick() {
-    listener?.onClick(this)
+  private fun invokeListeners() {
+    onClickListener?.onClick(this)
     onFinishListener?.onFinished()
   }
 }
