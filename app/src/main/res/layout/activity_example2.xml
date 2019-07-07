@@ -1,181 +1,182 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/activity_example2"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  android:id="@+id/activity_example2"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:background="#1d1f2f"
+  android:orientation="vertical"
+  android:padding="10dp">
+
+  <RelativeLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#1d1f2f"
-    android:padding="10dp"
-    android:orientation="vertical">
+    android:layout_height="100dp">
+
+    <TextView
+      android:id="@+id/main_tv0"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_centerHorizontal="true"
+      android:layout_centerVertical="true"
+      android:layout_gravity="center"
+      android:text="Samples"
+      android:textAppearance="?android:attr/textAppearanceLarge"
+      android:textColor="#ffffff"
+      android:textSize="25sp" />
+
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="2dp"
+      android:layout_below="@+id/main_tv0"
+      android:layout_margin="10dp"
+      android:background="#2e3241"
+      android:orientation="horizontal" />
+
+  </RelativeLayout>
+
+  <com.skydoves.elasticviews.ElasticButton
+    android:id="@+id/example2_view0"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:layout_margin="10dp"
+    android:onClick="Views"
+    app:button_backgroundColor="#30354b"
+    app:button_labelSize="16"
+    app:button_labelStyle="bold"
+    app:button_labelText="Elastic Button"
+    app:button_scale="0.7" />
+
+  <com.skydoves.elasticviews.ElasticCheckButton
+    android:id="@+id/example2_view1"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:layout_margin="10dp"
+    android:onClick="Views"
+    app:checkbutton_alpha="0.5"
+    app:checkbutton_backgroundColor="#30354b"
+    app:checkbutton_duration="400"
+    app:checkbutton_labelColor="#ffffff"
+    app:checkbutton_labelSize="16"
+    app:checkbutton_labelStyle="bold"
+    app:checkbutton_labelText="Elastic CheckButton"
+    app:checkbutton_round="30"
+    app:checkbutton_scale="0.9" />
+
+  <com.skydoves.elasticviews.ElasticLayout
+    android:id="@+id/example2_view2"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:layout_margin="10dp"
+    android:onClick="Views"
+    app:layout_backgroundColor="#30354b"
+    app:layout_duration="500"
+    app:layout_round="30"
+    app:layout_scale="0.85">
 
     <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="100dp">
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/main_tv0"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Samples"
-            android:textColor="#ffffff"
-            android:textSize="25sp"
-            android:layout_gravity="center"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:layout_below="@+id/main_tv0"
-            android:orientation="horizontal"
-            android:background="#2e3241"
-            android:layout_margin="10dp"/>
-
-    </RelativeLayout>
-    
-    <com.skydoves.elasticviews.ElasticButton
-        android:id="@+id/example2_view0"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_margin="10dp"
-        android:onClick="Views"
-        app:button_backgroundColor="#30354b"
-        app:button_labelText="Elastic Button"
-        app:button_labelSize="16"
-        app:button_labelStyle="bold"
-        app:button_scale="0.7"/>
-
-    <com.skydoves.elasticviews.ElasticCheckButton
-        android:id="@+id/example2_view1"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_margin="10dp"
-        android:onClick="Views"
-        app:checkbutton_backgroundColor="#30354b"
-        app:checkbutton_duration="400"
-        app:checkbutton_labelColor="#ffffff"
-        app:checkbutton_labelSize="16"
-        app:checkbutton_labelStyle="bold"
-        app:checkbutton_labelText="Elastic CheckButton"
-        app:checkbutton_round="30"
-        app:checkbutton_alpha="0.5"
-        app:checkbutton_scale="0.9" />
-
-    <com.skydoves.elasticviews.ElasticLayout
-        android:id="@+id/example2_view2"
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_margin="10dp"
-        android:onClick="Views"
-        app:layout_backgroundColor="#30354b"
-        app:layout_round="30"
-        app:layout_duration="500"
-        app:layout_scale="0.85">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/example2_tv1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="This is"
-                android:textColor="#ffffff"
-                android:textStyle="bold"
-                android:textSize="18sp"
-                android:layout_marginTop="15dp"
-                android:layout_marginLeft="15dp"/>
-
-            <TextView
-                android:layout_below="@+id/example2_tv1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="ElasticLayout"
-                android:textColor="#ffffff"
-                android:textStyle="bold"
-                android:textSize="18sp"
-                android:gravity="end"
-                android:layout_marginRight="15dp"
-                android:layout_alignParentBottom="true"/>
-        </RelativeLayout>
-    </com.skydoves.elasticviews.ElasticLayout>
-
-    <RelativeLayout
-        android:id="@+id/example2_view3"
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_margin="10dp"
-        android:background="#30354b"
-        android:onClick="Views">
-
-        <TextView
-            android:id="@+id/example2_tv2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="This is RelativeLayout"
-            android:textColor="#ffffff"
-            android:textStyle="bold"
-            android:textSize="18sp"
-            android:layout_marginTop="15dp"
-            android:layout_marginLeft="15dp"/>
-
-        <TextView
-            android:layout_below="@+id/example2_tv2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="ElasticAction"
-            android:textColor="#ffffff"
-            android:textStyle="bold"
-            android:textSize="18sp"
-            android:gravity="end"
-            android:layout_marginRight="15dp"
-            android:layout_alignParentBottom="true"/>
-
-    </RelativeLayout>
-
-    <RelativeLayout
+      <TextView
+        android:id="@+id/example2_tv1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp">
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:text="This is"
+        android:textColor="#ffffff"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
-        <com.skydoves.elasticviews.ElasticImageView
-            android:id="@+id/example2_imv"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:scaleType="fitXY"
-            android:layout_alignParentStart="true"
-            android:src="@drawable/ic_question"
-            android:tint="#3d95c9"
-            android:onClick="Views"
-            app:imageview_scale="0.7"/>
-
-        <TextView
-            android:id="@+id/example2_textView0"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="TextView"
-            android:textColor="#ffffff"
-            android:textStyle="bold"
-            android:textSize="25dp"
-            android:onClick="Views"/>
-
-        <com.skydoves.elasticviews.ElasticFloatingActionButton
-            android:id="@+id/example2_fab"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:src="@drawable/ic_add"
-            android:tint="#ffffff"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="16dp"
-            android:onClick="Views"
-            app:fabSize="normal"
-            app:fabutton_duration="400"
-            app:fabutton_scale="0.85"/>
-
+      <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/example2_tv1"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="15dp"
+        android:gravity="end"
+        android:text="ElasticLayout"
+        android:textColor="#ffffff"
+        android:textSize="18sp"
+        android:textStyle="bold" />
     </RelativeLayout>
+  </com.skydoves.elasticviews.ElasticLayout>
 
+  <RelativeLayout
+    android:id="@+id/example2_view3"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:layout_margin="10dp"
+    android:background="#30354b"
+    android:onClick="Views">
+
+    <TextView
+      android:id="@+id/example2_tv2"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginLeft="15dp"
+      android:layout_marginTop="15dp"
+      android:text="This is RelativeLayout"
+      android:textColor="#ffffff"
+      android:textSize="18sp"
+      android:textStyle="bold" />
+
+    <TextView
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_below="@+id/example2_tv2"
+      android:layout_alignParentBottom="true"
+      android:layout_marginRight="15dp"
+      android:gravity="end"
+      android:text="ElasticAction"
+      android:textColor="#ffffff"
+      android:textSize="18sp"
+      android:textStyle="bold" />
+
+  </RelativeLayout>
+
+  <RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp">
+
+    <com.skydoves.elasticviews.ElasticImageView
+      android:id="@+id/example2_imv"
+      android:layout_width="64dp"
+      android:layout_height="64dp"
+      android:layout_alignParentStart="true"
+      android:layout_alignParentLeft="true"
+      android:onClick="Views"
+      android:scaleType="fitXY"
+      android:src="@drawable/ic_question"
+      android:tint="#3d95c9"
+      app:imageview_scale="0.7" />
+
+    <TextView
+      android:id="@+id/example2_textView0"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_centerInParent="true"
+      android:onClick="Views"
+      android:text="TextView"
+      android:textColor="#ffffff"
+      android:textSize="25dp"
+      android:textStyle="bold" />
+
+    <com.skydoves.elasticviews.ElasticFloatingActionButton
+      android:id="@+id/example2_fab"
+      android:layout_width="64dp"
+      android:layout_height="64dp"
+      android:layout_alignParentEnd="true"
+      android:layout_alignParentRight="true"
+      android:layout_centerVertical="true"
+      android:layout_marginStart="16dp"
+      android:layout_marginLeft="16dp"
+      android:onClick="Views"
+      android:src="@drawable/ic_add"
+      android:tint="#ffffff"
+      app:fabSize="normal"
+      app:fabutton_duration="400"
+      app:fabutton_scale="0.85" />
+  </RelativeLayout>
 </LinearLayout>

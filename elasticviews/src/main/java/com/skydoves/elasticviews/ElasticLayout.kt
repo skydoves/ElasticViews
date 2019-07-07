@@ -37,7 +37,7 @@ import androidx.core.content.ContextCompat
 class ElasticLayout : FrameLayout {
 
   private lateinit var view: View
-  private var listener: View.OnClickListener? = null
+  private var listener: OnClickListener? = null
   private var onFinishListener: ElasticFinishListener? = null
 
   private var round = 3
@@ -111,7 +111,7 @@ class ElasticLayout : FrameLayout {
     return super.dispatchTouchEvent(event)
   }
 
-  override fun setOnClickListener(listener: View.OnClickListener?) {
+  override fun setOnClickListener(listener: OnClickListener?) {
     this.listener = listener
   }
 

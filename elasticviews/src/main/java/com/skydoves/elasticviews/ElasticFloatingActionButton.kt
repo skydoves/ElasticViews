@@ -27,14 +27,13 @@ import android.content.Context
 import android.content.res.TypedArray
 import android.util.AttributeSet
 import android.view.MotionEvent
-import android.view.View
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 @Suppress("unused")
 class ElasticFloatingActionButton : FloatingActionButton {
 
-  private lateinit var view: com.google.android.material.floatingactionbutton.FloatingActionButton
-  private var listener: View.OnClickListener? = null
+  private lateinit var view: FloatingActionButton
+  private var listener: OnClickListener? = null
   private var onFinishListener: ElasticFinishListener? = null
 
   private var scale = 0.9f
@@ -94,7 +93,7 @@ class ElasticFloatingActionButton : FloatingActionButton {
     return super.dispatchTouchEvent(event)
   }
 
-  override fun setOnClickListener(listener: View.OnClickListener?) {
+  override fun setOnClickListener(listener: OnClickListener?) {
     this.listener = listener
   }
 

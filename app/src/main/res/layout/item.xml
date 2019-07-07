@@ -1,38 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:paddingTop="15dp"
+  android:paddingBottom="15dp">
+
+  <ImageView
+    android:id="@+id/item_imv_main"
+    android:layout_width="45dp"
+    android:layout_height="45dp"
+    android:scaleType="fitXY"
+    android:src="@drawable/ic_question"
+    android:tint="#3d95c9" />
+
+  <TextView
+    android:id="@+id/item_tv_title"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:paddingTop="15dp"
-    android:paddingBottom="15dp">
+    android:layout_alignParentTop="@+id/item_imv_main"
+    android:layout_marginLeft="10dp"
+    android:layout_toEndOf="@+id/item_imv_main"
+    android:layout_toRightOf="@+id/item_imv_main"
+    android:text="Title"
+    android:textColor="#3d95c9"
+    android:textSize="16sp"
+    android:textStyle="bold" />
 
-    <ImageView
-        android:id="@+id/item_imv_main"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/ic_question"
-        android:tint="#3d95c9"/>
-
-    <TextView
-        android:id="@+id/item_tv_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Title"
-        android:textColor="#3d95c9"
-        android:textSize="16sp"
-        android:layout_alignParentTop="@+id/item_imv_main"
-        android:layout_toEndOf="@+id/item_imv_main"
-        android:textStyle="bold"
-        android:layout_marginLeft="10dp"/>
-
-    <TextView
-        android:id="@+id/item_tv_content"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="2016-10-27 22:33"
-        android:textColor="#ffffff"
-        android:textSize="15sp"
-        android:layout_alignBottom="@+id/item_imv_main"
-        android:layout_alignStart="@+id/item_tv_title" />
+  <TextView
+    android:id="@+id/item_tv_content"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignStart="@+id/item_tv_title"
+    android:layout_alignLeft="@+id/item_tv_title"
+    android:layout_alignBottom="@+id/item_imv_main"
+    android:text="2016-10-27 22:33"
+    android:textColor="#ffffff"
+    android:textSize="15sp" />
 
 </RelativeLayout>

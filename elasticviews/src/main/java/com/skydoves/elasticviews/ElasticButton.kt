@@ -30,7 +30,6 @@ import android.graphics.Typeface
 import android.graphics.drawable.GradientDrawable
 import android.util.AttributeSet
 import android.view.MotionEvent
-import android.view.View
 import android.widget.Button
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.content.ContextCompat
@@ -39,7 +38,7 @@ import androidx.core.content.ContextCompat
 class ElasticButton : AppCompatButton {
 
   private lateinit var view: Button
-  private var listener: View.OnClickListener? = null
+  private var listener: OnClickListener? = null
   private var onFinishListener: ElasticFinishListener? = null
 
   private var round = 20
@@ -133,7 +132,7 @@ class ElasticButton : AppCompatButton {
     return super.dispatchTouchEvent(event)
   }
 
-  override fun setOnClickListener(listener: View.OnClickListener?) {
+  override fun setOnClickListener(listener: OnClickListener?) {
     this.listener = listener
   }
 

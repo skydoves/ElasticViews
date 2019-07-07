@@ -34,13 +34,10 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import androidx.appcompat.app.AppCompatActivity;
 import com.skydoves.elasticviews.ElasticAnimation;
 import com.skydoves.elasticviews.ElasticFinishListener;
-
 import java.util.ArrayList;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 public class ExampleActivity1 extends AppCompatActivity {
 

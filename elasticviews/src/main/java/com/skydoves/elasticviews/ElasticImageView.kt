@@ -27,7 +27,6 @@ import android.content.Context
 import android.content.res.TypedArray
 import android.util.AttributeSet
 import android.view.MotionEvent
-import android.view.View
 import android.widget.ImageView
 import androidx.appcompat.widget.AppCompatImageView
 
@@ -35,7 +34,7 @@ import androidx.appcompat.widget.AppCompatImageView
 class ElasticImageView : AppCompatImageView {
 
   private lateinit var view: ImageView
-  private var listener: View.OnClickListener? = null
+  private var listener: OnClickListener? = null
   private var onFinishListener: ElasticFinishListener? = null
 
   private var scale = 0.9f
@@ -95,7 +94,7 @@ class ElasticImageView : AppCompatImageView {
     return super.dispatchTouchEvent(event)
   }
 
-  override fun setOnClickListener(listener: View.OnClickListener?) {
+  override fun setOnClickListener(listener: OnClickListener?) {
     this.listener = listener
   }
 

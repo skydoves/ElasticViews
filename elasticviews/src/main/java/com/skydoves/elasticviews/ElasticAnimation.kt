@@ -38,7 +38,7 @@ fun View.elasticAnimation(scaleX: Float, scaleY: Float, duration: Int, listener:
 /** for create ElasticAnimation by kotlin dsl. */
 @Suppress("unused")
 fun elasticAnimation(view: View, block: ElasticAnimation.() -> Unit): ElasticAnimation =
-    ElasticAnimation(view).apply(block)
+  ElasticAnimation(view).apply(block)
 
 /** ElasticAnimation implements elastic animations for android views or view groups. */
 @Suppress("unused")
@@ -64,17 +64,14 @@ class ElasticAnimation(private val view: View) {
   /** starts elastic animation. */
   fun doAction() {
     val animatorCompat = ViewCompat.animate(view)
-        .setDuration(duration.toLong())
-        .scaleX(scaleX)
-        .scaleY(scaleY)
-        .setInterpolator(CycleInterpolator(0.5f))
+      .setDuration(duration.toLong())
+      .scaleX(scaleX)
+      .scaleY(scaleY)
+      .setInterpolator(CycleInterpolator(0.5f))
     listener?.let { animatorCompat.setListener(it) }
     finishListener?.let {
       animatorCompat.setListener(object : ViewPropertyAnimatorListener {
-        override fun onAnimationEnd(view: View?) {
-          it.onFinished()
-        }
-
+        override fun onAnimationEnd(view: View?) = it.onFinished()
         override fun onAnimationCancel(view: View?) = Unit
         override fun onAnimationStart(view: View?) = Unit
       })
@@ -83,7 +80,13 @@ class ElasticAnimation(private val view: View) {
     if (view is ViewGroup) {
       for (index in 0 until view.childCount) {
         val nextChild = view.getChildAt(index)
-        ViewCompat.animate(nextChild).setDuration(duration.toLong()).scaleX(scaleX).scaleY(scaleY).setInterpolator(CycleInterpolator(0.5f)).withLayer().start()
+        ViewCompat.animate(nextChild)
+          .setDuration(duration.toLong())
+          .scaleX(scaleX)
+          .scaleY(scaleY)
+          .setInterpolator(CycleInterpolator(0.5f))
+          .withLayer()
+          .start()
       }
     }
     animatorCompat.withLayer().start()
