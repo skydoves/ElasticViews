@@ -6,7 +6,7 @@ publish {
     groupId = 'com.github.skydoves'
     artifactId = 'elasticviews'
     publishVersion = versions.versionName
-    desc = 'This is ElasticViews by skydoves'
+    desc = '✨ An easy way to implement an elastic touch effect for Android.'
     website = 'https://github.com/skydoves/ElasticViews'
     issueTracker = "${website}/issues"
     repository = "${website}.git"

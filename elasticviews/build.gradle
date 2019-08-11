@@ -16,7 +16,6 @@ android {
 }
 
 dependencies {
-    implementation "androidx.core:core:$versions.androidxCore"
     implementation "com.google.android.material:material:$versions.googleMaterial"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin"
 }

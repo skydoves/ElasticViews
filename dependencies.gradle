@@ -4,13 +4,13 @@ ext.versions = [
     versionCode        : 18,
     versionName        : '2.0.4',
 
-    gradleBuildTool    : '3.4.1',
-    spotlessGradle     : '3.22.0',
+    gradleBuildTool    : '3.4.2',
+    spotlessGradle     : '3.23.1',
     dokkaGradle        : '0.9.17',
-    bintrayRelease     : '0.9',
+    bintrayRelease     : '0.9.1',
 
-    kotlin             : '1.3.31',
+    kotlin             : '1.3.41',
     androidxAppcompat  : '1.1.0-rc01',
-    androidxCore       : '1.2.0-alpha02',
-    googleMaterial     : '1.1.0-alpha07'
+    androidxCore       : '1.2.0-alpha03',
+    googleMaterial     : '1.1.0-alpha09'
 ]
