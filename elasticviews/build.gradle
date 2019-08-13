@@ -16,12 +16,12 @@ android {
 }
 
 dependencies {
-    implementation "com.google.android.material:material:$versions.googleMaterial"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin"
+    implementation "com.google.android.material:material:$versions.googleMaterial"
 }
 
 dokka {
-    moduleName = 'needs'
+    moduleName = 'elasticviews'
     outputFormat = 'html'
     //noinspection GroovyAccessibility
     outputDirectory = "$buildDir/javadoc"
