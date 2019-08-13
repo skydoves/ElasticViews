@@ -2,9 +2,11 @@
 ![license](https://img.shields.io/badge/license-MIT%20License-blue.svg)
 [![API](https://img.shields.io/badge/API-15%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=15)
 [![Build Status](https://travis-ci.org/skydoves/ElasticViews.svg?branch=master)](https://travis-ci.org/skydoves/ElasticViews)
-[![Android Weekly](https://img.shields.io/badge/Android%20Weekly-%23336-orange.svg)](https://androidweekly.net/issues/issue-336) <br>
+[![Android Weekly](https://img.shields.io/badge/Android%20Weekly-%23336-orange.svg)](https://androidweekly.net/issues/issue-336)
+[![Javadoc](https://img.shields.io/badge/Javadoc-ElasticViews-yellow)](https://skydoves.github.io/libraries/elasticviews/javadoc/elasticviews/com.skydoves.elasticviews/index.html)
+<br>
 
-An easy way to implement an elastic touch effect for Android.
+An easy way to implement the elastic touch effect for Android.
 
 ![gif0](https://user-images.githubusercontent.com/24237865/48674497-53e2f180-eb90-11e8-86fb-476f841b3e32.gif)
 ![gif1](https://user-images.githubusercontent.com/24237865/48674498-53e2f180-eb90-11e8-8313-aa94b34a40d2.gif)
