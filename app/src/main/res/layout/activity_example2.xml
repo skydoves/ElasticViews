@@ -40,7 +40,7 @@
     android:layout_height="50dp"
     android:layout_margin="10dp"
     android:background="@drawable/rectangle_layout"
-    android:onClick="Views"
+    android:onClick="views"
     android:text="Elastic Button"
     android:textColor="@android:color/white"
     app:button_duration="250"
@@ -52,7 +52,7 @@
     android:layout_height="50dp"
     android:layout_margin="10dp"
     android:background="#30354b"
-    android:onClick="Views"
+    android:onClick="views"
     android:text="Elastic CheckButton"
     android:textColor="@android:color/white"
     android:textStyle="bold"
@@ -65,7 +65,7 @@
     android:layout_height="80dp"
     android:layout_margin="10dp"
     android:background="@drawable/rectangle_layout"
-    android:onClick="Views"
+    android:onClick="views"
     app:layout_duration="500"
     app:layout_scale="0.85">
 
@@ -104,7 +104,7 @@
     android:layout_height="80dp"
     android:layout_margin="10dp"
     android:background="#30354b"
-    android:onClick="Views">
+    android:onClick="views">
 
     <TextView
       android:id="@+id/example2_tv2"
@@ -142,7 +142,7 @@
       android:layout_height="64dp"
       android:layout_alignParentStart="true"
       android:layout_alignParentLeft="true"
-      android:onClick="Views"
+      android:onClick="views"
       android:scaleType="fitXY"
       android:src="@drawable/ic_question"
       android:tint="#3d95c9"
@@ -153,7 +153,7 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_centerInParent="true"
-      android:onClick="Views"
+      android:onClick="views"
       android:text="TextView"
       android:textColor="#ffffff"
       android:textSize="25dp"
@@ -168,7 +168,7 @@
       android:layout_centerVertical="true"
       android:layout_marginStart="16dp"
       android:layout_marginLeft="16dp"
-      android:onClick="Views"
+      android:onClick="views"
       android:src="@drawable/ic_add"
       android:tint="#ffffff"
       app:fabSize="normal"

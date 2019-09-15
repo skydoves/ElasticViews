@@ -23,7 +23,7 @@
     android:layout_alignParentRight="true"
     android:layout_alignParentBottom="true"
     android:layout_margin="16dp"
-    android:onClick="ElasticFloatingButtons"
+    android:onClick="floatingButtons"
     android:src="@drawable/ic_add"
     android:tint="#ffffff"
     app:fabSize="normal"

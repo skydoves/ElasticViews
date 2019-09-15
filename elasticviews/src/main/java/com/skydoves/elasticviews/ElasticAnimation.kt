@@ -60,16 +60,23 @@ class ElasticAnimation(private val view: View) {
   fun setDuration(duration: Int): ElasticAnimation = apply { this.duration = duration }
   fun setListener(listener: ViewPropertyAnimatorListener): ElasticAnimation = apply { this.listener = listener }
   fun setOnFinishListener(finishListener: ElasticFinishListener): ElasticAnimation = apply { this.finishListener = finishListener }
+  fun setOnFinishListener(block: () -> Unit): ElasticAnimation = apply {
+    this.finishListener = object : ElasticFinishListener {
+      override fun onFinished() {
+        block()
+      }
+    }
+  }
 
   /** starts elastic animation. */
   fun doAction() {
     val animatorCompat = ViewCompat.animate(view)
-      .setDuration(duration.toLong())
-      .scaleX(scaleX)
-      .scaleY(scaleY)
+      .setDuration(this.duration.toLong())
+      .scaleX(this.scaleX)
+      .scaleY(this.scaleY)
       .setInterpolator(CycleInterpolator(0.5f))
-    listener?.let { animatorCompat.setListener(it) }
-    finishListener?.let {
+    this.listener?.let { animatorCompat.setListener(it) }
+    this.finishListener?.let {
       animatorCompat.setListener(object : ViewPropertyAnimatorListener {
         override fun onAnimationEnd(view: View?) = it.onFinished()
         override fun onAnimationCancel(view: View?) = Unit
@@ -77,13 +84,13 @@ class ElasticAnimation(private val view: View) {
       })
     }
 
-    if (view is ViewGroup) {
-      for (index in 0 until view.childCount) {
-        val nextChild = view.getChildAt(index)
+    if (this.view is ViewGroup) {
+      for (index in 0 until this.view.childCount) {
+        val nextChild = this.view.getChildAt(index)
         ViewCompat.animate(nextChild)
-          .setDuration(duration.toLong())
-          .scaleX(scaleX)
-          .scaleY(scaleY)
+          .setDuration(this.duration.toLong())
+          .scaleX(this.scaleX)
+          .scaleY(this.scaleY)
           .setInterpolator(CycleInterpolator(0.5f))
           .withLayer()
           .start()

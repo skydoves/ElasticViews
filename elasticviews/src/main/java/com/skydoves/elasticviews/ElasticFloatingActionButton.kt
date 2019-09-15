@@ -28,7 +28,7 @@ import android.content.res.TypedArray
 import android.util.AttributeSet
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
-@Suppress("unused")
+@Suppress("unused", "MemberVisibilityCanBePrivate")
 class ElasticFloatingActionButton : FloatingActionButton {
 
   var scale = 0.9f
@@ -54,16 +54,12 @@ class ElasticFloatingActionButton : FloatingActionButton {
   private fun onCreate() {
     this.isClickable = true
     super.setOnClickListener {
-      if (scaleX == 1f) {
+      if (this.scaleX == 1f) {
         elasticAnimation(this) {
           setDuration(this@ElasticFloatingActionButton.duration)
-          setScaleX(scale)
-          setScaleY(scale)
-          setOnFinishListener(object : ElasticFinishListener {
-            override fun onFinished() {
-              invokeListeners()
-            }
-          })
+          setScaleX(this@ElasticFloatingActionButton.scale)
+          setScaleY(this@ElasticFloatingActionButton.scale)
+          setOnFinishListener { invokeListeners() }
         }.doAction()
       }
     }
@@ -93,7 +89,7 @@ class ElasticFloatingActionButton : FloatingActionButton {
   }
 
   private fun invokeListeners() {
-    onClickListener?.onClick(this)
-    onFinishListener?.onFinished()
+    this.onClickListener?.onClick(this)
+    this.onFinishListener?.onFinished()
   }
 }

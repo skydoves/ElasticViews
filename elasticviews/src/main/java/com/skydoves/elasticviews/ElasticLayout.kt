@@ -28,7 +28,7 @@ import android.content.res.TypedArray
 import android.util.AttributeSet
 import android.widget.FrameLayout
 
-@Suppress("unused")
+@Suppress("unused", "MemberVisibilityCanBePrivate")
 class ElasticLayout : FrameLayout {
 
   var scale = 0.9f
@@ -55,16 +55,12 @@ class ElasticLayout : FrameLayout {
     this.isClickable = true
     this.isFocusable = true
     super.setOnClickListener {
-      if (scaleX == 1f) {
+      if (this.scaleX == 1f) {
         elasticAnimation(this) {
           setDuration(this@ElasticLayout.duration)
-          setScaleX(scale)
-          setScaleY(scale)
-          setOnFinishListener(object : ElasticFinishListener {
-            override fun onFinished() {
-              invokeListeners()
-            }
-          })
+          setScaleX(this@ElasticLayout.scale)
+          setScaleY(this@ElasticLayout.scale)
+          setOnFinishListener { invokeListeners() }
         }.doAction()
       }
     }
@@ -102,7 +98,7 @@ class ElasticLayout : FrameLayout {
   }
 
   private fun invokeListeners() {
-    onClickListener?.onClick(this)
-    onFinishListener?.onFinished()
+    this.onClickListener?.onClick(this)
+    this.onFinishListener?.onFinished()
   }
 }

@@ -1,13 +1,5 @@
 apply plugin: "com.diffplug.gradle.spotless"
 spotless {
-    java {
-        target "**/*.java"
-        trimTrailingWhitespace()
-        removeUnusedImports()
-        googleJavaFormat()
-        licenseHeaderFile '../spotless.license.kt'
-        endWithNewline()
-    }
     kotlin {
         target "**/*.kt"
         ktlint().userData(['indent_size': '2', 'continuation_indent_size': '2'])

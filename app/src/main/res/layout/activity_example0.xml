@@ -57,7 +57,7 @@
             android:layout_height="45dp"
             android:layout_weight="1"
             android:background="#30354b"
-            android:onClick="ElasticCheckButtons"
+            android:onClick="checkButtons"
             android:text="Sun"
             android:textColor="@android:color/white"
             android:textStyle="bold"
@@ -70,7 +70,7 @@
             android:layout_height="45dp"
             android:layout_weight="1"
             android:background="#30354b"
-            android:onClick="ElasticCheckButtons"
+            android:onClick="checkButtons"
             android:text="Mon"
             android:textColor="@android:color/white"
             android:textStyle="bold"
@@ -83,7 +83,7 @@
             android:layout_height="45dp"
             android:layout_weight="1"
             android:background="#30354b"
-            android:onClick="ElasticCheckButtons"
+            android:onClick="checkButtons"
             android:text="Tue"
             android:textColor="@android:color/white"
             android:textStyle="bold"
@@ -96,7 +96,7 @@
             android:layout_height="45dp"
             android:layout_weight="1"
             android:background="#30354b"
-            android:onClick="ElasticCheckButtons"
+            android:onClick="checkButtons"
             android:text="Wed"
             android:textColor="@android:color/white"
             android:textStyle="bold"
@@ -109,7 +109,7 @@
             android:layout_height="45dp"
             android:layout_weight="1"
             android:background="#30354b"
-            android:onClick="ElasticCheckButtons"
+            android:onClick="checkButtons"
             android:text="Thu"
             android:textColor="@android:color/white"
             android:textStyle="bold"
@@ -122,7 +122,7 @@
             android:layout_height="45dp"
             android:layout_weight="1"
             android:background="#30354b"
-            android:onClick="ElasticCheckButtons"
+            android:onClick="checkButtons"
             android:text="Fri"
             android:textColor="@android:color/white"
             android:textStyle="bold"
@@ -135,7 +135,7 @@
             android:layout_height="45dp"
             android:layout_weight="1"
             android:background="#30354b"
-            android:onClick="ElasticCheckButtons"
+            android:onClick="checkButtons"
             android:text="Sat"
             android:textColor="@android:color/white"
             android:textStyle="bold"
@@ -177,7 +177,7 @@
           android:layout_height="23dp"
           android:layout_alignParentEnd="true"
           android:layout_alignParentRight="true"
-          android:onClick="ElasticImageViews"
+          android:onClick="imageViews"
           android:scaleType="fitXY"
           android:src="@drawable/ic_question"
           android:tint="#3d95c9"
@@ -192,7 +192,7 @@
         android:layout_below="@+id/example0_tv02"
         android:layout_marginTop="15dp"
         android:background="@drawable/rectangle_layout"
-        android:onClick="ElasticLayout"
+        android:onClick="layout"
         app:layout_scale="0.9">
 
         <RelativeLayout
@@ -235,7 +235,7 @@
         android:layout_below="@+id/makealram_tv02"
         android:layout_marginTop="15dp"
         android:background="@drawable/rectangle_layout"
-        android:onClick="ElasticLayout"
+        android:onClick="layout"
         app:layout_scale="0.9">
 
         <RelativeLayout
@@ -303,7 +303,7 @@
         android:layout_height="23dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:onClick="ElasticImageViews"
+        android:onClick="imageViews"
         android:scaleType="fitXY"
         android:src="@drawable/ic_question"
         android:tint="#3d95c9"
@@ -316,7 +316,7 @@
         android:layout_below="@+id/example0_ibtn_q_timeset02"
         android:layout_marginTop="15dp"
         android:background="@drawable/rectangle_layout"
-        android:onClick="ElasticLayout"
+        android:onClick="layout"
         app:layout_scale="0.9">
 
         <RelativeLayout

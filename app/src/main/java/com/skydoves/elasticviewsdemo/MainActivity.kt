@@ -21,32 +21,25 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package com.skydoves.elasticviewsdemo;
+package com.skydoves.elasticviewsdemo
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import androidx.appcompat.app.AppCompatActivity;
+import android.content.Intent
+import android.os.Bundle
+import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 
-public class MainActivity extends AppCompatActivity {
+class MainActivity : AppCompatActivity() {
 
-  @Override
-  protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_main);
+  override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
+    setContentView(R.layout.activity_main)
   }
 
-  public void ElasticButtons(View v) {
-    switch (v.getId()) {
-      case R.id.elasticbtn0:
-        startActivity(new Intent(getBaseContext(), ExampleActivity0.class));
-        break;
-      case R.id.elasticbtn1:
-        startActivity(new Intent(getBaseContext(), ExampleActivity1.class));
-        break;
-      case R.id.elasticbtn2:
-        startActivity(new Intent(getBaseContext(), ExampleActivity2.class));
-        break;
+  fun buttons(v: View) {
+    when (v.id) {
+      R.id.elasticbtn0 -> startActivity(Intent(baseContext, ExampleActivity0::class.java))
+      R.id.elasticbtn1 -> startActivity(Intent(baseContext, ExampleActivity1::class.java))
+      R.id.elasticbtn2 -> startActivity(Intent(baseContext, ExampleActivity2::class.java))
     }
   }
 }

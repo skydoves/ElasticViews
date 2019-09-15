@@ -28,7 +28,7 @@ import android.content.res.TypedArray
 import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatButton
 
-@Suppress("unused")
+@Suppress("unused", "MemberVisibilityCanBePrivate")
 class ElasticCheckButton : AppCompatButton {
 
   var checkedAlpha = 0.7f
@@ -60,17 +60,13 @@ class ElasticCheckButton : AppCompatButton {
   private fun onCreate() {
     this.isAllCaps = false
     super.setOnClickListener {
-      isChecked = !isChecked
-      if (scaleX == 1f) {
+      this.isChecked = !this.isChecked
+      if (this.scaleX == 1f) {
         elasticAnimation(this) {
           setDuration(this@ElasticCheckButton.duration)
-          setScaleX(scale)
-          setScaleY(scale)
-          setOnFinishListener(object : ElasticFinishListener {
-            override fun onFinished() {
-              invokeListeners()
-            }
-          })
+          setScaleX(this@ElasticCheckButton.scale)
+          setScaleY(this@ElasticCheckButton.scale)
+          setOnFinishListener { invokeListeners() }
         }.doAction()
       }
     }
@@ -125,7 +121,7 @@ class ElasticCheckButton : AppCompatButton {
       true -> checkedAlpha
       false -> 1.0f
     }
-    onClickListener?.onClick(this)
-    onFinishListener?.onFinished()
+    this.onClickListener?.onClick(this)
+    this.onFinishListener?.onFinished()
   }
 }

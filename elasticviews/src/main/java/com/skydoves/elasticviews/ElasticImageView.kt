@@ -28,7 +28,7 @@ import android.content.res.TypedArray
 import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatImageView
 
-@Suppress("unused")
+@Suppress("unused", "MemberVisibilityCanBePrivate")
 class ElasticImageView : AppCompatImageView {
 
   var scale = 0.9f
@@ -54,16 +54,12 @@ class ElasticImageView : AppCompatImageView {
   private fun onCreate() {
     this.isClickable = true
     super.setOnClickListener {
-      if (scaleX == 1f) {
+      if (this.scaleX == 1f) {
         elasticAnimation(this) {
           setDuration(this@ElasticImageView.duration)
-          setScaleX(scale)
-          setScaleY(scale)
-          setOnFinishListener(object : ElasticFinishListener {
-            override fun onFinished() {
-              invokeListeners()
-            }
-          })
+          setScaleX(this@ElasticImageView.scale)
+          setScaleY(this@ElasticImageView.scale)
+          setOnFinishListener { invokeListeners() }
         }.doAction()
       }
     }
@@ -101,7 +97,7 @@ class ElasticImageView : AppCompatImageView {
   }
 
   private fun invokeListeners() {
-    onClickListener?.onClick(this)
-    onFinishListener?.onFinished()
+    this.onClickListener?.onClick(this)
+    this.onFinishListener?.onFinished()
   }
 }

@@ -28,7 +28,7 @@ import android.content.res.TypedArray
 import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatButton
 
-@Suppress("unused")
+@Suppress("unused", "MemberVisibilityCanBePrivate")
 class ElasticButton : AppCompatButton {
 
   var scale = 0.9f
@@ -54,16 +54,12 @@ class ElasticButton : AppCompatButton {
   private fun onCreate() {
     this.isAllCaps = false
     super.setOnClickListener {
-      if (scaleX == 1f) {
+      if (this.scaleX == 1f) {
         elasticAnimation(this) {
           setDuration(this@ElasticButton.duration)
-          setScaleX(scale)
-          setScaleY(scale)
-          setOnFinishListener(object : ElasticFinishListener {
-            override fun onFinished() {
-              invokeListeners()
-            }
-          })
+          setScaleX(this@ElasticButton.scale)
+          setScaleY(this@ElasticButton.scale)
+          setOnFinishListener { invokeListeners() }
         }.doAction()
       }
     }
@@ -101,7 +97,7 @@ class ElasticButton : AppCompatButton {
   }
 
   private fun invokeListeners() {
-    onClickListener?.onClick(this)
-    onFinishListener?.onFinished()
+    this.onClickListener?.onClick(this)
+    this.onFinishListener?.onFinished()
   }
 }
