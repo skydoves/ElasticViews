@@ -56,7 +56,7 @@ class ElasticButton : AppCompatButton {
     super.setOnClickListener {
       if (scaleX == 1f) {
         elasticAnimation(this) {
-          setDuration(duration)
+          setDuration(this@ElasticButton.duration)
           setScaleX(scale)
           setScaleY(scale)
           setOnFinishListener(object : ElasticFinishListener {
