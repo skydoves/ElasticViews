@@ -57,7 +57,7 @@ class ElasticLayout : FrameLayout {
     super.setOnClickListener {
       if (scaleX == 1f) {
         elasticAnimation(this) {
-          setDuration(duration)
+          setDuration(this@ElasticLayout.duration)
           setScaleX(scale)
           setScaleY(scale)
           setOnFinishListener(object : ElasticFinishListener {

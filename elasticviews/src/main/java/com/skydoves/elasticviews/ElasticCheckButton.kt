@@ -63,7 +63,7 @@ class ElasticCheckButton : AppCompatButton {
       isChecked = !isChecked
       if (scaleX == 1f) {
         elasticAnimation(this) {
-          setDuration(duration)
+          setDuration(this@ElasticCheckButton.duration)
           setScaleX(scale)
           setScaleY(scale)
           setOnFinishListener(object : ElasticFinishListener {
