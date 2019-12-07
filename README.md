@@ -23,7 +23,7 @@ repositories {
 }
 
 dependencies {
-    implementation "com.github.skydoves:elasticviews:2.0.5"
+    implementation "com.github.skydoves:elasticviews:2.0.6"
 }
 ```
 
@@ -65,6 +65,7 @@ public void onClick(View v) {
    android:text="Elastic Button"
    android:textColor="@android:color/white"
    android:textSize="17sp"
+   app:button_cornerRadius="4dp"
    app:button_duration="250"
    app:button_scale="0.87" />
 ```
@@ -78,6 +79,7 @@ public void onClick(View v) {
    android:text="Text"
    android:textColor="@android:color/white"
    android:textStyle="bold"
+   app:checkButton_cornerRadius="4dp"
    app:checkButton_duration="400"
    app:checkButton_scale="0.9" />
 ```
@@ -113,7 +115,7 @@ ElasticLayout gives elastic animation to all child views.
 <com.skydoves.elasticviews.ElasticLayout
   android:layout_width="match_parent"
   android:layout_height="80dp"
-  app:layout_backgroundColor="#30354b"
+  app:layout_cornerRadius="4dp"
   app:layout_duration="500"
   app:layout_scale="0.85">
 

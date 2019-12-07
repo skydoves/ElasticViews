@@ -55,11 +55,12 @@
     android:layout_height="0dp"
     android:layout_margin="20dp"
     android:layout_weight="1"
-    android:background="@drawable/rectangle_layout"
+    android:background="@color/background"
     android:onClick="buttons"
     android:text="Example Activity0"
     android:textColor="@android:color/white"
     android:textSize="17sp"
+    app:button_cornerRadius="4dp"
     app:button_duration="250"
     app:button_scale="0.87" />
 
@@ -70,12 +71,12 @@
     android:layout_marginLeft="20dp"
     android:layout_marginRight="20dp"
     android:layout_weight="1"
-    android:background="@drawable/rectangle_layout"
+    android:background="@color/background"
     android:onClick="buttons"
-
     android:text="Example Activity1"
     android:textColor="@android:color/white"
     android:textSize="17sp"
+    app:button_cornerRadius="4dp"
     app:button_duration="250"
     app:button_scale="0.87" />
 
@@ -85,11 +86,12 @@
     android:layout_height="0dp"
     android:layout_margin="20dp"
     android:layout_weight="1"
-    android:background="@drawable/rectangle_layout"
+    android:background="@color/background"
     android:onClick="buttons"
     android:text="Example Activity2"
     android:textColor="@android:color/white"
     android:textSize="17sp"
+    app:button_cornerRadius="4dp"
     app:button_duration="250"
     app:button_scale="0.87" />
 </LinearLayout>

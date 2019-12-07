@@ -39,10 +39,11 @@
     android:layout_width="match_parent"
     android:layout_height="50dp"
     android:layout_margin="10dp"
-    android:background="@drawable/rectangle_layout"
+    android:background="@color/background"
     android:onClick="views"
     android:text="Elastic Button"
     android:textColor="@android:color/white"
+    app:button_cornerRadius="4dp"
     app:button_duration="250"
     app:button_scale="0.87" />
 
@@ -64,8 +65,9 @@
     android:layout_width="match_parent"
     android:layout_height="80dp"
     android:layout_margin="10dp"
-    android:background="@drawable/rectangle_layout"
+    android:background="@color/background"
     android:onClick="views"
+    app:layout_cornerRadius="4dp"
     app:layout_duration="500"
     app:layout_scale="0.85">
 
