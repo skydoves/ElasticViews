@@ -3,16 +3,19 @@
   <declare-styleable name="ElasticButton">
     <attr name="button_scale" format="float" />
     <attr name="button_duration" format="integer" />
+    <attr name="button_cornerRadius" format="dimension" />
   </declare-styleable>
   <declare-styleable name="ElasticCheckButton">
     <attr name="checkButton_scale" format="float" />
     <attr name="checkButton_duration" format="integer" />
     <attr name="checkButton_alpha" format="float" />
     <attr name="checkButton_isChecked" format="boolean" />
+    <attr name="checkButton_cornerRadius" format="dimension" />
   </declare-styleable>
   <declare-styleable name="ElasticLayout">
     <attr name="layout_scale" format="float" />
     <attr name="layout_duration" format="integer" />
+    <attr name="layout_cornerRadius" format="dimension" />
   </declare-styleable>
   <declare-styleable name="ElasticImageView">
     <attr name="imageView_scale" format="float" />

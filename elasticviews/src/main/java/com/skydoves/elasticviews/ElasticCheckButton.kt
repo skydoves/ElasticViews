@@ -25,6 +25,8 @@ package com.skydoves.elasticviews
 
 import android.content.Context
 import android.content.res.TypedArray
+import android.graphics.drawable.ColorDrawable
+import android.graphics.drawable.GradientDrawable
 import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatButton
 
@@ -34,6 +36,7 @@ class ElasticCheckButton : AppCompatButton {
   var checkedAlpha = 0.7f
   var scale = 0.9f
   var duration = 500
+  var cornerRadius = 0f
   var isChecked = false
     set(value) {
       field = value
@@ -52,7 +55,8 @@ class ElasticCheckButton : AppCompatButton {
     getAttrs(attributeSet)
   }
 
-  constructor(context: Context, attributeSet: AttributeSet, defStyle: Int) : super(context, attributeSet, defStyle) {
+  constructor(context: Context, attributeSet: AttributeSet, defStyle: Int) : super(context,
+    attributeSet, defStyle) {
     onCreate()
     getAttrs(attributeSet, defStyle)
   }
@@ -82,7 +86,8 @@ class ElasticCheckButton : AppCompatButton {
   }
 
   private fun getAttrs(attrs: AttributeSet, defStyle: Int) {
-    val typedArray = context.obtainStyledAttributes(attrs, R.styleable.ElasticCheckButton, defStyle, 0)
+    val typedArray =
+      context.obtainStyledAttributes(attrs, R.styleable.ElasticCheckButton, defStyle, 0)
     try {
       setTypeArray(typedArray)
     } finally {
@@ -91,20 +96,36 @@ class ElasticCheckButton : AppCompatButton {
   }
 
   private fun setTypeArray(typedArray: TypedArray) {
-    this.scale = typedArray.getFloat(R.styleable.ElasticCheckButton_checkButton_scale, scale)
-    this.duration = typedArray.getInt(R.styleable.ElasticCheckButton_checkButton_duration, duration)
-    this.checkedAlpha = typedArray.getFloat(R.styleable.ElasticCheckButton_checkButton_alpha, checkedAlpha)
-    this.isChecked = typedArray.getBoolean(R.styleable.ElasticCheckButton_checkButton_isChecked, isChecked)
+    this.scale = typedArray.getFloat(R.styleable.ElasticCheckButton_checkButton_scale, this.scale)
+    this.duration =
+      typedArray.getInt(R.styleable.ElasticCheckButton_checkButton_duration, this.duration)
+    this.cornerRadius =
+      typedArray.getDimension(R.styleable.ElasticCheckButton_checkButton_cornerRadius,
+        this.cornerRadius)
+    this.checkedAlpha =
+      typedArray.getFloat(R.styleable.ElasticCheckButton_checkButton_alpha, this.checkedAlpha)
+    this.isChecked =
+      typedArray.getBoolean(R.styleable.ElasticCheckButton_checkButton_isChecked, this.isChecked)
   }
 
   override fun onFinishInflate() {
     super.onFinishInflate()
+    initializeBackground()
     updateElasticCheckButton()
   }
 
+  private fun initializeBackground() {
+    if (this.background is ColorDrawable) {
+      val drawable = GradientDrawable()
+      drawable.cornerRadius = this@ElasticCheckButton.cornerRadius
+      drawable.setColor((this.background as ColorDrawable).color)
+      this.background = drawable
+    }
+  }
+
   private fun updateElasticCheckButton() {
-    if (isChecked) {
-      this.alpha = checkedAlpha
+    if (this.isChecked) {
+      this.alpha = this.checkedAlpha
     }
   }
 
@@ -117,8 +138,8 @@ class ElasticCheckButton : AppCompatButton {
   }
 
   private fun invokeListeners() {
-    alpha = when (isChecked) {
-      true -> checkedAlpha
+    this.alpha = when (this.isChecked) {
+      true -> this.checkedAlpha
       false -> 1.0f
     }
     this.onClickListener?.onClick(this)

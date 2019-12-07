@@ -25,6 +25,8 @@ package com.skydoves.elasticviews
 
 import android.content.Context
 import android.content.res.TypedArray
+import android.graphics.drawable.ColorDrawable
+import android.graphics.drawable.GradientDrawable
 import android.util.AttributeSet
 import android.widget.FrameLayout
 
@@ -33,6 +35,7 @@ class ElasticLayout : FrameLayout {
 
   var scale = 0.9f
   var duration = 500
+  var cornerRadius = 0f
 
   private var onClickListener: OnClickListener? = null
   private var onFinishListener: ElasticFinishListener? = null
@@ -46,7 +49,8 @@ class ElasticLayout : FrameLayout {
     getAttrs(attributeSet)
   }
 
-  constructor(context: Context, attributeSet: AttributeSet, defStyle: Int) : super(context, attributeSet, defStyle) {
+  constructor(context: Context, attributeSet: AttributeSet, defStyle: Int) : super(context,
+    attributeSet, defStyle) {
     onCreate()
     getAttrs(attributeSet, defStyle)
   }
@@ -85,8 +89,24 @@ class ElasticLayout : FrameLayout {
   }
 
   private fun setTypeArray(typedArray: TypedArray) {
-    this.scale = typedArray.getFloat(R.styleable.ElasticLayout_layout_scale, scale)
-    this.duration = typedArray.getInt(R.styleable.ElasticLayout_layout_duration, duration)
+    this.scale = typedArray.getFloat(R.styleable.ElasticLayout_layout_scale, this.scale)
+    this.duration = typedArray.getInt(R.styleable.ElasticLayout_layout_duration, this.duration)
+    this.cornerRadius =
+      typedArray.getDimension(R.styleable.ElasticLayout_layout_cornerRadius, this.cornerRadius)
+  }
+
+  override fun onFinishInflate() {
+    super.onFinishInflate()
+    initializeBackground()
+  }
+
+  private fun initializeBackground() {
+    if (this.background is ColorDrawable) {
+      val drawable = GradientDrawable()
+      drawable.cornerRadius = this@ElasticLayout.cornerRadius
+      drawable.setColor((this.background as ColorDrawable).color)
+      this.background = drawable
+    }
   }
 
   override fun setOnClickListener(listener: OnClickListener?) {
