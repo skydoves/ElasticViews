@@ -26,6 +26,7 @@ package com.skydoves.elasticviews
 import android.content.Context
 import android.content.res.TypedArray
 import android.util.AttributeSet
+import android.view.View.OnClickListener
 import androidx.appcompat.widget.AppCompatImageView
 
 @Suppress("unused", "MemberVisibilityCanBePrivate")
@@ -46,7 +47,8 @@ class ElasticImageView : AppCompatImageView {
     getAttrs(attributeSet)
   }
 
-  constructor(context: Context, attributeSet: AttributeSet, defStyle: Int) : super(context, attributeSet, defStyle) {
+  constructor(context: Context, attributeSet: AttributeSet, defStyle: Int) : super(context,
+    attributeSet, defStyle) {
     onCreate()
     getAttrs(attributeSet, defStyle)
   }
@@ -75,7 +77,8 @@ class ElasticImageView : AppCompatImageView {
   }
 
   private fun getAttrs(attrs: AttributeSet, defStyle: Int) {
-    val typedArray = context.obtainStyledAttributes(attrs, R.styleable.ElasticImageView, defStyle, 0)
+    val typedArray =
+      context.obtainStyledAttributes(attrs, R.styleable.ElasticImageView, defStyle, 0)
     try {
       setTypeArray(typedArray)
     } finally {
@@ -99,5 +102,36 @@ class ElasticImageView : AppCompatImageView {
   private fun invokeListeners() {
     this.onClickListener?.onClick(this)
     this.onFinishListener?.onFinished()
+  }
+
+  /** Builder class for creating [ElasticImageView]. */
+  class Builder(context: Context) {
+    private val elasticImageView = ElasticImageView(context)
+
+    fun setScale(value: Float) = apply { this.elasticImageView.scale = value }
+    fun setDuration(value: Int) = apply { this.elasticImageView.duration = value }
+    fun setOnClickListener(block: () -> Unit) = apply {
+      val onClickListener = OnClickListener { block() }
+      this.elasticImageView.setOnClickListener(onClickListener)
+    }
+
+    fun setOnClickListener(value: OnClickListener) = apply {
+      this.elasticImageView.setOnClickListener(value)
+    }
+
+    fun setOnFinishListener(block: () -> Unit) = apply {
+      val onElasticFinishListener = object : ElasticFinishListener {
+        override fun onFinished() {
+          block()
+        }
+      }
+      this.elasticImageView.setOnFinishListener(onElasticFinishListener)
+    }
+
+    fun setOnFinishListener(value: ElasticFinishListener) = apply {
+      this.elasticImageView.setOnFinishListener(value)
+    }
+
+    fun build() = this.elasticImageView
   }
 }

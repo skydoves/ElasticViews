@@ -28,6 +28,7 @@ import android.content.res.TypedArray
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.GradientDrawable
 import android.util.AttributeSet
+import android.view.View.OnClickListener
 import androidx.appcompat.widget.AppCompatButton
 
 @Suppress("unused", "MemberVisibilityCanBePrivate")
@@ -119,5 +120,37 @@ class ElasticButton : AppCompatButton {
   private fun invokeListeners() {
     this.onClickListener?.onClick(this)
     this.onFinishListener?.onFinished()
+  }
+
+  /** Builder class for creating [ElasticButton]. */
+  class Builder(context: Context) {
+    private val elasticButton = ElasticButton(context)
+
+    fun setScale(value: Float) = apply { this.elasticButton.scale = value }
+    fun setDuration(value: Int) = apply { this.elasticButton.duration = value }
+    fun setCornerRadius(value: Float) = apply { this.elasticButton.cornerRadius = value }
+    fun setOnClickListener(block: () -> Unit) = apply {
+      val onClickListener = OnClickListener { block() }
+      this.elasticButton.setOnClickListener(onClickListener)
+    }
+
+    fun setOnClickListener(value: OnClickListener) = apply {
+      this.elasticButton.setOnClickListener(value)
+    }
+
+    fun setOnFinishListener(block: () -> Unit) = apply {
+      val onElasticFinishListener = object : ElasticFinishListener {
+        override fun onFinished() {
+          block()
+        }
+      }
+      this.elasticButton.setOnFinishListener(onElasticFinishListener)
+    }
+
+    fun setOnFinishListener(value: ElasticFinishListener) = apply {
+      this.elasticButton.setOnFinishListener(value)
+    }
+
+    fun build() = this.elasticButton
   }
 }
