@@ -59,14 +59,12 @@ class ElasticButton : AppCompatButton {
   private fun onCreate() {
     this.isAllCaps = false
     super.setOnClickListener {
-      if (this.scaleX == 1f) {
-        elasticAnimation(this) {
-          setDuration(this@ElasticButton.duration)
-          setScaleX(this@ElasticButton.scale)
-          setScaleY(this@ElasticButton.scale)
-          setOnFinishListener { invokeListeners() }
-        }.doAction()
-      }
+      elasticAnimation(this) {
+        setDuration(this@ElasticButton.duration)
+        setScaleX(this@ElasticButton.scale)
+        setScaleY(this@ElasticButton.scale)
+        setOnFinishListener { invokeListeners() }
+      }.doAction()
     }
   }
 

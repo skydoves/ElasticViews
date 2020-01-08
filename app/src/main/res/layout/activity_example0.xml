@@ -4,7 +4,7 @@
   android:id="@+id/activity_example2"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
-  android:background="#1d1f2f">
+  android:background="@color/background">
 
   <!-- # Main Layout # -->
   <LinearLayout
@@ -56,7 +56,7 @@
             android:layout_width="0dp"
             android:layout_height="45dp"
             android:layout_weight="1"
-            android:background="#30354b"
+            android:background="@color/background800"
             android:onClick="checkButtons"
             android:text="Sun"
             android:textColor="@android:color/white"
@@ -69,7 +69,7 @@
             android:layout_width="0dp"
             android:layout_height="45dp"
             android:layout_weight="1"
-            android:background="#30354b"
+            android:background="@color/background800"
             android:onClick="checkButtons"
             android:text="Mon"
             android:textColor="@android:color/white"
@@ -82,7 +82,7 @@
             android:layout_width="0dp"
             android:layout_height="45dp"
             android:layout_weight="1"
-            android:background="#30354b"
+            android:background="@color/background800"
             android:onClick="checkButtons"
             android:text="Tue"
             android:textColor="@android:color/white"
@@ -95,7 +95,7 @@
             android:layout_width="0dp"
             android:layout_height="45dp"
             android:layout_weight="1"
-            android:background="#30354b"
+            android:background="@color/background800"
             android:onClick="checkButtons"
             android:text="Wed"
             android:textColor="@android:color/white"
@@ -108,7 +108,7 @@
             android:layout_width="0dp"
             android:layout_height="45dp"
             android:layout_weight="1"
-            android:background="#30354b"
+            android:background="@color/background800"
             android:onClick="checkButtons"
             android:text="Thu"
             android:textColor="@android:color/white"
@@ -121,7 +121,7 @@
             android:layout_width="0dp"
             android:layout_height="45dp"
             android:layout_weight="1"
-            android:background="#30354b"
+            android:background="@color/background800"
             android:onClick="checkButtons"
             android:text="Fri"
             android:textColor="@android:color/white"
@@ -134,7 +134,7 @@
             android:layout_width="0dp"
             android:layout_height="45dp"
             android:layout_weight="1"
-            android:background="#30354b"
+            android:background="@color/background800"
             android:onClick="checkButtons"
             android:text="Sat"
             android:textColor="@android:color/white"
@@ -163,6 +163,7 @@
           android:id="@+id/example0_tv02"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
+          android:layout_marginEnd="23dp"
           android:layout_marginRight="23dp"
           android:scrollbars="vertical"
           android:text="Alarm time between"
@@ -189,9 +190,8 @@
         android:id="@+id/layout_starttime"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_below="@+id/example0_tv02"
         android:layout_marginTop="15dp"
-        android:background="@color/background"
+        android:background="@color/background800"
         android:onClick="layout"
         app:layout_cornerRadius="4dp"
         app:layout_scale="0.9">
@@ -209,7 +209,7 @@
             android:layout_marginLeft="15dp"
             android:text="Start time"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textColor="#ffffff"
+            android:textColor="@color/white_87"
             android:textSize="15sp"
             android:textStyle="bold" />
 
@@ -224,7 +224,7 @@
             android:layout_marginRight="20dp"
             android:text="8:00 AM"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textColor="#ffffff"
+            android:textColor="@color/white_87"
             android:textSize="15sp" />
         </RelativeLayout>
       </com.skydoves.elasticviews.ElasticLayout>
@@ -235,7 +235,7 @@
         android:layout_height="50dp"
         android:layout_below="@+id/makealram_tv02"
         android:layout_marginTop="15dp"
-        android:background="@color/background"
+        android:background="@color/background800"
         android:onClick="layout"
         app:layout_cornerRadius="4dp"
         app:layout_scale="0.9">
@@ -253,7 +253,7 @@
             android:layout_marginLeft="15dp"
             android:text="End time"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textColor="#ffffff"
+            android:textColor="@color/white_87"
             android:textSize="15sp"
             android:textStyle="bold" />
 
@@ -268,7 +268,7 @@
             android:layout_marginRight="20dp"
             android:text="9:00 PM"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textColor="#ffffff"
+            android:textColor="@color/white_87"
             android:textSize="15sp" />
         </RelativeLayout>
       </com.skydoves.elasticviews.ElasticLayout>
@@ -317,7 +317,7 @@
         android:layout_height="50dp"
         android:layout_below="@+id/example0_ibtn_q_timeset02"
         android:layout_marginTop="15dp"
-        android:background="@color/background"
+        android:background="@color/background800"
         android:onClick="layout"
         app:layout_cornerRadius="4dp"
         app:layout_scale="0.9">
@@ -331,10 +331,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
+            android:layout_marginStart="15dp"
             android:layout_marginLeft="15dp"
             android:text="Time interval"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textColor="#ffffff"
+            android:textColor="@color/white_87"
             android:textSize="15sp"
             android:textStyle="bold" />
 
@@ -345,10 +346,11 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
+            android:layout_marginEnd="20dp"
             android:layout_marginRight="20dp"
             android:text="2 hours"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textColor="#ffffff"
+            android:textColor="@color/white_87"
             android:textSize="15sp" />
         </RelativeLayout>
       </com.skydoves.elasticviews.ElasticLayout>

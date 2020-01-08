@@ -56,14 +56,12 @@ class ElasticImageView : AppCompatImageView {
   private fun onCreate() {
     this.isClickable = true
     super.setOnClickListener {
-      if (this.scaleX == 1f) {
-        elasticAnimation(this) {
-          setDuration(this@ElasticImageView.duration)
-          setScaleX(this@ElasticImageView.scale)
-          setScaleY(this@ElasticImageView.scale)
-          setOnFinishListener { invokeListeners() }
-        }.doAction()
-      }
+      elasticAnimation(this) {
+        setDuration(this@ElasticImageView.duration)
+        setScaleX(this@ElasticImageView.scale)
+        setScaleY(this@ElasticImageView.scale)
+        setOnFinishListener { invokeListeners() }
+      }.doAction()
     }
   }
 

@@ -4,7 +4,7 @@
   android:id="@+id/activity_main"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
-  android:background="#1d1f2f"
+  android:background="@color/background"
   android:orientation="vertical">
 
   <RelativeLayout
@@ -21,7 +21,7 @@
       android:layout_gravity="center"
       android:text="ElasticViews"
       android:textAppearance="?android:attr/textAppearanceLarge"
-      android:textColor="#ffffff"
+      android:textColor="@color/white"
       android:textSize="25sp" />
 
     <TextView
@@ -33,7 +33,7 @@
       android:layout_margin="10dp"
       android:text="github@skydoves"
       android:textAppearance="@style/TextAppearance.AppCompat.Small"
-      android:textColor="#3d95c9"
+      android:textColor="@color/skyBlue"
       android:textSize="15sp"
       android:textStyle="bold" />
 
@@ -55,7 +55,7 @@
     android:layout_height="0dp"
     android:layout_margin="20dp"
     android:layout_weight="1"
-    android:background="@color/background"
+    android:background="@color/background800"
     android:onClick="buttons"
     android:text="Example Activity0"
     android:textColor="@android:color/white"
@@ -71,7 +71,7 @@
     android:layout_marginLeft="20dp"
     android:layout_marginRight="20dp"
     android:layout_weight="1"
-    android:background="@color/background"
+    android:background="@color/background800"
     android:onClick="buttons"
     android:text="Example Activity1"
     android:textColor="@android:color/white"
@@ -86,7 +86,7 @@
     android:layout_height="0dp"
     android:layout_margin="20dp"
     android:layout_weight="1"
-    android:background="@color/background"
+    android:background="@color/background800"
     android:onClick="buttons"
     android:text="Example Activity2"
     android:textColor="@android:color/white"

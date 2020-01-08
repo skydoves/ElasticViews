@@ -49,7 +49,7 @@ class ExampleActivity1 : AppCompatActivity() {
     setContentView(R.layout.activity_example1)
 
     adapter = ListViewAdapter(this, R.layout.item, data)
-    listView = findViewById(R.id.example1_listview)
+    listView = findViewById(R.id.example1_listView)
     listView!!.adapter = adapter
     listView!!.onItemClickListener = ListViewItemClickListener()
   }

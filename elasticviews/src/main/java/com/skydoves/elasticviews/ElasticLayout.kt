@@ -60,14 +60,12 @@ class ElasticLayout : FrameLayout {
     this.isClickable = true
     this.isFocusable = true
     super.setOnClickListener {
-      if (this.scaleX == 1f) {
-        elasticAnimation(this) {
-          setDuration(this@ElasticLayout.duration)
-          setScaleX(this@ElasticLayout.scale)
-          setScaleY(this@ElasticLayout.scale)
-          setOnFinishListener { invokeListeners() }
-        }.doAction()
-      }
+      elasticAnimation(this) {
+        setDuration(this@ElasticLayout.duration)
+        setScaleX(this@ElasticLayout.scale)
+        setScaleY(this@ElasticLayout.scale)
+        setOnFinishListener { invokeListeners() }
+      }.doAction()
     }
   }
 

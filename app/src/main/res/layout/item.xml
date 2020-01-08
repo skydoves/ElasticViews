@@ -5,19 +5,20 @@
   android:paddingTop="15dp"
   android:paddingBottom="15dp">
 
-  <ImageView
+  <androidx.appcompat.widget.AppCompatImageView
     android:id="@+id/item_imv_main"
     android:layout_width="45dp"
     android:layout_height="45dp"
     android:scaleType="fitXY"
     android:src="@drawable/ic_question"
-    android:tint="#3d95c9" />
+    android:tint="@color/md_blue_200" />
 
-  <TextView
+  <androidx.appcompat.widget.AppCompatTextView
     android:id="@+id/item_tv_title"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_alignParentTop="@+id/item_imv_main"
+    android:layout_marginStart="10dp"
     android:layout_marginLeft="10dp"
     android:layout_toEndOf="@+id/item_imv_main"
     android:layout_toRightOf="@+id/item_imv_main"
@@ -26,7 +27,7 @@
     android:textSize="16sp"
     android:textStyle="bold" />
 
-  <TextView
+  <androidx.appcompat.widget.AppCompatTextView
     android:id="@+id/item_tv_content"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -36,5 +37,4 @@
     android:text="2016-10-27 22:33"
     android:textColor="#ffffff"
     android:textSize="15sp" />
-
 </RelativeLayout>

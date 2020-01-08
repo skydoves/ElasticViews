@@ -25,4 +25,8 @@
     <attr name="fabutton_scale" format="float" />
     <attr name="fabutton_duration" format="integer" />
   </declare-styleable>
+  <declare-styleable name="ElasticCardView">
+    <attr name="cardView_scale" format="float" />
+    <attr name="cardView_duration" format="integer" />
+  </declare-styleable>
 </resources>

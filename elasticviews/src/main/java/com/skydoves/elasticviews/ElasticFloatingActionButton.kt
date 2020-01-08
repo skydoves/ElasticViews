@@ -56,14 +56,12 @@ class ElasticFloatingActionButton : FloatingActionButton {
   private fun onCreate() {
     this.isClickable = true
     super.setOnClickListener {
-      if (this.scaleX == 1f) {
-        elasticAnimation(this) {
-          setDuration(this@ElasticFloatingActionButton.duration)
-          setScaleX(this@ElasticFloatingActionButton.scale)
-          setScaleY(this@ElasticFloatingActionButton.scale)
-          setOnFinishListener { invokeListeners() }
-        }.doAction()
-      }
+      elasticAnimation(this) {
+        setDuration(this@ElasticFloatingActionButton.duration)
+        setScaleX(this@ElasticFloatingActionButton.scale)
+        setScaleY(this@ElasticFloatingActionButton.scale)
+        setOnFinishListener { invokeListeners() }
+      }.doAction()
     }
   }
 

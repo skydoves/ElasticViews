@@ -34,7 +34,7 @@ import androidx.appcompat.widget.AppCompatButton
 @Suppress("unused", "MemberVisibilityCanBePrivate")
 class ElasticCheckButton : AppCompatButton {
 
-  var checkedAlpha = 0.7f
+  var checkedAlpha = 0.5f
   var scale = 0.9f
   var duration = 500
   var cornerRadius = 0f
@@ -66,14 +66,12 @@ class ElasticCheckButton : AppCompatButton {
     this.isAllCaps = false
     super.setOnClickListener {
       this.isChecked = !this.isChecked
-      if (this.scaleX == 1f) {
-        elasticAnimation(this) {
-          setDuration(this@ElasticCheckButton.duration)
-          setScaleX(this@ElasticCheckButton.scale)
-          setScaleY(this@ElasticCheckButton.scale)
-          setOnFinishListener { invokeListeners() }
-        }.doAction()
-      }
+      elasticAnimation(this) {
+        setDuration(this@ElasticCheckButton.duration)
+        setScaleX(this@ElasticCheckButton.scale)
+        setScaleY(this@ElasticCheckButton.scale)
+        setOnFinishListener { invokeListeners() }
+      }.doAction()
     }
   }
 

@@ -31,8 +31,14 @@ import androidx.core.view.ViewPropertyAnimatorListener
 
 /** ElasticAnimation extension for views. */
 @Suppress("unused")
-fun View.elasticAnimation(scaleX: Float, scaleY: Float, duration: Int, listener: ElasticFinishListener): ElasticAnimation {
-  return ElasticAnimation(this).setScaleX(scaleX).setScaleY(scaleY).setDuration(duration).setOnFinishListener(listener)
+fun View.elasticAnimation(
+  scaleX: Float,
+  scaleY: Float,
+  duration: Int,
+  listener: ElasticFinishListener
+): ElasticAnimation {
+  return ElasticAnimation(this).setScaleX(scaleX).setScaleY(scaleY).setDuration(duration)
+    .setOnFinishListener(listener)
 }
 
 /** for create ElasticAnimation by kotlin dsl. */
@@ -54,12 +60,19 @@ class ElasticAnimation(private val view: View) {
   var listener: ViewPropertyAnimatorListener? = null
   @JvmField
   var finishListener: ElasticFinishListener? = null
+  private var isAnimating: Boolean = false
 
   fun setScaleX(scaleX: Float): ElasticAnimation = apply { this.scaleX = scaleX }
   fun setScaleY(scaleY: Float): ElasticAnimation = apply { this.scaleY = scaleY }
   fun setDuration(duration: Int): ElasticAnimation = apply { this.duration = duration }
-  fun setListener(listener: ViewPropertyAnimatorListener): ElasticAnimation = apply { this.listener = listener }
-  fun setOnFinishListener(finishListener: ElasticFinishListener): ElasticAnimation = apply { this.finishListener = finishListener }
+  fun setListener(listener: ViewPropertyAnimatorListener): ElasticAnimation = apply {
+    this.listener = listener
+  }
+
+  fun setOnFinishListener(finishListener: ElasticFinishListener): ElasticAnimation = apply {
+    this.finishListener = finishListener
+  }
+
   fun setOnFinishListener(block: () -> Unit): ElasticAnimation = apply {
     this.finishListener = object : ElasticFinishListener {
       override fun onFinished() {
@@ -70,32 +83,40 @@ class ElasticAnimation(private val view: View) {
 
   /** starts elastic animation. */
   fun doAction() {
-    val animatorCompat = ViewCompat.animate(view)
-      .setDuration(this.duration.toLong())
-      .scaleX(this.scaleX)
-      .scaleY(this.scaleY)
-      .setInterpolator(CycleInterpolator(0.5f))
-    this.listener?.let { animatorCompat.setListener(it) }
-    this.finishListener?.let {
-      animatorCompat.setListener(object : ViewPropertyAnimatorListener {
-        override fun onAnimationEnd(view: View?) = it.onFinished()
-        override fun onAnimationCancel(view: View?) = Unit
-        override fun onAnimationStart(view: View?) = Unit
-      })
-    }
+    if (!this.isAnimating && this.view.scaleX == 1f) {
+      val animatorCompat = ViewCompat.animate(view)
+        .setDuration(this.duration.toLong())
+        .scaleX(this.scaleX)
+        .scaleY(this.scaleY)
+        .setInterpolator(CycleInterpolator(0.5f)).apply {
+          setListener(object : ViewPropertyAnimatorListener {
+            override fun onAnimationCancel(view: View?) = Unit
+            override fun onAnimationStart(view: View?) {
+              isAnimating = true
+            }
 
-    if (this.view is ViewGroup) {
-      for (index in 0 until this.view.childCount) {
-        val nextChild = this.view.getChildAt(index)
-        ViewCompat.animate(nextChild)
-          .setDuration(this.duration.toLong())
-          .scaleX(this.scaleX)
-          .scaleY(this.scaleY)
-          .setInterpolator(CycleInterpolator(0.5f))
-          .withLayer()
-          .start()
+            override fun onAnimationEnd(view: View?) {
+              isAnimating = false
+              finishListener?.onFinished()
+            }
+          })
+        }
+      this.listener?.let { animatorCompat.setListener(it) }
+      if (this.view is ViewGroup) {
+        for (index in 0 until this.view.childCount) {
+          val nextChild = this.view.getChildAt(index)
+          ViewCompat.animate(nextChild)
+            .setDuration(this.duration.toLong())
+            .scaleX(this.scaleX)
+            .scaleY(this.scaleY)
+            .setInterpolator(CycleInterpolator(0.5f))
+            .withLayer()
+            .start()
+        }
       }
+      animatorCompat.withLayer().start()
     }
-    animatorCompat.withLayer().start()
   }
+
+  fun isAnimating(): Boolean = this.isAnimating
 }
