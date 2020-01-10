@@ -84,7 +84,8 @@ class ExampleActivity1 : AppCompatActivity() {
     private val data: ArrayList<ListViewItem>
   ) : BaseAdapter() {
 
-    private val inflater: LayoutInflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+    private val inflater: LayoutInflater =
+      context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
 
     override fun getCount(): Int {
       return data.size

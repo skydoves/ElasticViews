@@ -38,8 +38,8 @@ class ExampleActivity2 : AppCompatActivity() {
   }
 
   fun views(v: View) {
-    when {
-      v.id == R.id.example2_view3 -> ElasticAnimation(v)
+    when (v.id) {
+      R.id.example2_view3 -> ElasticAnimation(v)
         .setScaleX(0.85f)
         .setScaleY(0.85f)
         .setDuration(500)
@@ -47,9 +47,11 @@ class ExampleActivity2 : AppCompatActivity() {
           // Do something after duration time
         }
         .doAction()
-      v.id == R.id.example2_imv -> Snackbar.make(v, "This is ElasticImageView", 200).setActionTextColor(Color.WHITE).show()
-      v.id == R.id.example2_textView0 -> ElasticAnimation(v).setScaleX(0.75f).setScaleY(0.75f).setDuration(500).doAction()
-      v.id == R.id.example2_fab -> Snackbar.make(v, "This is ElasticFloatActionButton", 200)
+      R.id.example2_imv -> Snackbar.make(v, "This is ElasticImageView", 200).setActionTextColor(
+        Color.WHITE).show()
+      R.id.example2_textView0 -> ElasticAnimation(v).setScaleX(0.75f).setScaleY(0.75f).setDuration(
+        500).doAction()
+      R.id.example2_fab -> Snackbar.make(v, "This is ElasticFloatActionButton", 200)
         .setActionTextColor(Color.WHITE)
         .show()
     }
