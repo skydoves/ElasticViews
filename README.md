@@ -2,7 +2,7 @@
 
 <p align="center">
   <a href="https://opensource.org/licenses/MIT"><img alt="License" src="https://img.shields.io/badge/license-MIT%20License-blue.svg"/></a>
-  <a href="https://android-arsenal.com/api?level=15"><img alt="API" src="https://img.shields.io/badge/API-15%2B-brightgreen.svg?style=flat"/></a>
+  <a href="https://android-arsenal.com/api?level=16"><img alt="API" src="https://img.shields.io/badge/API-16%2B-brightgreen.svg?style=flat"/></a>
   <a href="https://travis-ci.org/skydoves/ElasticViews"><img alt="Build Status" src="https://travis-ci.org/skydoves/ElasticViews.svg?branch=master"/></a>
   <a href="https://androidweekly.net/issues/issue-336"><img alt="Android Weekly" src="https://img.shields.io/badge/Android%20Weekly-%23336-orange.svg"/></a>
   <a href="https://skydoves.github.io/libraries/elasticviews/javadoc/elasticviews/com.skydoves.elasticviews/index.html"><img alt="Javadoc" src="https://img.shields.io/badge/Javadoc-ElasticViews-yellow"/></a>
