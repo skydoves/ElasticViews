@@ -29,6 +29,7 @@ import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.GradientDrawable
 import android.util.AttributeSet
 import android.view.View.OnClickListener
+import androidx.annotation.Px
 import androidx.appcompat.widget.AppCompatButton
 
 @Suppress("unused", "MemberVisibilityCanBePrivate")
@@ -36,7 +37,7 @@ class ElasticButton : AppCompatButton {
 
   var scale = 0.9f
   var duration = 500
-  var cornerRadius = 0f
+  @Px var cornerRadius = 0f
 
   private var onClickListener: OnClickListener? = null
   private var onFinishListener: ElasticFinishListener? = null
@@ -100,10 +101,10 @@ class ElasticButton : AppCompatButton {
 
   private fun initializeBackground() {
     if (this.background is ColorDrawable) {
-      val drawable = GradientDrawable()
-      drawable.cornerRadius = this@ElasticButton.cornerRadius
-      drawable.setColor((this.background as ColorDrawable).color)
-      this.background = drawable
+      this.background = GradientDrawable().apply {
+        cornerRadius = this@ElasticButton.cornerRadius
+        setColor((background as ColorDrawable).color)
+      }.mutate()
     }
   }
 
@@ -126,7 +127,7 @@ class ElasticButton : AppCompatButton {
 
     fun setScale(value: Float) = apply { this.elasticButton.scale = value }
     fun setDuration(value: Int) = apply { this.elasticButton.duration = value }
-    fun setCornerRadius(value: Float) = apply { this.elasticButton.cornerRadius = value }
+    fun setCornerRadius(@Px value: Float) = apply { this.elasticButton.cornerRadius = value }
     fun setOnClickListener(block: () -> Unit) = apply {
       val onClickListener = OnClickListener { block() }
       this.elasticButton.setOnClickListener(onClickListener)

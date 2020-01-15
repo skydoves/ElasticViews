@@ -30,13 +30,14 @@ import android.graphics.drawable.GradientDrawable
 import android.util.AttributeSet
 import android.view.View.OnClickListener
 import android.widget.FrameLayout
+import androidx.annotation.Px
 
 @Suppress("unused", "MemberVisibilityCanBePrivate")
 class ElasticLayout : FrameLayout {
 
   var scale = 0.9f
   var duration = 500
-  var cornerRadius = 0f
+  @Px var cornerRadius = 0f
 
   private var onClickListener: OnClickListener? = null
   private var onFinishListener: ElasticFinishListener? = null
@@ -101,10 +102,10 @@ class ElasticLayout : FrameLayout {
 
   private fun initializeBackground() {
     if (this.background is ColorDrawable) {
-      val drawable = GradientDrawable()
-      drawable.cornerRadius = this@ElasticLayout.cornerRadius
-      drawable.setColor((this.background as ColorDrawable).color)
-      this.background = drawable
+      this.background = GradientDrawable().apply {
+        cornerRadius = this@ElasticLayout.cornerRadius
+        setColor((background as ColorDrawable).color)
+      }.mutate()
     }
   }
 
@@ -127,7 +128,7 @@ class ElasticLayout : FrameLayout {
 
     fun setScale(value: Float) = apply { this.elasticLayout.scale = value }
     fun setDuration(value: Int) = apply { this.elasticLayout.duration = value }
-    fun setCornerRadius(value: Float) = apply { this.elasticLayout.cornerRadius = value }
+    fun setCornerRadius(@Px value: Float) = apply { this.elasticLayout.cornerRadius = value }
     fun setOnClickListener(block: () -> Unit) = apply {
       val onClickListener = OnClickListener { block() }
       this.elasticLayout.setOnClickListener(onClickListener)

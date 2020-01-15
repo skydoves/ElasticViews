@@ -29,15 +29,18 @@ import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.GradientDrawable
 import android.util.AttributeSet
 import android.view.View.OnClickListener
+import androidx.annotation.FloatRange
+import androidx.annotation.Px
 import androidx.appcompat.widget.AppCompatButton
 
 @Suppress("unused", "MemberVisibilityCanBePrivate")
 class ElasticCheckButton : AppCompatButton {
 
+  @FloatRange(from = 0.0, to = 1.0)
   var checkedAlpha = 0.5f
   var scale = 0.9f
   var duration = 500
-  var cornerRadius = 0f
+  @Px var cornerRadius = 0f
   var isChecked = false
     set(value) {
       field = value
@@ -115,10 +118,10 @@ class ElasticCheckButton : AppCompatButton {
 
   private fun initializeBackground() {
     if (this.background is ColorDrawable) {
-      val drawable = GradientDrawable()
-      drawable.cornerRadius = this@ElasticCheckButton.cornerRadius
-      drawable.setColor((this.background as ColorDrawable).color)
-      this.background = drawable
+      this.background = GradientDrawable().apply {
+        cornerRadius = this@ElasticCheckButton.cornerRadius
+        setColor((background as ColorDrawable).color)
+      }.mutate()
     }
   }
 
@@ -151,7 +154,7 @@ class ElasticCheckButton : AppCompatButton {
 
     fun setScale(value: Float) = apply { this.elasticCheckButton.scale = value }
     fun setDuration(value: Int) = apply { this.elasticCheckButton.duration = value }
-    fun setCornerRadius(value: Float) = apply { this.elasticCheckButton.cornerRadius = value }
+    fun setCornerRadius(@Px value: Float) = apply { this.elasticCheckButton.cornerRadius = value }
     fun setOnClickListener(block: () -> Unit) = apply {
       val onClickListener = OnClickListener { block() }
       this.elasticCheckButton.setOnClickListener(onClickListener)
