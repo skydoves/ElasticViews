@@ -30,7 +30,7 @@ import android.view.View.OnClickListener
 import androidx.cardview.widget.CardView
 
 @Suppress("unused", "MemberVisibilityCanBePrivate")
-class ElasticCardView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyle: Int = 0):
+class ElasticCardView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyle: Int = 0) :
         CardView(context, attrs, defStyle) {
 
   var scale = 0.9f

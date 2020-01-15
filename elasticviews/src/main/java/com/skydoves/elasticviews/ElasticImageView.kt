@@ -30,7 +30,7 @@ import android.view.View.OnClickListener
 import androidx.appcompat.widget.AppCompatImageView
 
 @Suppress("unused", "MemberVisibilityCanBePrivate")
-class ElasticImageView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyle: Int = 0):
+class ElasticImageView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyle: Int = 0) :
         AppCompatImageView(context, attrs, defStyle) {
 
   var scale = 0.9f

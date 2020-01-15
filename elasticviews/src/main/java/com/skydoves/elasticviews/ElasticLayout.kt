@@ -33,7 +33,7 @@ import android.widget.FrameLayout
 import androidx.annotation.Px
 
 @Suppress("unused", "MemberVisibilityCanBePrivate")
-class ElasticLayout @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyle: Int = 0):
+class ElasticLayout @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyle: Int = 0) :
         FrameLayout(context, attrs, defStyle) {
 
   var scale = 0.9f

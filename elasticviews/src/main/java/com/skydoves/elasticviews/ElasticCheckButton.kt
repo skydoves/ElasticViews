@@ -34,7 +34,7 @@ import androidx.annotation.Px
 import androidx.appcompat.widget.AppCompatButton
 
 @Suppress("unused", "MemberVisibilityCanBePrivate")
-class ElasticCheckButton @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyle: Int = 0):
+class ElasticCheckButton @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyle: Int = 0) :
         AppCompatButton(context, attrs, defStyle) {
 
   @FloatRange(from = 0.0, to = 1.0)

@@ -30,7 +30,7 @@ import android.view.View.OnClickListener
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 @Suppress("unused", "MemberVisibilityCanBePrivate")
-class ElasticFloatingActionButton @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyle: Int = 0):
+class ElasticFloatingActionButton @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyle: Int = 0) :
         FloatingActionButton(context, attrs, defStyle) {
 
   var scale = 0.9f
