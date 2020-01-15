@@ -33,7 +33,8 @@ import android.widget.FrameLayout
 import androidx.annotation.Px
 
 @Suppress("unused", "MemberVisibilityCanBePrivate")
-class ElasticLayout : FrameLayout {
+class ElasticLayout @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyle: Int = 0):
+        FrameLayout(context, attrs, defStyle) {
 
   var scale = 0.9f
   var duration = 500
@@ -42,19 +43,12 @@ class ElasticLayout : FrameLayout {
   private var onClickListener: OnClickListener? = null
   private var onFinishListener: ElasticFinishListener? = null
 
-  constructor(context: Context) : super(context) {
+  init {
     onCreate()
-  }
-
-  constructor(context: Context, attributeSet: AttributeSet) : super(context, attributeSet) {
-    onCreate()
-    getAttrs(attributeSet)
-  }
-
-  constructor(context: Context, attributeSet: AttributeSet, defStyle: Int) : super(context,
-    attributeSet, defStyle) {
-    onCreate()
-    getAttrs(attributeSet, defStyle)
+    when {
+      attrs != null && defStyle != 0 -> getAttrs(attrs, defStyle)
+      attrs != null -> getAttrs(attrs)
+    }
   }
 
   private fun onCreate() {
