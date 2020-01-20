@@ -30,7 +30,8 @@ import android.view.View.OnClickListener
 import androidx.cardview.widget.CardView
 
 @Suppress("unused", "MemberVisibilityCanBePrivate")
-class ElasticCardView : CardView {
+class ElasticCardView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyle: Int = 0) :
+        CardView(context, attrs, defStyle) {
 
   var scale = 0.9f
   var duration = 500
@@ -38,19 +39,12 @@ class ElasticCardView : CardView {
   private var onUserClickListener: OnClickListener? = null
   private var onFinishListener: ElasticFinishListener? = null
 
-  constructor(context: Context) : super(context) {
+  init {
     onCreate()
-  }
-
-  constructor(context: Context, attributeSet: AttributeSet) : super(context, attributeSet) {
-    onCreate()
-    getAttrs(attributeSet)
-  }
-
-  constructor(context: Context, attributeSet: AttributeSet, defStyle: Int) : super(context,
-    attributeSet, defStyle) {
-    onCreate()
-    getAttrs(attributeSet, defStyle)
+    when {
+      attrs != null && defStyle != 0 -> getAttrs(attrs, defStyle)
+      attrs != null -> getAttrs(attrs)
+    }
   }
 
   private fun onCreate() {
