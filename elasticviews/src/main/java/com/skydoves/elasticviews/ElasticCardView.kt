@@ -23,15 +23,20 @@
  */
 package com.skydoves.elasticviews
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.res.TypedArray
 import android.util.AttributeSet
 import android.view.View.OnClickListener
 import androidx.cardview.widget.CardView
 
+@SuppressLint("PrivateResource")
 @Suppress("unused", "MemberVisibilityCanBePrivate")
-class ElasticCardView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyle: Int = 0) :
-        CardView(context, attrs, defStyle) {
+class ElasticCardView @JvmOverloads constructor(
+  context: Context,
+  attrs: AttributeSet? = null,
+  defStyle: Int = androidx.cardview.R.attr.cardViewStyle
+) : CardView(context, attrs, defStyle) {
 
   var scale = 0.9f
   var duration = 500
@@ -42,7 +47,8 @@ class ElasticCardView @JvmOverloads constructor(context: Context, attrs: Attribu
   init {
     onCreate()
     when {
-      attrs != null && defStyle != 0 -> getAttrs(attrs, defStyle)
+      attrs != null && defStyle != androidx.cardview.R.attr.cardViewStyle ->
+        getAttrs(attrs, defStyle)
       attrs != null -> getAttrs(attrs)
     }
   }

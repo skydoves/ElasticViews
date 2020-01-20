@@ -33,7 +33,11 @@ import androidx.annotation.Px
 import androidx.appcompat.widget.AppCompatButton
 
 @Suppress("unused", "MemberVisibilityCanBePrivate")
-class ElasticButton @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyle: Int = 0) : AppCompatButton(context, attrs, defStyle) {
+class ElasticButton @JvmOverloads constructor(
+  context: Context,
+  attrs: AttributeSet? = null,
+  defStyle: Int = androidx.appcompat.R.attr.buttonStyle
+) : AppCompatButton(context, attrs, defStyle) {
 
   var scale = 0.9f
   var duration = 500
@@ -44,10 +48,11 @@ class ElasticButton @JvmOverloads constructor(context: Context, attrs: Attribute
 
   init {
     onCreate()
-      when {
-        attrs != null && defStyle != 0 -> getAttrs(attrs, defStyle)
-        attrs != null -> getAttrs(attrs)
-      }
+    when {
+      attrs != null && defStyle != androidx.appcompat.R.attr.buttonStyle ->
+        getAttrs(attrs, defStyle)
+      attrs != null -> getAttrs(attrs)
+    }
   }
 
   private fun onCreate() {

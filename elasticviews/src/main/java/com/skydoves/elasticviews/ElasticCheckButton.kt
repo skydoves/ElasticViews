@@ -34,8 +34,11 @@ import androidx.annotation.Px
 import androidx.appcompat.widget.AppCompatButton
 
 @Suppress("unused", "MemberVisibilityCanBePrivate")
-class ElasticCheckButton @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyle: Int = 0) :
-        AppCompatButton(context, attrs, defStyle) {
+class ElasticCheckButton @JvmOverloads constructor(
+  context: Context,
+  attrs: AttributeSet? = null,
+  defStyle: Int = androidx.appcompat.R.attr.buttonStyle
+) : AppCompatButton(context, attrs, defStyle) {
 
   @FloatRange(from = 0.0, to = 1.0)
   var checkedAlpha = 0.5f
@@ -54,7 +57,8 @@ class ElasticCheckButton @JvmOverloads constructor(context: Context, attrs: Attr
   init {
     onCreate()
     when {
-      attrs != null && defStyle != 0 -> getAttrs(attrs, defStyle)
+      attrs != null && defStyle != androidx.appcompat.R.attr.buttonStyle ->
+        getAttrs(attrs, defStyle)
       attrs != null -> getAttrs(attrs)
     }
   }
