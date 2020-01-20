@@ -30,8 +30,11 @@ import android.view.View.OnClickListener
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 @Suppress("unused", "MemberVisibilityCanBePrivate")
-class ElasticFloatingActionButton @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyle: Int = 0) :
-        FloatingActionButton(context, attrs, defStyle) {
+class ElasticFloatingActionButton @JvmOverloads constructor(
+  context: Context,
+  attrs: AttributeSet? = null,
+  defStyle: Int = com.google.android.material.R.attr.floatingActionButtonStyle
+) : FloatingActionButton(context, attrs, defStyle) {
 
   var scale = 0.9f
   var duration = 500
@@ -42,7 +45,8 @@ class ElasticFloatingActionButton @JvmOverloads constructor(context: Context, at
   init {
     onCreate()
     when {
-      attrs != null && defStyle != 0 -> getAttrs(attrs, defStyle)
+      attrs != null && defStyle != com.google.android.material.R.attr.floatingActionButtonStyle ->
+        getAttrs(attrs, defStyle)
       attrs != null -> getAttrs(attrs)
     }
   }
