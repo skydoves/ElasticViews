@@ -4,11 +4,11 @@ ext.versions = [
     versionCode        : 21,
     versionName        : '2.0.7',
 
-    gradleBuildTool    : '3.5.3',
-    spotlessGradle     : '3.26.0',
-    dokkaGradle        : '0.9.17',
+    gradleBuildTool    : '3.6.3',
+    spotlessGradle     : '3.30.0',
+    dokkaGradle        : '0.10.1',
     bintrayRelease     : '0.9.1',
 
-    kotlin             : '1.3.61',
-    googleMaterial     : '1.2.0-alpha03',
+    kotlin             : '1.3.70',
+    googleMaterial     : '1.2.0-alpha06',
 ]
