@@ -17,11 +17,9 @@
 <img src="https://user-images.githubusercontent.com/24237865/72123076-73943500-33a3-11ea-92ef-0924cd0b902e.gif" width="32%"/>
 </p>
 
-
-
 ## Including in your project
 [![Download](https://api.bintray.com/packages/devmagician/maven/elasticviews/images/download.svg)](https://bintray.com/devmagician/maven/elasticviews/_latestVersion)
-[![](https://jitpack.io/v/skydoves/ElasticViews.svg)](https://jitpack.io/#skydoves/ElasticViews)
+[![Kitpack](https://jitpack.io/v/skydoves/ElasticViews.svg)](https://jitpack.io/#skydoves/ElasticViews)
 
 #### build.gradle
 Add below codes to your root `build.gradle` file (not your module build.gradle file).
@@ -31,7 +29,7 @@ repositories {
 }
 
 dependencies {
-    implementation "com.github.skydoves:elasticviews:2.0.7"
+    implementation "com.github.skydoves:elasticviews:2.0.8"
 }
 ```
 
