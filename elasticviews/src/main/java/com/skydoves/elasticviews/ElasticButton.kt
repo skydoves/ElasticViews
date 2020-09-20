@@ -41,7 +41,8 @@ class ElasticButton @JvmOverloads constructor(
 
   var scale = 0.9f
   var duration = 500
-  @Px var cornerRadius = 0f
+  @Px
+  var cornerRadius = 0f
 
   private var onClickListener: OnClickListener? = null
   private var onFinishListener: ElasticFinishListener? = null
@@ -136,11 +137,7 @@ class ElasticButton @JvmOverloads constructor(
     }
 
     fun setOnFinishListener(block: () -> Unit) = apply {
-      val onElasticFinishListener = object : ElasticFinishListener {
-        override fun onFinished() {
-          block()
-        }
-      }
+      val onElasticFinishListener = ElasticFinishListener { block() }
       this.elasticButton.setOnFinishListener(onElasticFinishListener)
     }
 

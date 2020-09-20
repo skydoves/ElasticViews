@@ -44,7 +44,8 @@ class ElasticCheckButton @JvmOverloads constructor(
   var checkedAlpha = 0.5f
   var scale = 0.9f
   var duration = 500
-  @Px var cornerRadius = 0f
+  @Px
+  var cornerRadius = 0f
   var isChecked = false
     set(value) {
       field = value
@@ -165,11 +166,7 @@ class ElasticCheckButton @JvmOverloads constructor(
     }
 
     fun setOnFinishListener(block: () -> Unit) = apply {
-      val onElasticFinishListener = object : ElasticFinishListener {
-        override fun onFinished() {
-          block()
-        }
-      }
+      val onElasticFinishListener = ElasticFinishListener { block() }
       this.elasticCheckButton.setOnFinishListener(onElasticFinishListener)
     }
 

@@ -109,11 +109,7 @@ class ElasticFloatingActionButton @JvmOverloads constructor(
     }
 
     fun setOnFinishListener(block: () -> Unit) = apply {
-      val onElasticFinishListener = object : ElasticFinishListener {
-        override fun onFinished() {
-          block()
-        }
-      }
+      val onElasticFinishListener = ElasticFinishListener { block() }
       this.elasticFloatingButton.setOnFinishListener(onElasticFinishListener)
     }
 

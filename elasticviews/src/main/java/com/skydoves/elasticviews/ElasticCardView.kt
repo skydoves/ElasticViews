@@ -117,11 +117,7 @@ class ElasticCardView @JvmOverloads constructor(
     }
 
     fun setOnFinishListener(block: () -> Unit) = apply {
-      val onElasticFinishListener = object : ElasticFinishListener {
-        override fun onFinished() {
-          block()
-        }
-      }
+      val onElasticFinishListener = ElasticFinishListener { block() }
       this.elasticCardView.setOnFinishListener(onElasticFinishListener)
     }
 
