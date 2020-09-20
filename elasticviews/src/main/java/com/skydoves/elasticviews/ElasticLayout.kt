@@ -131,8 +131,7 @@ class ElasticLayout @JvmOverloads constructor(
 
     @JvmSynthetic
     fun setOnClickListener(block: () -> Unit) = apply {
-      val onClickListener = OnClickListener { block() }
-      this.elasticLayout.setOnClickListener(onClickListener)
+      setOnClickListener(OnClickListener { block() })
     }
 
     fun setOnClickListener(value: OnClickListener) = apply {
@@ -141,8 +140,7 @@ class ElasticLayout @JvmOverloads constructor(
 
     @JvmSynthetic
     fun setOnFinishListener(block: () -> Unit) = apply {
-      val onElasticFinishListener = ElasticFinishListener { block() }
-      this.elasticLayout.setOnFinishListener(onElasticFinishListener)
+      setOnFinishListener(ElasticFinishListener { block() })
     }
 
     fun setOnFinishListener(value: ElasticFinishListener) = apply {

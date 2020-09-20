@@ -102,8 +102,7 @@ class ElasticFloatingActionButton @JvmOverloads constructor(
 
     @JvmSynthetic
     fun setOnClickListener(block: () -> Unit) = apply {
-      val onClickListener = OnClickListener { block() }
-      this.elasticFloatingButton.setOnClickListener(onClickListener)
+      setOnClickListener(OnClickListener { block() })
     }
 
     fun setOnClickListener(value: OnClickListener) = apply {
@@ -112,8 +111,7 @@ class ElasticFloatingActionButton @JvmOverloads constructor(
 
     @JvmSynthetic
     fun setOnFinishListener(block: () -> Unit) = apply {
-      val onElasticFinishListener = ElasticFinishListener { block() }
-      this.elasticFloatingButton.setOnFinishListener(onElasticFinishListener)
+      setOnFinishListener(ElasticFinishListener { block() })
     }
 
     fun setOnFinishListener(value: ElasticFinishListener) = apply {

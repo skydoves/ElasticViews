@@ -91,19 +91,18 @@ class ElasticAnimation(private val view: View) {
         .scaleX(this.scaleX)
         .scaleY(this.scaleY)
         .setInterpolator(CycleInterpolator(0.5f)).apply {
-          setListener(object : ViewPropertyAnimatorListener {
+          listener?.let { setListener(it) } ?: setListener(object : ViewPropertyAnimatorListener {
             override fun onAnimationCancel(view: View?) = Unit
             override fun onAnimationStart(view: View?) {
               isAnimating = true
             }
 
             override fun onAnimationEnd(view: View?) {
-              isAnimating = false
               finishListener?.onFinished()
+              isAnimating = false
             }
           })
         }
-      this.listener?.let { animatorCompat.setListener(it) }
       if (this.view is ViewGroup) {
         for (index in 0 until this.view.childCount) {
           val nextChild = this.view.getChildAt(index)
