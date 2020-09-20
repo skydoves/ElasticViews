@@ -99,6 +99,8 @@ class ElasticFloatingActionButton @JvmOverloads constructor(
 
     fun setScale(value: Float) = apply { this.elasticFloatingButton.scale = value }
     fun setDuration(value: Int) = apply { this.elasticFloatingButton.duration = value }
+
+    @JvmSynthetic
     fun setOnClickListener(block: () -> Unit) = apply {
       val onClickListener = OnClickListener { block() }
       this.elasticFloatingButton.setOnClickListener(onClickListener)
@@ -108,6 +110,7 @@ class ElasticFloatingActionButton @JvmOverloads constructor(
       this.elasticFloatingButton.setOnClickListener(value)
     }
 
+    @JvmSynthetic
     fun setOnFinishListener(block: () -> Unit) = apply {
       val onElasticFinishListener = ElasticFinishListener { block() }
       this.elasticFloatingButton.setOnFinishListener(onElasticFinishListener)

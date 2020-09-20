@@ -105,6 +105,8 @@ class ElasticImageView @JvmOverloads constructor(
 
     fun setScale(value: Float) = apply { this.elasticImageView.scale = value }
     fun setDuration(value: Int) = apply { this.elasticImageView.duration = value }
+
+    @JvmSynthetic
     fun setOnClickListener(block: () -> Unit) = apply {
       val onClickListener = OnClickListener { block() }
       this.elasticImageView.setOnClickListener(onClickListener)
@@ -114,6 +116,7 @@ class ElasticImageView @JvmOverloads constructor(
       this.elasticImageView.setOnClickListener(value)
     }
 
+    @JvmSynthetic
     fun setOnFinishListener(block: () -> Unit) = apply {
       val onElasticFinishListener = ElasticFinishListener { block() }
       this.elasticImageView.setOnFinishListener(onElasticFinishListener)

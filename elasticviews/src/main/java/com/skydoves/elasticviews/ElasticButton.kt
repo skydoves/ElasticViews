@@ -127,6 +127,8 @@ class ElasticButton @JvmOverloads constructor(
     fun setScale(value: Float) = apply { this.elasticButton.scale = value }
     fun setDuration(value: Int) = apply { this.elasticButton.duration = value }
     fun setCornerRadius(@Px value: Float) = apply { this.elasticButton.cornerRadius = value }
+
+    @JvmSynthetic
     fun setOnClickListener(block: () -> Unit) = apply {
       val onClickListener = OnClickListener { block() }
       this.elasticButton.setOnClickListener(onClickListener)
@@ -136,6 +138,7 @@ class ElasticButton @JvmOverloads constructor(
       this.elasticButton.setOnClickListener(value)
     }
 
+    @JvmSynthetic
     fun setOnFinishListener(block: () -> Unit) = apply {
       val onElasticFinishListener = ElasticFinishListener { block() }
       this.elasticButton.setOnFinishListener(onElasticFinishListener)

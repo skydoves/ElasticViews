@@ -41,6 +41,7 @@ class ElasticLayout @JvmOverloads constructor(
 
   var scale = 0.9f
   var duration = 500
+
   @Px
   var cornerRadius = 0f
 
@@ -127,6 +128,8 @@ class ElasticLayout @JvmOverloads constructor(
     fun setScale(value: Float) = apply { this.elasticLayout.scale = value }
     fun setDuration(value: Int) = apply { this.elasticLayout.duration = value }
     fun setCornerRadius(@Px value: Float) = apply { this.elasticLayout.cornerRadius = value }
+
+    @JvmSynthetic
     fun setOnClickListener(block: () -> Unit) = apply {
       val onClickListener = OnClickListener { block() }
       this.elasticLayout.setOnClickListener(onClickListener)
@@ -136,6 +139,7 @@ class ElasticLayout @JvmOverloads constructor(
       this.elasticLayout.setOnClickListener(value)
     }
 
+    @JvmSynthetic
     fun setOnFinishListener(block: () -> Unit) = apply {
       val onElasticFinishListener = ElasticFinishListener { block() }
       this.elasticLayout.setOnFinishListener(onElasticFinishListener)

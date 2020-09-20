@@ -156,6 +156,8 @@ class ElasticCheckButton @JvmOverloads constructor(
     fun setScale(value: Float) = apply { this.elasticCheckButton.scale = value }
     fun setDuration(value: Int) = apply { this.elasticCheckButton.duration = value }
     fun setCornerRadius(@Px value: Float) = apply { this.elasticCheckButton.cornerRadius = value }
+
+    @JvmSynthetic
     fun setOnClickListener(block: () -> Unit) = apply {
       val onClickListener = OnClickListener { block() }
       this.elasticCheckButton.setOnClickListener(onClickListener)
@@ -165,6 +167,7 @@ class ElasticCheckButton @JvmOverloads constructor(
       this.elasticCheckButton.setOnClickListener(value)
     }
 
+    @JvmSynthetic
     fun setOnFinishListener(block: () -> Unit) = apply {
       val onElasticFinishListener = ElasticFinishListener { block() }
       this.elasticCheckButton.setOnFinishListener(onElasticFinishListener)

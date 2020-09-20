@@ -107,6 +107,7 @@ class ElasticCardView @JvmOverloads constructor(
     fun setScale(value: Float) = apply { this.elasticCardView.scale = value }
     fun setDuration(value: Int) = apply { this.elasticCardView.duration = value }
 
+    @JvmSynthetic
     fun setOnClickListener(block: () -> Unit) = apply {
       val onClickListener = OnClickListener { block() }
       this.elasticCardView.setOnClickListener(onClickListener)
@@ -116,6 +117,7 @@ class ElasticCardView @JvmOverloads constructor(
       this.elasticCardView.setOnClickListener(value)
     }
 
+    @JvmSynthetic
     fun setOnFinishListener(block: () -> Unit) = apply {
       val onElasticFinishListener = ElasticFinishListener { block() }
       this.elasticCardView.setOnFinishListener(onElasticFinishListener)

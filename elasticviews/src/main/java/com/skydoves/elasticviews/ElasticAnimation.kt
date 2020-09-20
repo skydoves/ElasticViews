@@ -21,6 +21,8 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+@file:Suppress("unused")
+
 package com.skydoves.elasticviews
 
 import android.view.View
@@ -30,7 +32,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.ViewPropertyAnimatorListener
 
 /** ElasticAnimation extension for views. */
-@Suppress("unused")
+@JvmSynthetic
 fun View.elasticAnimation(
   scaleX: Float,
   scaleY: Float,
@@ -42,22 +44,25 @@ fun View.elasticAnimation(
 }
 
 /** for create ElasticAnimation by kotlin dsl. */
-@Suppress("unused")
+@JvmSynthetic
 fun elasticAnimation(view: View, block: ElasticAnimation.() -> Unit): ElasticAnimation =
   ElasticAnimation(view).apply(block)
 
 /** ElasticAnimation implements elastic animations for android views or view groups. */
-@Suppress("unused")
 class ElasticAnimation(private val view: View) {
 
   @JvmField
   var scaleX = 0.7f
+
   @JvmField
   var scaleY = 0.7f
+
   @JvmField
   var duration = 400
+
   @JvmField
   var listener: ViewPropertyAnimatorListener? = null
+
   @JvmField
   var finishListener: ElasticFinishListener? = null
   private var isAnimating: Boolean = false
@@ -73,12 +78,9 @@ class ElasticAnimation(private val view: View) {
     this.finishListener = finishListener
   }
 
+  @JvmSynthetic
   fun setOnFinishListener(block: () -> Unit): ElasticAnimation = apply {
-    this.finishListener = object : ElasticFinishListener {
-      override fun onFinished() {
-        block()
-      }
-    }
+    this.finishListener = ElasticFinishListener { block() }
   }
 
   /** starts elastic animation. */
