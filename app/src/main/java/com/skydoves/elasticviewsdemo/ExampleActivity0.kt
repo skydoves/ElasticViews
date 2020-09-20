@@ -46,7 +46,8 @@ class ExampleActivity0 : AppCompatActivity() {
         elasticCheckButton.text.toString() +
         " : " +
         elasticCheckButton.isChecked,
-      200)
+      200
+    )
       .setActionTextColor(Color.WHITE)
       .show()
   }
@@ -57,13 +58,17 @@ class ExampleActivity0 : AppCompatActivity() {
 
   fun imageViews(v: View) {
     when (v.id) {
-      R.id.example0_ibtn_q_timeset01 -> Snackbar.make(v,
-        "Alarm goes off between start-time and end-time", 200)
-        .setActionTextColor(Color.WHITE)
-        .show()
-      R.id.example0_ibtn_q_timeset02 -> Snackbar.make(v, "This is time interval description", 200)
-        .setActionTextColor(Color.WHITE)
-        .show()
+      R.id.example0_ibtn_q_timeset01 ->
+        Snackbar.make(
+          v,
+          "Alarm goes off between start-time and end-time", 200
+        )
+          .setActionTextColor(Color.WHITE)
+          .show()
+      R.id.example0_ibtn_q_timeset02 ->
+        Snackbar.make(v, "This is time interval description", 200)
+          .setActionTextColor(Color.WHITE)
+          .show()
     }
   }
 

@@ -100,8 +100,10 @@ class ElasticCheckButton @JvmOverloads constructor(
     this.duration =
       typedArray.getInt(R.styleable.ElasticCheckButton_checkButton_duration, this.duration)
     this.cornerRadius =
-      typedArray.getDimension(R.styleable.ElasticCheckButton_checkButton_cornerRadius,
-        this.cornerRadius)
+      typedArray.getDimension(
+        R.styleable.ElasticCheckButton_checkButton_cornerRadius,
+        this.cornerRadius
+      )
     this.checkedAlpha =
       typedArray.getFloat(R.styleable.ElasticCheckButton_checkButton_alpha, this.checkedAlpha)
     this.isChecked =
