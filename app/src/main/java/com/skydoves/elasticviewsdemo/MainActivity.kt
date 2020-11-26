@@ -27,12 +27,15 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import com.skydoves.elasticviewsdemo.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
-    setContentView(R.layout.activity_main)
+
+    val binding = ActivityMainBinding.inflate(layoutInflater)
+    setContentView(binding.root)
   }
 
   fun buttons(v: View) {

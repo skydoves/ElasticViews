@@ -36,6 +36,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.skydoves.elasticviews.ElasticAnimation
+import com.skydoves.elasticviewsdemo.databinding.ActivityExample1Binding
 import java.util.ArrayList
 
 class ExampleActivity1 : AppCompatActivity() {
@@ -46,7 +47,9 @@ class ExampleActivity1 : AppCompatActivity() {
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
-    setContentView(R.layout.activity_example1)
+
+    val binding = ActivityExample1Binding.inflate(layoutInflater)
+    setContentView(binding.root)
 
     adapter = ListViewAdapter(this, R.layout.item, data)
     listView = findViewById(R.id.example1_listView)

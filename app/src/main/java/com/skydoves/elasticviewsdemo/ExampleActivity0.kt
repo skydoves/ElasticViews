@@ -30,12 +30,15 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
 import com.skydoves.elasticviews.ElasticCheckButton
+import com.skydoves.elasticviewsdemo.databinding.ActivityExample0Binding
 
 class ExampleActivity0 : AppCompatActivity() {
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
-    setContentView(R.layout.activity_example0)
+
+    val binding = ActivityExample0Binding.inflate(layoutInflater)
+    setContentView(binding.root)
   }
 
   fun checkButtons(v: View) {

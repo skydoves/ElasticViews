@@ -29,12 +29,15 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
 import com.skydoves.elasticviews.ElasticAnimation
+import com.skydoves.elasticviewsdemo.databinding.ActivityExample2Binding
 
 class ExampleActivity2 : AppCompatActivity() {
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
-    setContentView(R.layout.activity_example2)
+
+    val binding = ActivityExample2Binding.inflate(layoutInflater)
+    setContentView(binding.root)
   }
 
   fun views(v: View) {
