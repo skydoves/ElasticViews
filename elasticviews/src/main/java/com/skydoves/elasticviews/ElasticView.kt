@@ -26,7 +26,7 @@ package com.skydoves.elasticviews
 /**
  * ElasticView is an interface for abstracting elastic view's listener.
  */
-interface ElasticView {
+internal interface ElasticView {
 
   fun setOnClickListener(block: () -> Unit)
 
