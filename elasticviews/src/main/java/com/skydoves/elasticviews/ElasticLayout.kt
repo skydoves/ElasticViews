@@ -32,15 +32,18 @@ import android.view.View.OnClickListener
 import android.widget.FrameLayout
 import androidx.annotation.Px
 
-@Suppress("unused", "MemberVisibilityCanBePrivate")
+@Suppress("unused")
 class ElasticLayout @JvmOverloads constructor(
   context: Context,
   attrs: AttributeSet? = null,
   defStyle: Int = 0
-) : FrameLayout(context, attrs, defStyle) {
+) : FrameLayout(context, attrs, defStyle), ElasticView {
 
-  var scale = 0.9f
-  var duration = 500
+  /** The target elastic scale size of the animation. */
+  var scale = Definitions.DEFAULT_SCALE
+
+  /** The default duration of the animation. */
+  var duration = Definitions.DEFAULT_DURATION
 
   @Px
   var cornerRadius = 0f
@@ -100,8 +103,8 @@ class ElasticLayout @JvmOverloads constructor(
   }
 
   private fun initializeBackground() {
-    if (this.background is ColorDrawable) {
-      this.background = GradientDrawable().apply {
+    if (background is ColorDrawable) {
+      background = GradientDrawable().apply {
         cornerRadius = this@ElasticLayout.cornerRadius
         setColor((background as ColorDrawable).color)
       }.mutate()
@@ -112,9 +115,15 @@ class ElasticLayout @JvmOverloads constructor(
     this.onClickListener = listener
   }
 
-  fun setOnFinishListener(listener: ElasticFinishListener) {
+  override fun setOnFinishListener(listener: ElasticFinishListener?) {
     this.onFinishListener = listener
   }
+
+  override fun setOnClickListener(block: () -> Unit) =
+    setOnClickListener(OnClickListener { block() })
+
+  override fun setOnFinishListener(block: () -> Unit) =
+    setOnFinishListener(ElasticFinishListener { block() })
 
   private fun invokeListeners() {
     this.onClickListener?.onClick(this)
@@ -130,7 +139,7 @@ class ElasticLayout @JvmOverloads constructor(
     fun setCornerRadius(@Px value: Float) = apply { this.elasticLayout.cornerRadius = value }
 
     @JvmSynthetic
-    fun setOnClickListener(block: () -> Unit) = apply {
+    inline fun setOnClickListener(crossinline block: () -> Unit) = apply {
       setOnClickListener(OnClickListener { block() })
     }
 
@@ -139,7 +148,7 @@ class ElasticLayout @JvmOverloads constructor(
     }
 
     @JvmSynthetic
-    fun setOnFinishListener(block: () -> Unit) = apply {
+    inline fun setOnFinishListener(crossinline block: () -> Unit) = apply {
       setOnFinishListener(ElasticFinishListener { block() })
     }
 

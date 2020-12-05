@@ -23,23 +23,24 @@
  */
 package com.skydoves.elasticviews
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.content.res.TypedArray
 import android.util.AttributeSet
 import android.view.View.OnClickListener
 import androidx.cardview.widget.CardView
 
-@SuppressLint("PrivateResource")
-@Suppress("unused", "MemberVisibilityCanBePrivate")
+@Suppress("unused")
 class ElasticCardView @JvmOverloads constructor(
   context: Context,
   attrs: AttributeSet? = null,
   defStyle: Int = androidx.cardview.R.attr.cardViewStyle
-) : CardView(context, attrs, defStyle) {
+) : CardView(context, attrs, defStyle), ElasticView {
 
-  var scale = 0.9f
-  var duration = 500
+  /** The target elastic scale size of the animation. */
+  var scale = Definitions.DEFAULT_SCALE
+
+  /** The default duration of the animation. */
+  var duration = Definitions.DEFAULT_DURATION
 
   private var onUserClickListener: OnClickListener? = null
   private var onFinishListener: ElasticFinishListener? = null
@@ -91,9 +92,15 @@ class ElasticCardView @JvmOverloads constructor(
     this.onUserClickListener = listener
   }
 
-  fun setOnFinishListener(listener: ElasticFinishListener) {
+  override fun setOnFinishListener(listener: ElasticFinishListener?) {
     this.onFinishListener = listener
   }
+
+  override fun setOnClickListener(block: () -> Unit) =
+    setOnClickListener(OnClickListener { block() })
+
+  override fun setOnFinishListener(block: () -> Unit) =
+    setOnFinishListener(ElasticFinishListener { block() })
 
   private fun invokeListeners() {
     this.onUserClickListener?.onClick(this)
@@ -108,7 +115,7 @@ class ElasticCardView @JvmOverloads constructor(
     fun setDuration(value: Int) = apply { this.elasticCardView.duration = value }
 
     @JvmSynthetic
-    fun setOnClickListener(block: () -> Unit) = apply {
+    inline fun setOnClickListener(crossinline block: () -> Unit) = apply {
       setOnClickListener(OnClickListener { block() })
     }
 
@@ -117,7 +124,7 @@ class ElasticCardView @JvmOverloads constructor(
     }
 
     @JvmSynthetic
-    fun setOnFinishListener(block: () -> Unit) = apply {
+    inline fun setOnFinishListener(crossinline block: () -> Unit) = apply {
       setOnFinishListener(ElasticFinishListener { block() })
     }
 

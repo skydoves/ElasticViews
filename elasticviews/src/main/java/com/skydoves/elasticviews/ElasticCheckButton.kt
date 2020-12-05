@@ -33,20 +33,29 @@ import androidx.annotation.FloatRange
 import androidx.annotation.Px
 import androidx.appcompat.widget.AppCompatButton
 
-@Suppress("unused", "MemberVisibilityCanBePrivate")
+@Suppress("unused")
 class ElasticCheckButton @JvmOverloads constructor(
   context: Context,
   attrs: AttributeSet? = null,
   defStyle: Int = androidx.appcompat.R.attr.buttonStyle
 ) : AppCompatButton(context, attrs, defStyle) {
 
+  /** The target elastic scale size of the animation. */
+  var scale = Definitions.DEFAULT_SCALE
+
+  /** The default duration of the animation. */
+  var duration = Definitions.DEFAULT_DURATION
+
   @FloatRange(from = 0.0, to = 1.0)
   var checkedAlpha = 0.5f
-  var scale = 0.9f
-  var duration = 500
+    set(value) {
+      field = value
+      updateElasticCheckButton()
+    }
 
   @Px
   var cornerRadius = 0f
+
   var isChecked = false
     set(value) {
       field = value
@@ -119,8 +128,8 @@ class ElasticCheckButton @JvmOverloads constructor(
   }
 
   private fun initializeBackground() {
-    if (this.background is ColorDrawable) {
-      this.background = GradientDrawable().apply {
+    if (background is ColorDrawable) {
+      background = GradientDrawable().apply {
         cornerRadius = this@ElasticCheckButton.cornerRadius
         setColor((background as ColorDrawable).color)
       }.mutate()

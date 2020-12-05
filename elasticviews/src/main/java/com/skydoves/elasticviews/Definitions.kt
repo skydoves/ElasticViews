@@ -25,6 +25,9 @@ package com.skydoves.elasticviews
 
 @PublishedApi
 internal object Definitions {
+  /** The default target elastic scale size of the animation. */
+  const val DEFAULT_SCALE: Float = 0.9f
+
   /** The default target elastic scale-x size of the animation. */
   const val DEFAULT_SCALE_X: Float = 0.85f
 

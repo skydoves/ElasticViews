@@ -29,15 +29,18 @@ import android.util.AttributeSet
 import android.view.View.OnClickListener
 import androidx.appcompat.widget.AppCompatImageView
 
-@Suppress("unused", "MemberVisibilityCanBePrivate")
+@Suppress("unused")
 class ElasticImageView @JvmOverloads constructor(
   context: Context,
   attrs: AttributeSet? = null,
   defStyle: Int = 0
-) : AppCompatImageView(context, attrs, defStyle) {
+) : AppCompatImageView(context, attrs, defStyle), ElasticView {
 
-  var scale = 0.9f
-  var duration = 500
+  /** The target elastic scale size of the animation. */
+  var scale = Definitions.DEFAULT_SCALE
+
+  /** The default duration of the animation. */
+  var duration = Definitions.DEFAULT_DURATION
 
   private var onClickListener: OnClickListener? = null
   private var onFinishListener: ElasticFinishListener? = null
@@ -90,9 +93,15 @@ class ElasticImageView @JvmOverloads constructor(
     this.onClickListener = listener
   }
 
-  fun setOnFinishListener(listener: ElasticFinishListener) {
+  override fun setOnFinishListener(listener: ElasticFinishListener?) {
     this.onFinishListener = listener
   }
+
+  override fun setOnClickListener(block: () -> Unit) =
+    setOnClickListener(OnClickListener { block() })
+
+  override fun setOnFinishListener(block: () -> Unit) =
+    setOnFinishListener(ElasticFinishListener { block() })
 
   private fun invokeListeners() {
     this.onClickListener?.onClick(this)
@@ -107,7 +116,7 @@ class ElasticImageView @JvmOverloads constructor(
     fun setDuration(value: Int) = apply { this.elasticImageView.duration = value }
 
     @JvmSynthetic
-    fun setOnClickListener(block: () -> Unit) = apply {
+    inline fun setOnClickListener(crossinline block: () -> Unit) = apply {
       setOnClickListener(OnClickListener { block() })
     }
 
@@ -116,7 +125,7 @@ class ElasticImageView @JvmOverloads constructor(
     }
 
     @JvmSynthetic
-    fun setOnFinishListener(block: () -> Unit) = apply {
+    inline fun setOnFinishListener(crossinline block: () -> Unit) = apply {
       setOnFinishListener(ElasticFinishListener { block() })
     }
 

@@ -31,16 +31,21 @@ import android.util.AttributeSet
 import android.view.View.OnClickListener
 import androidx.annotation.Px
 import androidx.appcompat.widget.AppCompatButton
+import com.skydoves.elasticviews.Definitions.DEFAULT_DURATION
+import com.skydoves.elasticviews.Definitions.DEFAULT_SCALE
 
-@Suppress("unused", "MemberVisibilityCanBePrivate")
+@Suppress("unused")
 class ElasticButton @JvmOverloads constructor(
   context: Context,
   attrs: AttributeSet? = null,
   defStyle: Int = androidx.appcompat.R.attr.buttonStyle
-) : AppCompatButton(context, attrs, defStyle) {
+) : AppCompatButton(context, attrs, defStyle), ElasticView {
 
-  var scale = 0.9f
-  var duration = 500
+  /** The target elastic scale size of the animation. */
+  var scale = DEFAULT_SCALE
+
+  /** The default duration of the animation. */
+  var duration = DEFAULT_DURATION
 
   @Px
   var cornerRadius = 0f
@@ -100,8 +105,8 @@ class ElasticButton @JvmOverloads constructor(
   }
 
   private fun initializeBackground() {
-    if (this.background is ColorDrawable) {
-      this.background = GradientDrawable().apply {
+    if (background is ColorDrawable) {
+      background = GradientDrawable().apply {
         cornerRadius = this@ElasticButton.cornerRadius
         setColor((background as ColorDrawable).color)
       }.mutate()
@@ -112,9 +117,15 @@ class ElasticButton @JvmOverloads constructor(
     this.onClickListener = listener
   }
 
-  fun setOnFinishListener(listener: ElasticFinishListener) {
+  override fun setOnFinishListener(listener: ElasticFinishListener?) {
     this.onFinishListener = listener
   }
+
+  override fun setOnClickListener(block: () -> Unit) =
+    setOnClickListener(OnClickListener { block() })
+
+  override fun setOnFinishListener(block: () -> Unit) =
+    setOnFinishListener(ElasticFinishListener { block() })
 
   private fun invokeListeners() {
     this.onClickListener?.onClick(this)
@@ -130,7 +141,7 @@ class ElasticButton @JvmOverloads constructor(
     fun setCornerRadius(@Px value: Float) = apply { this.elasticButton.cornerRadius = value }
 
     @JvmSynthetic
-    fun setOnClickListener(block: () -> Unit) = apply {
+    inline fun setOnClickListener(crossinline block: () -> Unit) = apply {
       setOnClickListener(OnClickListener { block() })
     }
 
@@ -139,7 +150,7 @@ class ElasticButton @JvmOverloads constructor(
     }
 
     @JvmSynthetic
-    fun setOnFinishListener(block: () -> Unit) = apply {
+    inline fun setOnFinishListener(crossinline block: () -> Unit) = apply {
       setOnFinishListener(ElasticFinishListener { block() })
     }
 
