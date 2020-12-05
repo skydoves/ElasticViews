@@ -155,7 +155,7 @@ ElasticLayout gives elastic animation to all child views.
 </com.skydoves.elasticviews.ElasticLayout>
 ```
 
-### ElasticAnmimation
+### ElasticAnimation
 ElasticAnimation implements elastic animations for android views and view groups. <br>
 ```java
 new ElasticAnimation(clickedView).setScaleX(0.9f).setScaleY(0.9f).setDuration(400)

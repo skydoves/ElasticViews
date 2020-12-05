@@ -31,11 +31,6 @@ import android.view.animation.CycleInterpolator
 import androidx.core.view.ViewCompat
 import androidx.core.view.ViewPropertyAnimatorListener
 
-/** for create ElasticAnimation by kotlin dsl. */
-@JvmSynthetic
-fun elasticAnimation(view: View, block: ElasticAnimation.() -> Unit): ElasticAnimation =
-  ElasticAnimation(view).apply(block)
-
 /** ElasticAnimation implements elastic animations for android views or view groups. */
 class ElasticAnimation(private val view: View) {
 

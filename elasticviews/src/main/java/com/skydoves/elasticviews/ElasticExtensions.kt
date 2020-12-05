@@ -29,6 +29,9 @@ package com.skydoves.elasticviews
 
 import android.view.View
 
+@DslMarker
+annotation class ElasticDsl
+
 /**
  * An extension for operating elastic animation to the target view with custom attributes.
  *
@@ -37,6 +40,7 @@ import android.view.View
  * @param duration The duration of the animation.
  * @param listener The [ElasticFinishListener] for being notified when the animation is finished.
  */
+@ElasticDsl
 @JvmOverloads
 @JvmSynthetic
 fun View.elasticAnimation(
@@ -60,6 +64,7 @@ fun View.elasticAnimation(
  * @param duration The duration of the animation.
  * @param block The lambda for being notified when the animation is finished.
  */
+@ElasticDsl
 @JvmOverloads
 @JvmSynthetic
 inline fun View.elasticAnimation(
@@ -74,3 +79,17 @@ inline fun View.elasticAnimation(
     .setDuration(duration)
     .setOnFinishListener(ElasticFinishListener { block() })
 }
+
+/**
+ * An extension for creating elastic animation with kotlin dsl style.
+ *
+ * @param block The dsl block of the [ElasticAnimation].
+ *
+ * @return A new instance of the [ElasticAnimation].
+ */
+@ElasticDsl
+@JvmSynthetic
+inline fun elasticAnimation(
+  view: View,
+  crossinline block: ElasticAnimation.() -> Unit
+): ElasticAnimation = ElasticAnimation(view).apply(block)
