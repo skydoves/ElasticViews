@@ -31,18 +31,6 @@ import android.view.animation.CycleInterpolator
 import androidx.core.view.ViewCompat
 import androidx.core.view.ViewPropertyAnimatorListener
 
-/** ElasticAnimation extension for views. */
-@JvmSynthetic
-fun View.elasticAnimation(
-  scaleX: Float,
-  scaleY: Float,
-  duration: Int,
-  listener: ElasticFinishListener
-): ElasticAnimation {
-  return ElasticAnimation(this).setScaleX(scaleX).setScaleY(scaleY).setDuration(duration)
-    .setOnFinishListener(listener)
-}
-
 /** for create ElasticAnimation by kotlin dsl. */
 @JvmSynthetic
 fun elasticAnimation(view: View, block: ElasticAnimation.() -> Unit): ElasticAnimation =
@@ -74,7 +62,7 @@ class ElasticAnimation(private val view: View) {
     this.listener = listener
   }
 
-  fun setOnFinishListener(finishListener: ElasticFinishListener): ElasticAnimation = apply {
+  fun setOnFinishListener(finishListener: ElasticFinishListener?): ElasticAnimation = apply {
     this.finishListener = finishListener
   }
 
