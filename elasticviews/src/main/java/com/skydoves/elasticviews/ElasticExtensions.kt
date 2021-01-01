@@ -30,7 +30,7 @@ package com.skydoves.elasticviews
 import android.view.View
 
 @DslMarker
-annotation class ElasticDsl
+internal annotation class ElasticDsl
 
 /**
  * An extension for operating elastic animation to the target view with custom attributes.

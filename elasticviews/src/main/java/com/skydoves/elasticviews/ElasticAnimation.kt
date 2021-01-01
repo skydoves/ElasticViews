@@ -107,8 +107,7 @@ class ElasticAnimation(private val view: View) {
           })
         }
       if (view is ViewGroup) {
-        for (index in 0 until view.childCount) {
-          val child = view.getChildAt(index)
+        (0 until view.childCount).map { view.getChildAt(it) }.forEach { child ->
           ViewCompat.animate(child)
             .setDuration(duration.toLong())
             .scaleX(scaleX)
