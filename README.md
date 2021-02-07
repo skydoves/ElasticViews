@@ -18,17 +18,19 @@
 </p>
 
 ## Including in your project
-[![Download](https://api.bintray.com/packages/devmagician/maven/elasticviews/images/download.svg)](https://bintray.com/devmagician/maven/elasticviews/_latestVersion)
 [![Maven Central](https://img.shields.io/maven-central/v/com.github.skydoves/elasticviews.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22com.github.skydoves%22%20AND%20a:%22elasticviews%22)
 [![Kitpack](https://jitpack.io/v/skydoves/ElasticViews.svg)](https://jitpack.io/#skydoves/ElasticViews)
 
-#### build.gradle
-Add below codes to your root `build.gradle` file (not your module build.gradle file).
+#### Gradle
+Add below codes to your **root** `build.gradle` file (not your module build.gradle file).
 ```gradle
-repositories {
-    jcenter()
+allprojects {
+    repositories {
+        mavenCentral()
+    }
 }
-
+```
+And add a dependency code to your **module**'s `build.gradle` file.
 dependencies {
     implementation "com.github.skydoves:elasticviews:2.0.9"
 }
