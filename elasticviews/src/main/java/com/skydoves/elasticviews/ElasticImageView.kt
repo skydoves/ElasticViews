@@ -26,6 +26,7 @@ package com.skydoves.elasticviews
 import android.content.Context
 import android.content.res.TypedArray
 import android.util.AttributeSet
+import android.view.View
 import android.view.View.OnClickListener
 import androidx.appcompat.widget.AppCompatImageView
 
@@ -97,8 +98,8 @@ class ElasticImageView @JvmOverloads constructor(
     this.onFinishListener = listener
   }
 
-  override fun setOnClickListener(block: () -> Unit) =
-    setOnClickListener(OnClickListener { block() })
+  override fun setOnClickListener(block: (View) -> Unit) =
+    setOnClickListener(OnClickListener { block(this) })
 
   override fun setOnFinishListener(block: () -> Unit) =
     setOnFinishListener(ElasticFinishListener { block() })

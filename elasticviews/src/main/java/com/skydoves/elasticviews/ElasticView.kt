@@ -23,12 +23,14 @@
  */
 package com.skydoves.elasticviews
 
+import android.view.View
+
 /**
  * ElasticView is an interface for abstracting elastic view's listener.
  */
 internal interface ElasticView {
 
-  fun setOnClickListener(block: () -> Unit)
+  fun setOnClickListener(block: (View) -> Unit)
 
   fun setOnFinishListener(listener: ElasticFinishListener?)
 
