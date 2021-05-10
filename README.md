@@ -31,6 +31,7 @@ allprojects {
 }
 ```
 And add a dependency code to your **module**'s `build.gradle` file.
+```
 dependencies {
     implementation "com.github.skydoves:elasticviews:2.0.9"
 }
