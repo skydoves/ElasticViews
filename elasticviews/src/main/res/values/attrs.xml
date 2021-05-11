@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+  <declare-styleable name="ElasticView">
+    <attr name="view_scale" format="float" />
+    <attr name="view_duration" format="integer" />
+    <attr name="view_cornerRadius" format="dimension" />
+  </declare-styleable>
   <declare-styleable name="ElasticButton">
     <attr name="button_scale" format="float" />
     <attr name="button_duration" format="integer" />

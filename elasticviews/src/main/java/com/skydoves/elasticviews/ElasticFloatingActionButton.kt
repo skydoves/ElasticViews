@@ -35,7 +35,7 @@ class ElasticFloatingActionButton @JvmOverloads constructor(
   context: Context,
   attrs: AttributeSet? = null,
   defStyle: Int = com.google.android.material.R.attr.floatingActionButtonStyle
-) : FloatingActionButton(context, attrs, defStyle), ElasticView {
+) : FloatingActionButton(context, attrs, defStyle), ElasticInterface {
 
   /** The target elastic scale size of the animation. */
   var scale = Definitions.DEFAULT_SCALE
@@ -93,10 +93,10 @@ class ElasticFloatingActionButton @JvmOverloads constructor(
   }
 
   override fun setOnClickListener(block: (View) -> Unit) =
-    setOnClickListener(OnClickListener { block(this) })
+    setOnClickListener(OnClickListener(block))
 
   override fun setOnFinishListener(block: () -> Unit) =
-    setOnFinishListener(ElasticFinishListener { block() })
+    setOnFinishListener(ElasticFinishListener(block))
 
   private fun invokeListeners() {
     this.onClickListener?.onClick(this)
@@ -111,8 +111,8 @@ class ElasticFloatingActionButton @JvmOverloads constructor(
     fun setDuration(value: Int) = apply { this.elasticFloatingButton.duration = value }
 
     @JvmSynthetic
-    inline fun setOnClickListener(crossinline block: () -> Unit) = apply {
-      setOnClickListener(OnClickListener { block() })
+    fun setOnClickListener(block: (View) -> Unit) = apply {
+      setOnClickListener(OnClickListener(block))
     }
 
     fun setOnClickListener(value: OnClickListener) = apply {
@@ -120,8 +120,8 @@ class ElasticFloatingActionButton @JvmOverloads constructor(
     }
 
     @JvmSynthetic
-    inline fun setOnFinishListener(crossinline block: () -> Unit) = apply {
-      setOnFinishListener(ElasticFinishListener { block() })
+    fun setOnFinishListener(block: () -> Unit) = apply {
+      setOnFinishListener(ElasticFinishListener(block))
     }
 
     fun setOnFinishListener(value: ElasticFinishListener) = apply {

@@ -40,7 +40,7 @@ class ElasticButton @JvmOverloads constructor(
   context: Context,
   attrs: AttributeSet? = null,
   defStyle: Int = androidx.appcompat.R.attr.buttonStyle
-) : AppCompatButton(context, attrs, defStyle), ElasticView {
+) : AppCompatButton(context, attrs, defStyle), ElasticInterface {
 
   /** The target elastic scale size of the animation. */
   var scale = DEFAULT_SCALE
@@ -123,10 +123,10 @@ class ElasticButton @JvmOverloads constructor(
   }
 
   override fun setOnClickListener(block: (View) -> Unit) =
-    setOnClickListener(OnClickListener { block(this) })
+    setOnClickListener(OnClickListener(block))
 
   override fun setOnFinishListener(block: () -> Unit) =
-    setOnFinishListener(ElasticFinishListener { block() })
+    setOnFinishListener(ElasticFinishListener(block))
 
   private fun invokeListeners() {
     this.onClickListener?.onClick(this)
@@ -142,8 +142,8 @@ class ElasticButton @JvmOverloads constructor(
     fun setCornerRadius(@Px value: Float) = apply { this.elasticButton.cornerRadius = value }
 
     @JvmSynthetic
-    inline fun setOnClickListener(crossinline block: () -> Unit) = apply {
-      setOnClickListener(OnClickListener { block() })
+    fun setOnClickListener(block: (View) -> Unit) = apply {
+      setOnClickListener(OnClickListener(block))
     }
 
     fun setOnClickListener(value: OnClickListener) = apply {
@@ -151,8 +151,8 @@ class ElasticButton @JvmOverloads constructor(
     }
 
     @JvmSynthetic
-    inline fun setOnFinishListener(crossinline block: () -> Unit) = apply {
-      setOnFinishListener(ElasticFinishListener { block() })
+    fun setOnFinishListener(block: () -> Unit) = apply {
+      setOnFinishListener(ElasticFinishListener(block))
     }
 
     fun setOnFinishListener(value: ElasticFinishListener) = apply {

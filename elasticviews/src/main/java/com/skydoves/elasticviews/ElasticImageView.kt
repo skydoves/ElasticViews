@@ -35,7 +35,7 @@ class ElasticImageView @JvmOverloads constructor(
   context: Context,
   attrs: AttributeSet? = null,
   defStyle: Int = 0
-) : AppCompatImageView(context, attrs, defStyle), ElasticView {
+) : AppCompatImageView(context, attrs, defStyle), ElasticInterface {
 
   /** The target elastic scale size of the animation. */
   var scale = Definitions.DEFAULT_SCALE
@@ -99,10 +99,10 @@ class ElasticImageView @JvmOverloads constructor(
   }
 
   override fun setOnClickListener(block: (View) -> Unit) =
-    setOnClickListener(OnClickListener { block(this) })
+    setOnClickListener(OnClickListener(block))
 
   override fun setOnFinishListener(block: () -> Unit) =
-    setOnFinishListener(ElasticFinishListener { block() })
+    setOnFinishListener(ElasticFinishListener(block))
 
   private fun invokeListeners() {
     this.onClickListener?.onClick(this)
@@ -117,8 +117,8 @@ class ElasticImageView @JvmOverloads constructor(
     fun setDuration(value: Int) = apply { this.elasticImageView.duration = value }
 
     @JvmSynthetic
-    inline fun setOnClickListener(crossinline block: () -> Unit) = apply {
-      setOnClickListener(OnClickListener { block() })
+    fun setOnClickListener(block: (View) -> Unit) = apply {
+      setOnClickListener(OnClickListener(block))
     }
 
     fun setOnClickListener(value: OnClickListener) = apply {
@@ -126,8 +126,8 @@ class ElasticImageView @JvmOverloads constructor(
     }
 
     @JvmSynthetic
-    inline fun setOnFinishListener(crossinline block: () -> Unit) = apply {
-      setOnFinishListener(ElasticFinishListener { block() })
+    fun setOnFinishListener(block: () -> Unit) = apply {
+      setOnFinishListener(ElasticFinishListener(block))
     }
 
     fun setOnFinishListener(value: ElasticFinishListener) = apply {
