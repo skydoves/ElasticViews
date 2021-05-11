@@ -31,9 +31,17 @@ allprojects {
 }
 ```
 And add a dependency code to your **module**'s `build.gradle` file.
-```
+```gradle
 dependencies {
     implementation "com.github.skydoves:elasticviews:2.0.9"
+}
+```
+## SNAPSHOT 
+[![ElasticViews](https://img.shields.io/static/v1?label=snapshot&message=elasticviews&logo=apache%20maven&color=C71A36)](https://oss.sonatype.org/content/repositories/snapshots/com/github/skydoves/elasticviews/) <br>
+Snapshots of the current development version of ElasticViews are available, which track [the latest versions](https://oss.sonatype.org/content/repositories/snapshots/com/github/skydoves/elasticviews/).
+```Gradle
+repositories {
+   maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
 }
 ```
 
@@ -249,12 +257,8 @@ private class ListViewItemClickListener implements AdapterView.OnItemClickListen
 ```
 
 ## Find this library useful? :heart:
-Support it by joining __[stargazers](https://github.com/skydoves/ElasticViews/stargazers)__ for this repository. :star:
-
-## Sponsor :coffee:
-If you feel like to sponsor me a coffee for my efforts, I would greatly appreciate it. <br><br>
-
-<a href="https://www.buymeacoffee.com/skydoves" target="_blank"><img src="https://skydoves.github.io/sponsor.png" alt="Buy Me A Coffee" style="height: 51px !important;width: 217px !important;" ></a>
+Support it by joining __[stargazers](https://github.com/skydoves/ElasticViews/stargazers)__ for this repository. :star: <br>
+And __[follow](https://github.com/skydoves)__ me for my next creations! 🤩
 
 # License
 ```xml
