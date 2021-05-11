@@ -35,7 +35,7 @@ class ElasticFloatingActionButton @JvmOverloads constructor(
   context: Context,
   attrs: AttributeSet? = null,
   defStyle: Int = com.google.android.material.R.attr.floatingActionButtonStyle
-) : FloatingActionButton(context, attrs, defStyle), ElasticView {
+) : FloatingActionButton(context, attrs, defStyle), ElasticInterface {
 
   /** The target elastic scale size of the animation. */
   var scale = Definitions.DEFAULT_SCALE

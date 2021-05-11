@@ -28,7 +28,7 @@ import android.view.View
 /**
  * ElasticView is an interface for abstracting elastic view's listener.
  */
-internal interface ElasticView {
+internal interface ElasticInterface {
 
   fun setOnClickListener(block: (View) -> Unit)
 

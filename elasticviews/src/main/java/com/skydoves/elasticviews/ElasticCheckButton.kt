@@ -39,7 +39,7 @@ class ElasticCheckButton @JvmOverloads constructor(
   context: Context,
   attrs: AttributeSet? = null,
   defStyle: Int = androidx.appcompat.R.attr.buttonStyle
-) : AppCompatButton(context, attrs, defStyle), ElasticView {
+) : AppCompatButton(context, attrs, defStyle), ElasticInterface {
 
   /** The target elastic scale size of the animation. */
   var scale = Definitions.DEFAULT_SCALE

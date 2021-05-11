@@ -35,7 +35,7 @@ class ElasticCardView @JvmOverloads constructor(
   context: Context,
   attrs: AttributeSet? = null,
   defStyle: Int = androidx.cardview.R.attr.cardViewStyle
-) : CardView(context, attrs, defStyle), ElasticView {
+) : CardView(context, attrs, defStyle), ElasticInterface {
 
   /** The target elastic scale size of the animation. */
   var scale = Definitions.DEFAULT_SCALE

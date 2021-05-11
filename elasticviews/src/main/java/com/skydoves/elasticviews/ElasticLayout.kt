@@ -38,7 +38,7 @@ class ElasticLayout @JvmOverloads constructor(
   context: Context,
   attrs: AttributeSet? = null,
   defStyle: Int = 0
-) : FrameLayout(context, attrs, defStyle), ElasticView {
+) : FrameLayout(context, attrs, defStyle), ElasticInterface {
 
   /** The target elastic scale size of the animation. */
   var scale = Definitions.DEFAULT_SCALE

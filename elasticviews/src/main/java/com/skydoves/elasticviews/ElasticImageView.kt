@@ -35,7 +35,7 @@ class ElasticImageView @JvmOverloads constructor(
   context: Context,
   attrs: AttributeSet? = null,
   defStyle: Int = 0
-) : AppCompatImageView(context, attrs, defStyle), ElasticView {
+) : AppCompatImageView(context, attrs, defStyle), ElasticInterface {
 
   /** The target elastic scale size of the animation. */
   var scale = Definitions.DEFAULT_SCALE
