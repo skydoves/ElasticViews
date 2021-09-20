@@ -3,7 +3,6 @@ buildscript {
     repositories {
         google()
         mavenCentral()
-        jcenter()
     }
     dependencies {
         classpath "com.android.tools.build:gradle:$versions.gradleBuildTool"
@@ -11,6 +10,7 @@ buildscript {
         classpath "com.diffplug.spotless:spotless-plugin-gradle:$versions.spotlessGradle"
         classpath "com.vanniktech:gradle-maven-publish-plugin:$versions.mavenPublish"
         classpath "org.jetbrains.dokka:dokka-gradle-plugin:$versions.dokkaGradle"
+        classpath "org.jetbrains.kotlinx:binary-compatibility-validator:$versions.binaryValidator"
     }
 }
 
@@ -18,7 +18,6 @@ allprojects {
     repositories {
         google()
         mavenCentral()
-        jcenter()
     }
 }
 
