@@ -22,7 +22,7 @@
 [![Kitpack](https://jitpack.io/v/skydoves/ElasticViews.svg)](https://jitpack.io/#skydoves/ElasticViews)
 
 #### Gradle
-Add below codes to your **root** `build.gradle` file (not your module build.gradle file).
+Add codes below to your **root** `build.gradle` file (not your module build.gradle file).
 ```gradle
 allprojects {
     repositories {
@@ -56,7 +56,7 @@ xmlns:app="http://schemas.android.com/apk/res-auto"
 ```
 
 #### OnClick Method
-All of ElasticViews should be set `OnClickListener` or OnClick method. If not, nothing happens.
+All of ElasticViews should be set `OnClickListener` or `onClick` method. If not, nothing happens.
 ```java
 ElasticButton elasticButton = (ElasticButton)findViewById(R.id.elasticbutton);
 elasticButton.setOnClickListener(new View.OnClickListener() {
@@ -107,7 +107,7 @@ elasticButton.setOnClickListener(new View.OnClickListener() {
    app:imageView_duration="300" />
 ```
 
-### ElasticFloatingButton
+### ElasticFloatingActionButton
 ```gradle
 <com.skydoves.elasticviews.ElasticFloatingActionButton
    android:layout_width="64dp"
@@ -214,9 +214,9 @@ elasticAnimation(this) {
   setScaleX(scale)
   setScaleY(scale)
   setOnFinishListener(object : ElasticFinishListener {
-       override fun onFinished() {
-       onClick()
-    }
+      override fun onFinished() {
+           onClick()
+      }
   })
 }.doAction()
 ```
@@ -244,12 +244,12 @@ So also we can implement animation on listView's items like below.
 private class ListViewItemClickListener implements AdapterView.OnItemClickListener {
     @Override
     public void onItemClick(AdapterView<?> adapterView, View clickedView, final int pos, long id) {
-      new ElasticAnimation(clickedView).setScaleX(0.9f).setScaleY(0.9f).setDuration(400)
+        new ElasticAnimation(clickedView).setScaleX(0.9f).setScaleY(0.9f).setDuration(400)
         .setOnFinishListener(new ElasticFinishListener() {
               @Override
               public void onFinished() {
-              //Do something after duration time
-              Toast.makeText(getBaseContext(), "ListViewItem" + pos, Toast.LENGTH_SHORT).show();
+                  // Do something after duration time
+                  Toast.makeText(getBaseContext(), "ListViewItem" + pos, Toast.LENGTH_SHORT).show();
               }
           }).doAction();
         }
